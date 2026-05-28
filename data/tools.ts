@@ -86,4 +86,10 @@ export const tools = [
     "Read SSC exam relevant current affairs updates.",
   link: "/tools/current-affairs-feed",
 },
+{
+  title: "SSC Motivation Generator",
+  description:
+    "Get daily SSC preparation motivation quotes.",
+  link: "/tools/motivation-generator",
+},
 ];
