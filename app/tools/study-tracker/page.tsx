@@ -36,6 +36,8 @@ export default function StudyTrackerPage() {
         acc + curr,
       0
     );
+    const streak =
+  history.length;
 let motivation = "";
 
 if (totalHours >= 100) {
@@ -113,7 +115,18 @@ else {
             >
               Add Progress
             </button>
+{/* Streak */}
+<div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
+  <p className="text-white/50 text-lg">
+    Current Study Streak
+  </p>
+
+  <h2 className="text-6xl font-extrabold mt-4">
+    {streak} Days
+  </h2>
+
+</div>
             {/* Total */}
             <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
