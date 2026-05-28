@@ -42,7 +42,7 @@ export default function FeaturedTools() {
               </p>
 
               <Link
-                href="/tools/marks-calculator"
+                href={tool.link}
                 className="inline-flex items-center gap-2 mt-8 bg-white text-black px-5 py-3 rounded-2xl font-medium hover:scale-105 transition"
               >
                 Open Tool →
