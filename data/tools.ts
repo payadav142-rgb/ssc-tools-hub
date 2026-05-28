@@ -92,4 +92,10 @@ export const tools = [
     "Get daily SSC preparation motivation quotes.",
   link: "/tools/motivation-generator",
 },
+{
+  title: "SSC Percentage Calculator",
+  description:
+    "Calculate your percentage instantly.",
+  link: "/tools/percentage-calculator",
+},
 ];
