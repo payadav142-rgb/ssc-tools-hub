@@ -44,4 +44,10 @@ export const tools = [
     "Boost focus using Pomodoro study sessions.",
   link: "/tools/pomodoro-timer",
 },
+{
+  title: "SSC Exam Countdown",
+  description:
+    "Track remaining days for your SSC exam.",
+  link: "/tools/exam-countdown",
+},
 ];
