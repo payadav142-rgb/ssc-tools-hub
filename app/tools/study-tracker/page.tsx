@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -12,6 +12,21 @@ export default function StudyTrackerPage() {
 
   const [history, setHistory] =
     useState<number[]>([]);
+    useEffect(() => {
+
+  const savedHistory =
+    localStorage.getItem(
+      "studyHistory"
+    );
+
+  if (savedHistory) {
+
+    setHistory(
+      JSON.parse(savedHistory)
+    );
+  }
+
+}, []);
 
   function addStudyHours() {
 
@@ -22,10 +37,17 @@ export default function StudyTrackerPage() {
       return;
     }
 
-    setHistory([
-      ...history,
-      studyHours,
-    ]);
+    const updatedHistory = [
+  ...history,
+  studyHours,
+];
+
+setHistory(updatedHistory);
+
+localStorage.setItem(
+  "studyHistory",
+  JSON.stringify(updatedHistory)
+);
 
     setHours("");
   }
