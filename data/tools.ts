@@ -32,4 +32,10 @@ export const tools = [
     "Track your daily SSC preparation progress.",
   link: "/tools/study-tracker",
 },
+{
+  title: "Smart Notes Manager",
+  description:
+    "Save and manage SSC preparation notes.",
+  link: "/tools/notes-manager",
+},
 ];
