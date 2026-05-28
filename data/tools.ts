@@ -104,4 +104,10 @@ export const tools = [
     "Calculate your age for SSC exam eligibility.",
   link: "/tools/age-calculator",
 },
+{
+  title: "SSC Eligibility Checker",
+  description:
+    "Check eligibility for SSC exams instantly.",
+  link: "/tools/eligibility-checker",
+},
 ];
