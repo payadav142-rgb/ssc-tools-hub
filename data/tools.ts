@@ -116,4 +116,10 @@ export const tools = [
     "View complete SSC exam syllabus instantly.",
   link: "/tools/syllabus-viewer",
 },
+{
+  title: "SSC Weakness Analyzer",
+  description:
+    "Find your weak SSC subjects instantly.",
+  link: "/tools/weakness-analyzer",
+},
 ];
