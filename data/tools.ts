@@ -38,4 +38,10 @@ export const tools = [
     "Save and manage SSC preparation notes.",
   link: "/tools/notes-manager",
 },
+{
+  title: "Pomodoro Study Timer",
+  description:
+    "Boost focus using Pomodoro study sessions.",
+  link: "/tools/pomodoro-timer",
+},
 ];
