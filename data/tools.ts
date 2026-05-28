@@ -74,4 +74,10 @@ export const tools = [
     "Practice SSC current affairs quizzes daily.",
   link: "/tools/current-affairs-quiz",
 },
+{
+  title: "SSC GK Flashcards",
+  description:
+    "Revise SSC GK topics using smart flashcards.",
+  link: "/tools/gk-flashcards",
+},
 ];
