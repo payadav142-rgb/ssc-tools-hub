@@ -110,4 +110,10 @@ export const tools = [
     "Check eligibility for SSC exams instantly.",
   link: "/tools/eligibility-checker",
 },
+{
+  title: "SSC Syllabus Viewer",
+  description:
+    "View complete SSC exam syllabus instantly.",
+  link: "/tools/syllabus-viewer",
+},
 ];
