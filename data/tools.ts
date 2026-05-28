@@ -62,4 +62,10 @@ export const tools = [
     "Set and manage your SSC preparation goals.",
   link: "/tools/goal-planner",
 },
+{
+  title: "Study Timetable Generator",
+  description:
+    "Generate a smart SSC study timetable instantly.",
+  link: "/tools/timetable-generator",
+},
 ];
