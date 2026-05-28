@@ -61,7 +61,11 @@ localStorage.setItem(
     const streak =
   history.length;
 let motivation = "";
-
+const progress =
+  Math.min(
+    (totalHours / 100) * 100,
+    100
+  );
 if (totalHours >= 100) {
   motivation =
     "SSC Beast Mode Activated 🔥";
@@ -137,6 +141,48 @@ else {
             >
               Add Progress
             </button>
+            <button
+  onClick={() => {
+
+    setHistory([]);
+
+    localStorage.removeItem(
+      "studyHistory"
+    );
+
+  }}
+  className="w-full mt-4 bg-red-500 text-white py-4 rounded-2xl text-lg font-semibold hover:opacity-90 transition"
+>
+  Reset Tracker
+</button>
+{/* Progress Bar */}
+<div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8">
+
+  <div className="flex items-center justify-between mb-4">
+
+    <p className="text-white/50">
+      Study Goal Progress
+    </p>
+
+    <p className="font-semibold">
+      {progress.toFixed(0)}%
+    </p>
+
+  </div>
+
+  <div className="w-full h-5 bg-black rounded-full overflow-hidden border border-white/10">
+
+    <div
+      className="h-full bg-white transition-all duration-500"
+      style={{
+        width: `${progress}%`,
+      }}
+    />
+
+  </div>
+
+</div>
+
 {/* Streak */}
 <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
