@@ -36,7 +36,32 @@ export default function StudyTrackerPage() {
         acc + curr,
       0
     );
+let motivation = "";
 
+if (totalHours >= 100) {
+  motivation =
+    "SSC Beast Mode Activated 🔥";
+}
+
+else if (totalHours >= 50) {
+  motivation =
+    "Excellent Consistency 🚀";
+}
+
+else if (totalHours >= 20) {
+  motivation =
+    "Great Progress ⚡";
+}
+
+else if (totalHours >= 5) {
+  motivation =
+    "Good Start 📚";
+}
+
+else {
+  motivation =
+    "Start Your SSC Journey Today 💪";
+}
   return (
     <main className="min-h-screen bg-black text-white">
 
@@ -99,7 +124,9 @@ export default function StudyTrackerPage() {
               <h2 className="text-6xl font-extrabold mt-4">
                 {totalHours}
               </h2>
-
+<p className="mt-6 text-2xl font-semibold">
+  {motivation}
+</p>
             </div>
 
             {/* History */}
