@@ -26,4 +26,10 @@ export const tools = [
       "Analyze weak topics and improve your preparation strategy.",
     link: "/tools/mock-analyzer",
   },
+  {
+  title: "Daily Study Tracker",
+  description:
+    "Track your daily SSC preparation progress.",
+  link: "/tools/study-tracker",
+},
 ];
