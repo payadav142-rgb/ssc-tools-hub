@@ -80,4 +80,10 @@ export const tools = [
     "Revise SSC GK topics using smart flashcards.",
   link: "/tools/gk-flashcards",
 },
+{
+  title: "Daily Current Affairs",
+  description:
+    "Read SSC exam relevant current affairs updates.",
+  link: "/tools/current-affairs-feed",
+},
 ];
