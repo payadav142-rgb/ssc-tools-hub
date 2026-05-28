@@ -11,7 +11,7 @@ export default function StudyTrackerPage() {
     useState("");
 
   const [goal, setGoal] =
-    useState(100);
+    useState<number>(100);
 
   const [history, setHistory] =
     useState<number[]>([]);
@@ -23,10 +23,23 @@ export default function StudyTrackerPage() {
         "studyHistory"
       );
 
+    const savedGoal =
+      localStorage.getItem(
+        "studyGoal"
+      );
+
     if (savedHistory) {
 
       setHistory(
         JSON.parse(savedHistory)
+      );
+
+    }
+
+    if (savedGoal) {
+
+      setGoal(
+        Number(savedGoal)
       );
 
     }
@@ -68,6 +81,28 @@ export default function StudyTrackerPage() {
   const streak =
     history.length;
 
+  const averageHours =
+    history.length > 0
+      ? (
+          totalHours /
+          history.length
+        ).toFixed(1)
+      : 0;
+
+  const bestDay =
+    history.length > 0
+      ? Math.max(...history)
+      : 0;
+
+  const totalSessions =
+    history.length;
+
+  const remainingHours =
+    Math.max(
+      goal - totalHours,
+      0
+    );
+
   const progress =
     goal > 0
       ? Math.min(
@@ -75,43 +110,133 @@ export default function StudyTrackerPage() {
           100
         )
       : 0;
-  let badge = "";    
+
+  let badge = "";
+
+  let level = "";
+
+  let insight = "";
 
   let motivation = "";
-if (totalHours >= 100) {
 
-  badge =
-    "🏆 SSC Master";
+  // LEVEL SYSTEM
+  if (totalHours >= 200) {
 
-}
+    level =
+      "👑 SSC Legend";
 
-else if (totalHours >= 50) {
+  }
 
-  badge =
-    "🔥 Consistency King";
+  else if (totalHours >= 100) {
 
-}
+    level =
+      "🔥 SSC Warrior";
 
-else if (totalHours >= 25) {
+  }
 
-  badge =
-    "⚡ Rising Warrior";
+  else if (totalHours >= 50) {
 
-}
+    level =
+      "⚡ Advanced Learner";
 
-else if (totalHours >= 10) {
+  }
 
-  badge =
-    "📚 Study Beginner";
+  else if (totalHours >= 20) {
 
-}
+    level =
+      "📚 Intermediate";
 
-else {
+  }
 
-  badge =
-    "🚀 New Challenger";
+  else {
 
-}
+    level =
+      "🚀 Beginner";
+
+  }
+
+  // BADGE SYSTEM
+  if (totalHours >= 100) {
+
+    badge =
+      "🏆 SSC Master";
+
+  }
+
+  else if (totalHours >= 50) {
+
+    badge =
+      "🔥 Consistency King";
+
+  }
+
+  else if (totalHours >= 25) {
+
+    badge =
+      "⚡ Rising Warrior";
+
+  }
+
+  else if (totalHours >= 10) {
+
+    badge =
+      "📚 Study Beginner";
+
+  }
+
+  else {
+
+    badge =
+      "🚀 New Challenger";
+
+  }
+
+  // SMART INSIGHT
+  if (
+    totalSessions >= 7 &&
+    Number(averageHours) < 2
+  ) {
+
+    insight =
+      "Increase daily study time for faster SSC progress 📈";
+
+  }
+
+  else if (
+    totalHours >= goal
+  ) {
+
+    insight =
+      "Excellent consistency! Keep pushing forward 🔥";
+
+  }
+
+  else if (
+    remainingHours <= 10
+  ) {
+
+    insight =
+      "You are very close to your study goal 🚀";
+
+  }
+
+  else if (
+    totalSessions < 3
+  ) {
+
+    insight =
+      "Build a daily study habit for better results 📚";
+
+  }
+
+  else {
+
+    insight =
+      "Stay consistent and trust the process 💪";
+
+  }
+
+  // MOTIVATION
   if (totalHours >= goal) {
 
     motivation =
@@ -208,8 +333,14 @@ else {
 
                 setHours("");
 
+                setGoal(100);
+
                 localStorage.removeItem(
                   "studyHistory"
+                );
+
+                localStorage.removeItem(
+                  "studyGoal"
                 );
 
               }}
@@ -228,11 +359,19 @@ else {
               <input
                 type="number"
                 value={goal}
-                onChange={(e) =>
-                  setGoal(
-                    Number(e.target.value)
-                  )
-                }
+                onChange={(e) => {
+
+                  const newGoal =
+                    Number(e.target.value);
+
+                  setGoal(newGoal);
+
+                  localStorage.setItem(
+                    "studyGoal",
+                    JSON.stringify(newGoal)
+                  );
+
+                }}
                 className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
               />
 
@@ -278,18 +417,118 @@ else {
               </h2>
 
             </div>
-{/* Badge */}
-<div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
-  <p className="text-white/50 text-lg">
-    Current Achievement
-  </p>
+            {/* Smart Insight */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
-  <h2 className="text-4xl font-extrabold mt-4">
-    {badge}
-  </h2>
+              <p className="text-white/50 text-lg">
+                Smart Study Insight
+              </p>
 
-</div>
+              <h2 className="text-3xl font-bold mt-4 leading-relaxed">
+                {insight}
+              </h2>
+
+            </div>
+
+            {/* User Level */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
+
+              <p className="text-white/50 text-lg">
+                Current Study Level
+              </p>
+
+              <h2 className="text-5xl font-extrabold mt-4">
+                {level}
+              </h2>
+
+            </div>
+
+            {/* Weekly Analytics */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8">
+
+              <h2 className="text-3xl font-bold mb-8">
+                Study Analytics
+              </h2>
+
+              <div className="grid md:grid-cols-3 gap-6">
+
+                <div className="bg-black border border-white/10 rounded-2xl p-6 text-center">
+
+                  <p className="text-white/50">
+                    Average Hours
+                  </p>
+
+                  <h3 className="text-4xl font-bold mt-3">
+                    {averageHours}
+                  </h3>
+
+                </div>
+
+                <div className="bg-black border border-white/10 rounded-2xl p-6 text-center">
+
+                  <p className="text-white/50">
+                    Best Day
+                  </p>
+
+                  <h3 className="text-4xl font-bold mt-3">
+                    {bestDay}h
+                  </h3>
+
+                </div>
+
+                <div className="bg-black border border-white/10 rounded-2xl p-6 text-center">
+
+                  <p className="text-white/50">
+                    Total Sessions
+                  </p>
+
+                  <h3 className="text-4xl font-bold mt-3">
+                    {totalSessions}
+                  </h3>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Goal Status */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
+
+              <p className="text-white/50 text-lg">
+                Daily Goal Status
+              </p>
+
+              {remainingHours > 0 ? (
+
+                <h2 className="text-4xl font-extrabold mt-4">
+                  {remainingHours} hrs Remaining
+                </h2>
+
+              ) : (
+
+                <h2 className="text-4xl font-extrabold mt-4">
+                  Goal Completed ✅
+                </h2>
+
+              )}
+
+            </div>
+
+            {/* Badge */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
+
+              <p className="text-white/50 text-lg">
+                Current Achievement
+              </p>
+
+              <h2 className="text-4xl font-extrabold mt-4">
+                {badge}
+              </h2>
+
+            </div>
+
             {/* Total */}
             <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
@@ -318,18 +557,22 @@ else {
 
                 <div className="space-y-4">
 
-                  {history.map(
-                    (item, index) => (
+                  {[...history]
+                    .reverse()
+                    .map(
+                      (item, index) => (
 
-                      <div
-                        key={index}
-                        className="bg-black border border-white/10 rounded-2xl px-5 py-4"
-                      >
-                        Day {index + 1} → {item} hrs
-                      </div>
+                        <div
+                          key={index}
+                          className="bg-black border border-white/10 rounded-2xl px-5 py-4"
+                        >
+                          Session {history.length - index}
+                          {" "}
+                          → {item} hrs
+                        </div>
 
-                    )
-                  )}
+                      )
+                    )}
 
                 </div>
 
