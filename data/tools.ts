@@ -98,4 +98,10 @@ export const tools = [
     "Calculate your percentage instantly.",
   link: "/tools/percentage-calculator",
 },
+{
+  title: "SSC Age Calculator",
+  description:
+    "Calculate your age for SSC exam eligibility.",
+  link: "/tools/age-calculator",
+},
 ];
