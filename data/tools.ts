@@ -56,4 +56,10 @@ export const tools = [
     "Plan and manage your SSC revision schedule.",
   link: "/tools/revision-planner",
 },
+{
+  title: "SSC Goal Planner",
+  description:
+    "Set and manage your SSC preparation goals.",
+  link: "/tools/goal-planner",
+},
 ];
