@@ -68,4 +68,10 @@ export const tools = [
     "Generate a smart SSC study timetable instantly.",
   link: "/tools/timetable-generator",
 },
+{
+  title: "Current Affairs Quiz",
+  description:
+    "Practice SSC current affairs quizzes daily.",
+  link: "/tools/current-affairs-quiz",
+},
 ];
