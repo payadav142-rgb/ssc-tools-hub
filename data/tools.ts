@@ -122,4 +122,10 @@ export const tools = [
     "Find your weak SSC subjects instantly.",
   link: "/tools/weakness-analyzer",
 },
+{
+  title: "SSC Performance Tracker",
+  description:
+    "Track your SSC preparation performance.",
+  link: "/tools/performance-tracker",
+},
 ];
