@@ -128,4 +128,16 @@ export const tools = [
     "Track your SSC preparation performance.",
   link: "/tools/performance-tracker",
 },
+{
+  title: "SSC Topic Progress Tracker",
+  description:
+    "Track your SSC topic completion progress.",
+  link: "/tools/topic-progress-tracker",
+},
+{
+  title: "SSC Quiz Challenge",
+  description:
+    "Practice SSC MCQs and track your score.",
+  link: "/tools/quiz-challenge",
+},
 ];
