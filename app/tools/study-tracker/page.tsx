@@ -10,23 +10,28 @@ export default function StudyTrackerPage() {
   const [hours, setHours] =
     useState("");
 
+  const [goal, setGoal] =
+    useState(100);
+
   const [history, setHistory] =
     useState<number[]>([]);
-    useEffect(() => {
 
-  const savedHistory =
-    localStorage.getItem(
-      "studyHistory"
-    );
+  useEffect(() => {
 
-  if (savedHistory) {
+    const savedHistory =
+      localStorage.getItem(
+        "studyHistory"
+      );
 
-    setHistory(
-      JSON.parse(savedHistory)
-    );
-  }
+    if (savedHistory) {
 
-}, []);
+      setHistory(
+        JSON.parse(savedHistory)
+      );
+
+    }
+
+  }, []);
 
   function addStudyHours() {
 
@@ -38,18 +43,19 @@ export default function StudyTrackerPage() {
     }
 
     const updatedHistory = [
-  ...history,
-  studyHours,
-];
+      ...history,
+      studyHours,
+    ];
 
-setHistory(updatedHistory);
+    setHistory(updatedHistory);
 
-localStorage.setItem(
-  "studyHistory",
-  JSON.stringify(updatedHistory)
-);
+    localStorage.setItem(
+      "studyHistory",
+      JSON.stringify(updatedHistory)
+    );
 
     setHours("");
+
   }
 
   const totalHours =
@@ -58,39 +64,91 @@ localStorage.setItem(
         acc + curr,
       0
     );
-    const streak =
-  history.length;
-let motivation = "";
-const progress =
-  Math.min(
-    (totalHours / 100) * 100,
-    100
-  );
+
+  const streak =
+    history.length;
+
+  const progress =
+    goal > 0
+      ? Math.min(
+          (totalHours / goal) * 100,
+          100
+        )
+      : 0;
+  let badge = "";    
+
+  let motivation = "";
 if (totalHours >= 100) {
-  motivation =
-    "SSC Beast Mode Activated 🔥";
+
+  badge =
+    "🏆 SSC Master";
+
 }
 
 else if (totalHours >= 50) {
-  motivation =
-    "Excellent Consistency 🚀";
+
+  badge =
+    "🔥 Consistency King";
+
 }
 
-else if (totalHours >= 20) {
-  motivation =
-    "Great Progress ⚡";
+else if (totalHours >= 25) {
+
+  badge =
+    "⚡ Rising Warrior";
+
 }
 
-else if (totalHours >= 5) {
-  motivation =
-    "Good Start 📚";
+else if (totalHours >= 10) {
+
+  badge =
+    "📚 Study Beginner";
+
 }
 
 else {
-  motivation =
-    "Start Your SSC Journey Today 💪";
+
+  badge =
+    "🚀 New Challenger";
+
 }
+  if (totalHours >= goal) {
+
+    motivation =
+      "SSC Beast Mode Activated 🔥";
+
+  }
+
+  else if (totalHours >= 50) {
+
+    motivation =
+      "Excellent Consistency 🚀";
+
+  }
+
+  else if (totalHours >= 20) {
+
+    motivation =
+      "Great Progress ⚡";
+
+  }
+
+  else if (totalHours >= 5) {
+
+    motivation =
+      "Good Start 📚";
+
+  }
+
+  else {
+
+    motivation =
+      "Start Your SSC Journey Today 💪";
+
+  }
+
   return (
+
     <main className="min-h-screen bg-black text-white">
 
       <Navbar />
@@ -134,64 +192,101 @@ else {
 
             </div>
 
-            {/* Button */}
+            {/* Add Button */}
             <button
               onClick={addStudyHours}
               className="w-full mt-10 bg-white text-black py-4 rounded-2xl text-lg font-semibold hover:scale-[1.01] transition"
             >
               Add Progress
             </button>
+
+            {/* Reset Button */}
             <button
-  onClick={() => {
+              onClick={() => {
 
-    setHistory([]);
+                setHistory([]);
 
-    localStorage.removeItem(
-      "studyHistory"
-    );
+                setHours("");
 
-  }}
-  className="w-full mt-4 bg-red-500 text-white py-4 rounded-2xl text-lg font-semibold hover:opacity-90 transition"
->
-  Reset Tracker
-</button>
-{/* Progress Bar */}
-<div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8">
+                localStorage.removeItem(
+                  "studyHistory"
+                );
 
-  <div className="flex items-center justify-between mb-4">
+              }}
+              className="w-full mt-4 bg-red-500 text-white py-4 rounded-2xl text-lg font-semibold hover:opacity-90 transition"
+            >
+              Reset Tracker
+            </button>
 
-    <p className="text-white/50">
-      Study Goal Progress
-    </p>
+            {/* Goal Input */}
+            <div className="mt-12">
 
-    <p className="font-semibold">
-      {progress.toFixed(0)}%
-    </p>
+              <label className="block text-lg mb-4 text-white/70">
+                Set Study Goal (Hours)
+              </label>
 
-  </div>
+              <input
+                type="number"
+                value={goal}
+                onChange={(e) =>
+                  setGoal(
+                    Number(e.target.value)
+                  )
+                }
+                className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
+              />
 
-  <div className="w-full h-5 bg-black rounded-full overflow-hidden border border-white/10">
+            </div>
 
-    <div
-      className="h-full bg-white transition-all duration-500"
-      style={{
-        width: `${progress}%`,
-      }}
-    />
+            {/* Progress Bar */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8">
 
-  </div>
+              <div className="flex items-center justify-between mb-4">
 
-</div>
+                <p className="text-white/50">
+                  Study Goal Progress
+                </p>
 
-{/* Streak */}
+                <p className="font-semibold">
+                  {progress.toFixed(0)}%
+                </p>
+
+              </div>
+
+              <div className="w-full h-5 bg-black rounded-full overflow-hidden border border-white/10">
+
+                <div
+                  className="h-full bg-white transition-all duration-500"
+                  style={{
+                    width: `${progress}%`,
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+            {/* Streak */}
+            <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
+
+              <p className="text-white/50 text-lg">
+                Current Study Streak
+              </p>
+
+              <h2 className="text-6xl font-extrabold mt-4">
+                {streak} Days
+              </h2>
+
+            </div>
+{/* Badge */}
 <div className="mt-12 bg-white/[0.05] border border-white/10 rounded-3xl p-8 text-center">
 
   <p className="text-white/50 text-lg">
-    Current Study Streak
+    Current Achievement
   </p>
 
-  <h2 className="text-6xl font-extrabold mt-4">
-    {streak} Days
+  <h2 className="text-4xl font-extrabold mt-4">
+    {badge}
   </h2>
 
 </div>
@@ -205,9 +300,11 @@ else {
               <h2 className="text-6xl font-extrabold mt-4">
                 {totalHours}
               </h2>
-<p className="mt-6 text-2xl font-semibold">
-  {motivation}
-</p>
+
+              <p className="mt-6 text-2xl font-semibold">
+                {motivation}
+              </p>
+
             </div>
 
             {/* History */}
@@ -230,6 +327,7 @@ else {
                       >
                         Day {index + 1} → {item} hrs
                       </div>
+
                     )
                   )}
 
@@ -248,5 +346,7 @@ else {
       <Footer />
 
     </main>
+
   );
+
 }
