@@ -50,4 +50,10 @@ export const tools = [
     "Track remaining days for your SSC exam.",
   link: "/tools/exam-countdown",
 },
+{
+  title: "SSC Revision Planner",
+  description:
+    "Plan and manage your SSC revision schedule.",
+  link: "/tools/revision-planner",
+},
 ];
