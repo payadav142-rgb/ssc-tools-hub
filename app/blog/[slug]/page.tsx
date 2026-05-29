@@ -31,16 +31,19 @@ const blogData: Record<
 
 };
 
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
 
+  const { slug } =
+    await params;
+
   const blog =
-    blogData[params.slug];
+    blogData[slug];
 
   if (!blog) {
 
