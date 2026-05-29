@@ -5,6 +5,11 @@ import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
+import ToolContainer from "../../../components/ToolContainer";
+import ToolSEOContent from "../../../components/ToolSEOContent";
+import AdBanner from "../../../components/AdBanner";
+import RelatedTools from "../../../components/RelatedTools";
+
 export default function AgeCalculatorPage() {
 
   const [birthDate, setBirthDate] =
@@ -82,7 +87,7 @@ export default function AgeCalculatorPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -165,9 +170,40 @@ export default function AgeCalculatorPage() {
 
       </section>
 
+      {/* Ad Banner */}
+      <section className="px-6 pb-20">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
+      {/* SEO Content */}
+      <ToolSEOContent
+        title="SSC Age Calculator"
+        description="Check SSC exam eligibility instantly using SSC Age Calculator. Calculate your age accurately for SSC CGL, CHSL, GD, MTS and other SSC exams."
+      />
+
+      {/* Related Tools */}
+      <RelatedTools />
+
+      {/* Bottom Ad */}
+      <section className="px-6 pb-24">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function StudyPlannerPage() {
 
@@ -32,29 +33,36 @@ export default function StudyPlannerPage() {
     }
 
     const subjects = [
+
       "Quant",
       "Reasoning",
       "English",
       "GK",
+
     ];
 
     const generatedPlan =
-      subjects.map((subject) => {
+      subjects.map(
+        (subject) => {
 
-        const perSubject =
-          (
-            studyHours /
-            subjects.length
-          ).toFixed(1);
+          const perSubject =
+            (
+              studyHours /
+              subjects.length
+            ).toFixed(1);
 
-        return `${subject} → ${perSubject} hrs/day for ${remainingDays} days`;
-      });
+          return `${subject} → ${perSubject} hrs/day for ${remainingDays} days`;
+
+        }
+      );
 
     setPlan(generatedPlan);
+
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
+
+    <ToolContainer>
 
       <Navbar />
 
@@ -89,7 +97,9 @@ export default function StudyPlannerPage() {
                 type="number"
                 value={hours}
                 onChange={(e) =>
-                  setHours(e.target.value)
+                  setHours(
+                    e.target.value
+                  )
                 }
                 placeholder="Enter daily study hours"
                 className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
@@ -108,7 +118,9 @@ export default function StudyPlannerPage() {
                 type="number"
                 value={days}
                 onChange={(e) =>
-                  setDays(e.target.value)
+                  setDays(
+                    e.target.value
+                  )
                 }
                 placeholder="Enter remaining days"
                 className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
@@ -135,14 +147,18 @@ export default function StudyPlannerPage() {
 
                 <div className="space-y-5">
 
-                  {plan.map((item) => (
-                    <div
-                      key={item}
-                      className="bg-black border border-white/10 rounded-2xl px-5 py-4"
-                    >
-                      {item}
-                    </div>
-                  ))}
+                  {plan.map(
+                    (item) => (
+
+                      <div
+                        key={item}
+                        className="bg-black border border-white/10 rounded-2xl px-5 py-4"
+                      >
+                        {item}
+                      </div>
+
+                    )
+                  )}
 
                 </div>
 
@@ -158,6 +174,8 @@ export default function StudyPlannerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
+
   );
+
 }

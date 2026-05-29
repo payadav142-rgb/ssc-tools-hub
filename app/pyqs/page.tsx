@@ -1,9 +1,10 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ToolContainer from "../../components/ToolContainer";
 
 export default function PYQsPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -57,6 +58,6 @@ export default function PYQsPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
   );
 }

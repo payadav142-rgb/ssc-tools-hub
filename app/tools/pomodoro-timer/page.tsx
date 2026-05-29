@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function PomodoroTimerPage() {
 
@@ -26,7 +27,9 @@ export default function PomodoroTimerPage() {
 
         if (seconds > 0) {
 
-          setSeconds(seconds - 1);
+          setSeconds(
+            seconds - 1
+          );
 
         }
 
@@ -40,7 +43,9 @@ export default function PomodoroTimerPage() {
 
           }
 
-          setMinutes(minutes - 1);
+          setMinutes(
+            minutes - 1
+          );
 
           setSeconds(59);
 
@@ -53,7 +58,11 @@ export default function PomodoroTimerPage() {
     return () =>
       clearInterval(timer);
 
-  }, [isRunning, minutes, seconds]);
+  }, [
+    isRunning,
+    minutes,
+    seconds,
+  ]);
 
   function startTimer() {
 
@@ -79,7 +88,7 @@ export default function PomodoroTimerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -166,7 +175,7 @@ export default function PomodoroTimerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

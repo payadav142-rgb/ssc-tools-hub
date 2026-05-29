@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function TimetableGeneratorPage() {
 
@@ -25,10 +26,12 @@ export default function TimetableGeneratorPage() {
     }
 
     const subjects = [
+
       "Quantitative Aptitude",
       "Reasoning",
       "English",
       "General Awareness",
+
     ];
 
     const generatedPlan =
@@ -54,7 +57,7 @@ export default function TimetableGeneratorPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -145,7 +148,7 @@ export default function TimetableGeneratorPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

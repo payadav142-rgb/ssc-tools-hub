@@ -5,6 +5,11 @@ import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
+import ToolContainer from "../../../components/ToolContainer";
+import ToolSEOContent from "../../../components/ToolSEOContent";
+import AdBanner from "../../../components/AdBanner";
+import RelatedTools from "../../../components/RelatedTools";
+
 export default function PercentageCalculatorPage() {
 
   const [obtainedMarks, setObtainedMarks] =
@@ -40,7 +45,7 @@ export default function PercentageCalculatorPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -139,9 +144,40 @@ export default function PercentageCalculatorPage() {
 
       </section>
 
+      {/* Ad Banner */}
+      <section className="px-6 pb-20">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
+      {/* SEO Content */}
+      <ToolSEOContent
+        title="SSC Percentage Calculator"
+        description="Calculate SSC exam percentages instantly using obtained marks and total marks. Fast and free percentage calculator for SSC aspirants."
+      />
+
+      {/* Related Tools */}
+      <RelatedTools />
+
+      {/* Bottom Ad */}
+      <section className="px-6 pb-24">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

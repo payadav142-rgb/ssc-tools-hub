@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 type Goal = {
   text: string;
@@ -16,34 +17,29 @@ export default function GoalPlannerPage() {
     useState("");
 
   const [goals, setGoals] =
-    useState<Goal[]>([]);
-
-  useEffect(() => {
-
-    const savedGoals =
-      localStorage.getItem(
-        "sscGoals"
-      );
-
-    if (savedGoals) {
-
-      setGoals(
-        JSON.parse(savedGoals)
-      );
-
-    }
-
-  }, []);
+    useState<Goal[]>(
+      typeof window !== "undefined"
+        ? JSON.parse(
+            localStorage.getItem(
+              "sscGoals"
+            ) || "[]"
+          )
+        : []
+    );
 
   function saveGoals(
     updatedGoals: Goal[]
   ) {
 
-    setGoals(updatedGoals);
+    setGoals(
+      updatedGoals
+    );
 
     localStorage.setItem(
       "sscGoals",
-      JSON.stringify(updatedGoals)
+      JSON.stringify(
+        updatedGoals
+      )
     );
 
   }
@@ -55,14 +51,19 @@ export default function GoalPlannerPage() {
     }
 
     const updatedGoals = [
+
       {
         text: goal,
         completed: false,
       },
+
       ...goals,
+
     ];
 
-    saveGoals(updatedGoals);
+    saveGoals(
+      updatedGoals
+    );
 
     setGoal("");
 
@@ -80,7 +81,9 @@ export default function GoalPlannerPage() {
       !updatedGoals[index]
         .completed;
 
-    saveGoals(updatedGoals);
+    saveGoals(
+      updatedGoals
+    );
 
   }
 
@@ -94,7 +97,9 @@ export default function GoalPlannerPage() {
           i !== index
       );
 
-    saveGoals(updatedGoals);
+    saveGoals(
+      updatedGoals
+    );
 
   }
 
@@ -114,7 +119,7 @@ export default function GoalPlannerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -287,7 +292,7 @@ export default function GoalPlannerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

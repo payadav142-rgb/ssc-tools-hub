@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function WeaknessAnalyzerPage() {
 
@@ -56,6 +57,22 @@ export default function WeaknessAnalyzerPage() {
 
     ];
 
+    const hasInvalidInput =
+      scores.some(
+        (item) =>
+          isNaN(item.marks)
+      );
+
+    if (hasInvalidInput) {
+
+      setResult(
+        "Please enter all subject scores."
+      );
+
+      return;
+
+    }
+
     const weakest =
       scores.reduce(
         (prev, curr) =>
@@ -73,7 +90,7 @@ export default function WeaknessAnalyzerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -210,7 +227,7 @@ export default function WeaknessAnalyzerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

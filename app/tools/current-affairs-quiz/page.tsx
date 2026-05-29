@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 const questions = [
 
@@ -109,7 +110,7 @@ export default function CurrentAffairsQuizPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -226,7 +227,7 @@ export default function CurrentAffairsQuizPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

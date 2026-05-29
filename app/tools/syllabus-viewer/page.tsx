@@ -1,56 +1,53 @@
+"use client";
+
+import { useState } from "react";
+
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
-const syllabus = [
+const syllabusData = [
 
   {
-    subject:
-      "Quantitative Aptitude",
+    subject: "Quantitative Aptitude",
     topics: [
       "Percentage",
       "Profit and Loss",
       "Time and Work",
-      "Average",
-      "Simplification",
-      "Ratio and Proportion",
+      "Algebra",
+      "Geometry",
     ],
   },
 
   {
-    subject:
-      "General Intelligence",
+    subject: "Reasoning",
     topics: [
-      "Analogy",
       "Coding-Decoding",
+      "Analogy",
       "Series",
-      "Classification",
       "Blood Relations",
-      "Direction Test",
+      "Puzzles",
     ],
   },
 
   {
-    subject:
-      "English Language",
+    subject: "English",
     topics: [
       "Grammar",
       "Vocabulary",
+      "Reading Comprehension",
       "Synonyms",
       "Antonyms",
-      "Reading Comprehension",
-      "Error Detection",
     ],
   },
 
   {
-    subject:
-      "General Awareness",
+    subject: "General Knowledge",
     topics: [
       "History",
       "Geography",
       "Polity",
       "Economics",
-      "Science",
       "Current Affairs",
     ],
   },
@@ -59,9 +56,14 @@ const syllabus = [
 
 export default function SyllabusViewerPage() {
 
+  const [selectedSubject, setSelectedSubject] =
+    useState(
+      syllabusData[0]
+    );
+
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -77,47 +79,68 @@ export default function SyllabusViewerPage() {
             </h1>
 
             <p className="text-white/50 text-xl mt-6">
-              Explore complete SSC exam syllabus topics.
+              Explore SSC syllabus subjects and important topics.
             </p>
 
           </div>
 
-          {/* Syllabus Cards */}
-          <div className="mt-16 grid md:grid-cols-2 gap-8">
+          {/* Subjects */}
+          <div className="flex flex-wrap justify-center gap-4 mt-14">
 
-            {syllabus.map(
+            {syllabusData.map(
               (item) => (
 
-                <div
+                <button
                   key={item.subject}
-                  className="bg-white/[0.04] border border-white/10 rounded-[32px] p-8"
+                  onClick={() =>
+                    setSelectedSubject(
+                      item
+                    )
+                  }
+                  className={`px-6 py-3 rounded-2xl border transition ${
+                    selectedSubject.subject ===
+                    item.subject
+                      ? "bg-white text-black border-white"
+                      : "bg-black text-white border-white/10"
+                  }`}
                 >
 
-                  <h2 className="text-3xl font-bold">
-                    {item.subject}
-                  </h2>
+                  {item.subject}
 
-                  <div className="mt-8 space-y-4">
-
-                    {item.topics.map(
-                      (topic) => (
-
-                        <div
-                          key={topic}
-                          className="bg-black border border-white/10 rounded-2xl px-5 py-4 text-lg"
-                        >
-                          {topic}
-                        </div>
-
-                      )
-                    )}
-
-                  </div>
-
-                </div>
+                </button>
 
               )
             )}
+
+          </div>
+
+          {/* Topics Card */}
+          <div className="mt-16 bg-white/[0.04] border border-white/10 rounded-[32px] p-10">
+
+            <h2 className="text-4xl font-bold">
+
+              {selectedSubject.subject}
+
+            </h2>
+
+            <div className="mt-10 grid md:grid-cols-2 gap-6">
+
+              {selectedSubject.topics.map(
+                (topic) => (
+
+                  <div
+                    key={topic}
+                    className="bg-black border border-white/10 rounded-2xl px-6 py-5 text-lg"
+                  >
+
+                    {topic}
+
+                  </div>
+
+                )
+              )}
+
+            </div>
 
           </div>
 
@@ -127,7 +150,7 @@ export default function SyllabusViewerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

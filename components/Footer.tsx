@@ -1,22 +1,29 @@
 import Link from "next/link";
 
 export default function Footer() {
+
   return (
+
     <footer className="border-t border-white/10 mt-24">
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-14">
 
-        <div className="grid md:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-4 gap-10">
 
           {/* Brand */}
           <div>
 
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold text-white">
+
               SSC Tools Hub
+
             </h2>
 
-            <p className="text-white/50 mt-5 leading-relaxed">
-              Smart SSC preparation platform with tools, PYQs, notes, planners, and curated study resources.
+            <p className="text-white/50 mt-4 leading-7">
+
+              Smart tools and resources
+              for SSC aspirants.
+
             </p>
 
           </div>
@@ -24,37 +31,27 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-4">
+
               Quick Links
+
             </h3>
 
-            <div className="flex flex-col gap-4 text-white/50">
+            <div className="flex flex-col gap-3 text-white/60">
 
-              <Link
-                href="/"
-                className="hover:text-white transition"
-              >
+              <Link href="/">
                 Home
               </Link>
 
-              <Link
-                href="/tools"
-                className="hover:text-white transition"
-              >
+              <Link href="/tools">
                 Tools
               </Link>
 
-              <Link
-                href="/resources"
-                className="hover:text-white transition"
-              >
+              <Link href="/resources">
                 Resources
               </Link>
 
-              <Link
-                href="/pyqs"
-                className="hover:text-white transition"
-              >
+              <Link href="/pyqs">
                 PYQs
               </Link>
 
@@ -62,49 +59,67 @@ export default function Footer() {
 
           </div>
 
-          {/* Categories */}
+          {/* Legal */}
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
-              Categories
+            <h3 className="text-xl font-semibold text-white mb-4">
+
+              Legal
+
             </h3>
 
-            <div className="flex flex-col gap-4 text-white/50">
+            <div className="flex flex-col gap-3 text-white/60">
 
-              <p>Quant</p>
+              <Link href="/about">
+                About
+              </Link>
 
-              <p>Reasoning</p>
+              <Link href="/contact">
+                Contact
+              </Link>
 
-              <p>English</p>
+              <Link href="/privacy-policy">
+                Privacy Policy
+              </Link>
 
-              <p>General Knowledge</p>
+              <Link href="/disclaimer">
+                Disclaimer
+              </Link>
+
+              <Link href="/terms-and-conditions">
+                Terms & Conditions
+              </Link>
 
             </div>
 
           </div>
 
-          {/* Newsletter */}
+          {/* SEO */}
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
-              Stay Updated
+            <h3 className="text-xl font-semibold text-white mb-4">
+
+              Popular Pages
+
             </h3>
 
-            <p className="text-white/50 leading-relaxed">
-              Get latest SSC resources and preparation updates.
-            </p>
+            <div className="flex flex-col gap-3 text-white/60">
 
-            <div className="mt-6 flex flex-col gap-4">
+              <Link href="/ssc-cgl-salary">
+                SSC CGL Salary
+              </Link>
 
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 rounded-2xl px-5 py-3 outline-none focus:border-white/20"
-              />
+              <Link href="/ssc-cgl-cutoff">
+                SSC CGL Cutoff
+              </Link>
 
-              <button className="bg-white text-black rounded-2xl px-5 py-3 font-medium hover:scale-[1.02] transition">
-                Subscribe
-              </button>
+              <Link href="/ssc-cgl-books">
+                SSC CGL Books
+              </Link>
+
+              <Link href="/ssc-cgl-notification">
+                SSC CGL Notification
+              </Link>
 
             </div>
 
@@ -113,32 +128,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/40">
 
-          <p className="text-white/40">
-            © 2026 SSC Tools Hub. All rights reserved.
-          </p>
-
-          <div className="flex items-center gap-6 text-white/40">
-
-            <a href="#">
-              Privacy
-            </a>
-
-            <a href="#">
-              Terms
-            </a>
-
-            <a href="#">
-              Contact
-            </a>
-
-          </div>
+          © 2026 SSC Tools Hub.
+          All rights reserved.
 
         </div>
 
       </div>
 
     </footer>
+
   );
+
 }

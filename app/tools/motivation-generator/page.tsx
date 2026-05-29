@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 const quotes = [
 
@@ -46,7 +47,7 @@ export default function MotivationGeneratorPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -68,7 +69,7 @@ export default function MotivationGeneratorPage() {
 
             <p className="text-3xl leading-relaxed font-semibold">
 
-              "{quote}"
+              &ldquo;{quote}&rdquo;
 
             </p>
 
@@ -87,7 +88,7 @@ export default function MotivationGeneratorPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 const flashcards = [
 
@@ -72,7 +73,7 @@ export default function GKFlashcardsPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -158,7 +159,7 @@ export default function GKFlashcardsPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

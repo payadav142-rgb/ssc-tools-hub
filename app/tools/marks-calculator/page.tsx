@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function MarksCalculatorPage() {
 
@@ -32,9 +31,8 @@ export default function MarksCalculatorPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
 
-      <Navbar />
+    <ToolContainer>
 
       <section className="px-6 py-24">
 
@@ -125,8 +123,8 @@ export default function MarksCalculatorPage() {
 
       </section>
 
-      <Footer />
+    </ToolContainer>
 
-    </main>
   );
+
 }

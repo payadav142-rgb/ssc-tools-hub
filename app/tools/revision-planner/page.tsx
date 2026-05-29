@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 type Task = {
   text: string;
@@ -16,24 +17,27 @@ export default function RevisionPlannerPage() {
     useState("");
 
   const [tasks, setTasks] =
-    useState<Task[]>([]);
+    useState<Task[]>(() => {
 
-  useEffect(() => {
+      if (
+        typeof window !==
+        "undefined"
+      ) {
 
-    const savedTasks =
-      localStorage.getItem(
-        "revisionTasks"
-      );
+        const savedTasks =
+          localStorage.getItem(
+            "revisionTasks"
+          );
 
-    if (savedTasks) {
+        return savedTasks
+          ? JSON.parse(savedTasks)
+          : [];
 
-      setTasks(
-        JSON.parse(savedTasks)
-      );
+      }
 
-    }
+      return [];
 
-  }, []);
+    });
 
   function saveTasks(
     updatedTasks: Task[]
@@ -55,11 +59,14 @@ export default function RevisionPlannerPage() {
     }
 
     const updatedTasks = [
+
       {
         text: task,
         completed: false,
       },
+
       ...tasks,
+
     ];
 
     saveTasks(updatedTasks);
@@ -106,7 +113,7 @@ export default function RevisionPlannerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -255,7 +262,7 @@ export default function RevisionPlannerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

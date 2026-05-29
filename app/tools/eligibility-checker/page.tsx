@@ -1,9 +1,15 @@
+
 "use client";
 
 import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+
+import ToolContainer from "../../../components/ToolContainer";
+import ToolSEOContent from "../../../components/ToolSEOContent";
+import AdBanner from "../../../components/AdBanner";
+import RelatedTools from "../../../components/RelatedTools";
 
 export default function EligibilityCheckerPage() {
 
@@ -57,7 +63,7 @@ export default function EligibilityCheckerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -162,10 +168,42 @@ export default function EligibilityCheckerPage() {
 
       </section>
 
+      {/* Top Ad */}
+      <section className="px-6 pb-20">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
+      {/* SEO Content */}
+      <ToolSEOContent
+        title="SSC Eligibility Checker"
+        description="Check SSC exam eligibility instantly based on age and qualification. Useful for SSC CGL, CHSL, MTS, GD and other SSC exams."
+      />
+
+      {/* Related Tools */}
+      <RelatedTools />
+
+      {/* Bottom Ad */}
+      <section className="px-6 pb-24">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 
 }
+

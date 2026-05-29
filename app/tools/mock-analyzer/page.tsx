@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function MockAnalyzerPage() {
 
@@ -48,24 +49,42 @@ export default function MockAnalyzerPage() {
       Number(calculatedAccuracy);
 
     if (acc >= 90) {
-      setPerformance("Excellent 🔥");
+
+      setPerformance(
+        "Excellent 🔥"
+      );
+
     }
 
     else if (acc >= 75) {
-      setPerformance("Good 🚀");
+
+      setPerformance(
+        "Good 🚀"
+      );
+
     }
 
     else if (acc >= 60) {
-      setPerformance("Average ⚡");
+
+      setPerformance(
+        "Average ⚡"
+      );
+
     }
 
     else {
-      setPerformance("Needs Improvement 📚");
+
+      setPerformance(
+        "Needs Improvement 📚"
+      );
+
     }
+
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
+
+    <ToolContainer>
 
       <Navbar />
 
@@ -100,7 +119,9 @@ export default function MockAnalyzerPage() {
                 type="number"
                 value={correct}
                 onChange={(e) =>
-                  setCorrect(e.target.value)
+                  setCorrect(
+                    e.target.value
+                  )
                 }
                 placeholder="Enter correct answers"
                 className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
@@ -119,7 +140,9 @@ export default function MockAnalyzerPage() {
                 type="number"
                 value={wrong}
                 onChange={(e) =>
-                  setWrong(e.target.value)
+                  setWrong(
+                    e.target.value
+                  )
                 }
                 placeholder="Enter wrong answers"
                 className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
@@ -164,6 +187,8 @@ export default function MockAnalyzerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
+
   );
+
 }

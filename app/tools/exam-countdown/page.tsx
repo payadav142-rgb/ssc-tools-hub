@@ -1,36 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function ExamCountdownPage() {
 
   const [examDate, setExamDate] =
-    useState("");
+    useState(
+      typeof window !== "undefined"
+        ? localStorage.getItem(
+            "sscExamDate"
+          ) || ""
+        : ""
+    );
 
   const [daysLeft, setDaysLeft] =
     useState<number | null>(null);
 
-  useEffect(() => {
-
-    const savedDate =
-      localStorage.getItem(
-        "sscExamDate"
-      );
-
-    if (savedDate) {
-
-      setExamDate(savedDate);
-
-      calculateDays(savedDate);
-
-    }
-
-  }, []);
-
-  function calculateDays(date: string) {
+  function calculateDays(
+    date: string
+  ) {
 
     const today =
       new Date();
@@ -45,10 +37,15 @@ export default function ExamCountdownPage() {
     const remainingDays =
       Math.ceil(
         difference /
-        (1000 * 60 * 60 * 24)
+          (1000 *
+            60 *
+            60 *
+            24)
       );
 
-    setDaysLeft(remainingDays);
+    setDaysLeft(
+      remainingDays
+    );
 
   }
 
@@ -63,7 +60,9 @@ export default function ExamCountdownPage() {
       examDate
     );
 
-    calculateDays(examDate);
+    calculateDays(
+      examDate
+    );
 
   }
 
@@ -98,7 +97,7 @@ export default function ExamCountdownPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -183,7 +182,7 @@ export default function ExamCountdownPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

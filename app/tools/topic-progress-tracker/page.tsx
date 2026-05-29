@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 const topicsData = [
 
@@ -27,24 +28,27 @@ const topicsData = [
 export default function TopicProgressTrackerPage() {
 
   const [completedTopics, setCompletedTopics] =
-    useState<string[]>([]);
+    useState<string[]>(() => {
 
-  useEffect(() => {
+      if (
+        typeof window !==
+        "undefined"
+      ) {
 
-    const savedTopics =
-      localStorage.getItem(
-        "sscCompletedTopics"
-      );
+        const savedTopics =
+          localStorage.getItem(
+            "sscCompletedTopics"
+          );
 
-    if (savedTopics) {
+        return savedTopics
+          ? JSON.parse(savedTopics)
+          : [];
 
-      setCompletedTopics(
-        JSON.parse(savedTopics)
-      );
+      }
 
-    }
+      return [];
 
-  }, []);
+    });
 
   function toggleTopic(
     topic: string
@@ -92,7 +96,7 @@ export default function TopicProgressTrackerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -196,7 +200,7 @@ export default function TopicProgressTrackerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

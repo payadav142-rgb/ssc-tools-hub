@@ -5,6 +5,11 @@ import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
+import ToolContainer from "../../../components/ToolContainer";
+import ToolSEOContent from "../../../components/ToolSEOContent";
+import AdBanner from "../../../components/AdBanner";
+import RelatedTools from "../../../components/RelatedTools";
+
 const quizQuestions = [
 
   {
@@ -120,7 +125,7 @@ export default function QuizChallengePage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -250,9 +255,40 @@ export default function QuizChallengePage() {
 
       </section>
 
+      {/* Top Ad */}
+      <section className="px-6 pb-20">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
+      {/* SEO Content */}
+      <ToolSEOContent
+        title="SSC Quiz Challenge"
+        description="Practice SSC quiz questions online for SSC CGL, CHSL, GD and MTS exams. Improve your preparation with free SSC MCQ quizzes."
+      />
+
+      {/* Related Tools */}
+      <RelatedTools />
+
+      {/* Bottom Ad */}
+      <section className="px-6 pb-24">
+
+        <div className="max-w-5xl mx-auto">
+
+          <AdBanner />
+
+        </div>
+
+      </section>
+
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

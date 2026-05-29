@@ -1,5 +1,8 @@
+"use client";
+
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 const news = [
 
@@ -45,7 +48,7 @@ export default function CurrentAffairsFeedPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -110,7 +113,7 @@ export default function CurrentAffairsFeedPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

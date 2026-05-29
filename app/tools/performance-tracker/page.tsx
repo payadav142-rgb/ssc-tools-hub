@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function PerformanceTrackerPage() {
 
@@ -81,7 +82,7 @@ export default function PerformanceTrackerPage() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -242,7 +243,7 @@ export default function PerformanceTrackerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 

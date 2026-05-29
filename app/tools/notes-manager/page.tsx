@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ToolContainer from "../../../components/ToolContainer";
 
 export default function NotesManagerPage() {
 
@@ -11,24 +12,15 @@ export default function NotesManagerPage() {
     useState("");
 
   const [notes, setNotes] =
-    useState<string[]>([]);
-
-  useEffect(() => {
-
-    const savedNotes =
-      localStorage.getItem(
-        "sscNotes"
-      );
-
-    if (savedNotes) {
-
-      setNotes(
-        JSON.parse(savedNotes)
-      );
-
-    }
-
-  }, []);
+    useState<string[]>(
+      typeof window !== "undefined"
+        ? JSON.parse(
+            localStorage.getItem(
+              "sscNotes"
+            ) || "[]"
+          )
+        : []
+    );
 
   function addNote() {
 
@@ -37,40 +29,54 @@ export default function NotesManagerPage() {
     }
 
     const updatedNotes = [
+
       note,
+
       ...notes,
+
     ];
 
-    setNotes(updatedNotes);
+    setNotes(
+      updatedNotes
+    );
 
     localStorage.setItem(
       "sscNotes",
-      JSON.stringify(updatedNotes)
+      JSON.stringify(
+        updatedNotes
+      )
     );
 
     setNote("");
 
   }
 
-  function deleteNote(index: number) {
+  function deleteNote(
+    index: number
+  ) {
 
     const updatedNotes =
       notes.filter(
-        (_, i) => i !== index
+        (_, i) =>
+          i !== index
       );
 
-    setNotes(updatedNotes);
+    setNotes(
+      updatedNotes
+    );
 
     localStorage.setItem(
       "sscNotes",
-      JSON.stringify(updatedNotes)
+      JSON.stringify(
+        updatedNotes
+      )
     );
 
   }
 
   return (
 
-    <main className="min-h-screen bg-black text-white">
+    <ToolContainer>
 
       <Navbar />
 
@@ -98,7 +104,9 @@ export default function NotesManagerPage() {
             <textarea
               value={note}
               onChange={(e) =>
-                setNote(e.target.value)
+                setNote(
+                  e.target.value
+                )
               }
               placeholder="Write your study notes here..."
               className="w-full h-40 bg-black border border-white/10 rounded-3xl p-6 outline-none resize-none focus:border-white/20"
@@ -159,7 +167,7 @@ export default function NotesManagerPage() {
 
       <Footer />
 
-    </main>
+    </ToolContainer>
 
   );
 
