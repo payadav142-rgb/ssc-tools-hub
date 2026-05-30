@@ -9,7 +9,9 @@ import "./globals.css";
 import MobileBottomBar from "../components/MobileBottomBar";
 
 export const metadata: Metadata = {
-
+verification: {
+  google: "c2E0Y9rYTzrEi_aYV43C725aFKUMCcaoyREP1or5amo",
+},
   title:
     "SSC Tools Hub - Smart SSC Preparation Platform",
 
