@@ -12,7 +12,6 @@ MetadataRoute.Sitemap {
     "/tools",
     "/resources",
     "/pyqs",
-    "/dashboard",
     "/ssc-cgl-salary",
     "/ssc-cgl-cutoff",
     "/ssc-cgl-books",
