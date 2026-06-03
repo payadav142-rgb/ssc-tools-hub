@@ -7,6 +7,7 @@ import {
 import "./globals.css";
 
 import MobileBottomBar from "../components/MobileBottomBar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   verification: {
@@ -40,8 +41,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          {children}
+        <body className="flex flex-col min-h-screen">
+          <main className="flex-1">
+  {children}
+</main>
+          <Footer />
           <MobileBottomBar />
         </body>
       </html>
