@@ -1,20 +1,29 @@
 import { categories } from "../data/categories";
 
 export default function Categories() {
-  return (
-    <section className="px-6 pb-24">
 
-      <div className="max-w-7xl mx-auto">
+  return (
+
+    <section className="px-6 pb-28 relative">
+
+      {/* Background Glow */}
+      <div className="absolute left-0 top-0 w-[350px] h-[350px] bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Heading */}
-        <div className="mb-14">
+        <div className="mb-16 text-center md:text-left">
 
-          <h2 className="text-5xl font-bold">
-            Explore Categories
+          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+
+            Explore <span className="text-orange-400">Categories</span>
+
           </h2>
 
-          <p className="text-white/50 mt-4 text-lg">
-            Everything you need for SSC preparation.
+          <p className="text-white/50 mt-5 text-lg max-w-2xl">
+
+            Everything you need for SSC preparation in one smart platform.
+
           </p>
 
         </div>
@@ -23,12 +32,15 @@ export default function Categories() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
           {categories.map((category) => (
+
             <div
               key={category}
-              className="group bg-gradient-to-br from-white/[0.06] to-white/[0.03] border border-white/10 rounded-3xl p-8 hover:border-white/20 hover:-translate-y-1 transition duration-300 cursor-pointer text-center"
+              className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 cursor-pointer text-center shadow-[0_0_40px_rgba(249,115,22,0.05)]"
             >
 
-              <div className="text-5xl mb-5">
+              {/* Icon */}
+              <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-orange-500/20 to-amber-400/10 border border-orange-500/10 flex items-center justify-center text-5xl mb-6 group-hover:scale-110 transition duration-300 shadow-lg shadow-orange-500/10">
+
                 {category === "Quant" && "📘"}
 
                 {category === "Reasoning" && "🧠"}
@@ -40,17 +52,25 @@ export default function Categories() {
                 {category === "PYQs" && "📄"}
 
                 {category === "Tools" && "🛠️"}
+
               </div>
 
-              <h3 className="text-2xl font-bold">
+              {/* Title */}
+              <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+
                 {category}
+
               </h3>
 
-              <p className="text-white/50 mt-3 text-sm leading-relaxed">
-                Explore curated study material and preparation content.
+              {/* Description */}
+              <p className="text-white/50 mt-4 text-sm leading-relaxed">
+
+                Smart study material and curated SSC preparation resources.
+
               </p>
 
             </div>
+
           ))}
 
         </div>
@@ -58,5 +78,7 @@ export default function Categories() {
       </div>
 
     </section>
+
   );
+
 }

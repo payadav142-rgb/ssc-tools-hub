@@ -65,9 +65,12 @@ export default function Navbar() {
 
   return (
 
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-orange-500/10 bg-[#0B0F19]/80 backdrop-blur-2xl">
 
-      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      {/* Glow */}
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-amber-400/5 pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
         {/* Logo */}
         <Link
@@ -75,12 +78,22 @@ export default function Navbar() {
           className="text-3xl font-extrabold tracking-tight"
         >
 
-          SSC Tools Hub
+          <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+
+            SSC
+
+          </span>{" "}
+
+          <span className="text-white">
+
+            Tools Hub
+
+          </span>
 
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
 
           {navLinks.map((link) => {
 
@@ -92,10 +105,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-5 py-2 rounded-2xl transition ${
+                className={`px-5 py-2.5 rounded-2xl transition-all duration-300 text-sm font-medium ${
                   isActive
-                    ? "bg-white text-black font-semibold"
-                    : "text-white/60 hover:text-white hover:bg-white/5"
+                    ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/20"
+                    : "text-white/60 hover:text-white hover:bg-orange-500/10 hover:border hover:border-orange-500/20"
                 }`}
               >
 
@@ -117,7 +130,7 @@ export default function Navbar() {
             onClick={() =>
               setMenuOpen(!menuOpen)
             }
-            className="md:hidden text-3xl"
+            className="lg:hidden w-11 h-11 rounded-2xl bg-[#111827] border border-orange-500/10 flex items-center justify-center text-white text-2xl hover:border-orange-500/40 transition"
           >
 
             ☰
@@ -129,7 +142,7 @@ export default function Navbar() {
 
             <SignInButton mode="modal">
 
-              <button className="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-7 py-3 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/20">
 
                 Sign In
 
@@ -139,7 +152,11 @@ export default function Navbar() {
 
           ) : (
 
-            <UserButton />
+            <div className="scale-110">
+
+              <UserButton />
+
+            </div>
 
           )}
 
@@ -150,24 +167,35 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
 
-        <div className="md:hidden border-t border-white/10 bg-black px-6 py-6 flex flex-col gap-4">
+        <div className="lg:hidden border-t border-orange-500/10 bg-[#0B0F19]/95 backdrop-blur-2xl px-6 py-6 flex flex-col gap-4">
 
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
 
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() =>
-                setMenuOpen(false)
-              }
-              className="text-white/70 hover:text-white text-lg"
-            >
+            const isActive =
+              pathname === link.href;
 
-              {link.name}
+            return (
 
-            </Link>
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() =>
+                  setMenuOpen(false)
+                }
+                className={`px-5 py-4 rounded-2xl transition-all duration-300 ${
+                  isActive
+                    ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold"
+                    : "text-white/70 hover:text-white hover:bg-orange-500/10"
+                }`}
+              >
 
-          ))}
+                {link.name}
+
+              </Link>
+
+            );
+
+          })}
 
         </div>
 
