@@ -6,9 +6,9 @@ export default function LatestUpdates() {
       title:
         "SSC CGL 2026 Notification",
       desc:
-        "Official SSC CGL 2026 notification is expected very soon with updated vacancies and exam schedule.",
+        "SSC CGL 2026 notification officially released with updated vacancies and exam details.",
       tag:
-        "Latest",
+        "Notification",
     },
 
     {
