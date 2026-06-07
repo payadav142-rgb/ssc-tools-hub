@@ -18,6 +18,9 @@ export default function Page() {
 
       answer:
         "12",
+
+      explanation:
+        "12 × 12 = 144, therefore square root of 144 is 12.",
     },
 
     {
@@ -34,6 +37,9 @@ export default function Page() {
 
       answer:
         "B. R. Ambedkar",
+
+      explanation:
+        "Dr. B. R. Ambedkar was the chairman of the Drafting Committee of the Indian Constitution.",
     },
 
     {
@@ -45,6 +51,9 @@ export default function Page() {
 
       answer:
         "100",
+
+      explanation:
+        "25 multiplied by 4 equals 100.",
     },
 
   ];
@@ -79,16 +88,19 @@ export default function Page() {
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-20 overflow-hidden">
 
+        {/* Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/10 blur-[140px] rounded-full"></div>
 
         <div className="relative max-w-5xl mx-auto text-center">
 
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-5 py-2 text-orange-200 text-sm mb-8">
 
             🔥 SSC CGL Tier 1 PYQs
 
           </div>
 
+          {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
 
             SSC CGL 2025
@@ -98,10 +110,11 @@ export default function Page() {
 
           </h1>
 
+          {/* Description */}
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl mx-auto mt-8">
 
             Practice memory based SSC CGL previous year questions
-            with answers and score tracking.
+            with answers, explanations and score tracking.
 
           </p>
 
@@ -132,6 +145,7 @@ export default function Page() {
               className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
             >
 
+              {/* Question */}
               <h2 className="text-2xl font-bold leading-relaxed">
 
                 Q{index + 1}.
@@ -140,6 +154,7 @@ export default function Page() {
 
               </h2>
 
+              {/* Options */}
               <div className="grid md:grid-cols-2 gap-4 mt-8">
 
                 {q.options.map((option) => {
@@ -178,6 +193,27 @@ export default function Page() {
                 })}
 
               </div>
+
+              {/* Explanation */}
+              {selectedAnswers[index] && (
+
+                <div className="mt-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
+
+                  <h3 className="text-orange-300 font-bold text-lg">
+
+                    Explanation
+
+                  </h3>
+
+                  <p className="text-white/70 mt-3 leading-relaxed">
+
+                    {q.explanation}
+
+                  </p>
+
+                </div>
+
+              )}
 
             </div>
 
