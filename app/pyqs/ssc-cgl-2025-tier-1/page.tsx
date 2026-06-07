@@ -61,7 +61,9 @@ export default function Page() {
   ];
 
   const [selectedAnswers, setSelectedAnswers] =
-    useState<{ [key: number]: string }>({});
+    useState<{ [key: number]: string }>(
+      {}
+    );
 
   const [timeLeft, setTimeLeft] =
     useState(300);
@@ -69,6 +71,25 @@ export default function Page() {
   const [submitted, setSubmitted] =
     useState(false);
 
+  /* Load Saved Answers */
+  useEffect(() => {
+
+    const savedAnswers =
+      localStorage.getItem(
+        "ssc-cgl-pyq-answers"
+      );
+
+    if (savedAnswers) {
+
+      setSelectedAnswers(
+        JSON.parse(savedAnswers)
+      );
+
+    }
+
+  }, []);
+
+  /* Timer */
   useEffect(() => {
 
     if (timeLeft <= 0 || submitted)
@@ -90,6 +111,7 @@ export default function Page() {
   const seconds =
     timeLeft % 60;
 
+  /* Select Answer */
   const handleSelect = (
     questionIndex: number,
     option: string
@@ -97,13 +119,21 @@ export default function Page() {
 
     if (submitted) return;
 
-    setSelectedAnswers({
+    const updatedAnswers = {
       ...selectedAnswers,
       [questionIndex]: option,
-    });
+    };
+
+    setSelectedAnswers(updatedAnswers);
+
+    localStorage.setItem(
+      "ssc-cgl-pyq-answers",
+      JSON.stringify(updatedAnswers)
+    );
 
   };
 
+  /* Score */
   const score =
     questions.filter(
       (q, index) =>
@@ -120,6 +150,7 @@ export default function Page() {
         )
       : 0;
 
+  /* Result Message */
   const getPerformanceMessage = () => {
 
     if (accuracy === 100)
@@ -170,7 +201,8 @@ export default function Page() {
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl mx-auto mt-8">
 
             Practice SSC CGL questions
-            with timer, explanations and score tracking.
+            with timer, explanations,
+            auto-save and score tracking.
 
           </p>
 
@@ -260,9 +292,15 @@ export default function Page() {
           {!submitted && (
 
             <button
-              onClick={() =>
-                setSubmitted(true)
-              }
+              onClick={() => {
+
+                setSubmitted(true);
+
+                localStorage.removeItem(
+                  "ssc-cgl-pyq-answers"
+                );
+
+              }}
               className="mt-10 bg-orange-500 hover:bg-orange-400 text-black font-bold px-10 py-4 rounded-2xl transition-all duration-300 hover:scale-105"
             >
 
