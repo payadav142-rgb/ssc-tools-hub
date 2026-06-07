@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
@@ -45,6 +49,27 @@ export default function Page() {
 
   ];
 
+  const [selectedAnswers, setSelectedAnswers] =
+    useState<{ [key: number]: string }>({});
+
+  const handleSelect = (
+    questionIndex: number,
+    option: string
+  ) => {
+
+    setSelectedAnswers({
+      ...selectedAnswers,
+      [questionIndex]: option,
+    });
+
+  };
+
+  const score =
+    questions.filter(
+      (q, index) =>
+        selectedAnswers[index] === q.answer
+    ).length;
+
   return (
 
     <main className="min-h-screen bg-[#0B0F19] text-white">
@@ -76,9 +101,20 @@ export default function Page() {
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl mx-auto mt-8">
 
             Practice memory based SSC CGL previous year questions
-            with answers and detailed analysis.
+            with answers and score tracking.
 
           </p>
+
+          {/* Score */}
+          <div className="mt-10 inline-flex bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-4 text-2xl font-bold text-orange-300">
+
+            Score:
+            {" "}
+            {score}
+            /
+            {questions.length}
+
+          </div>
 
         </div>
 
@@ -106,30 +142,40 @@ export default function Page() {
 
               <div className="grid md:grid-cols-2 gap-4 mt-8">
 
-                {q.options.map((option) => (
+                {q.options.map((option) => {
 
-                  <div
-                    key={option}
-                    className={`border rounded-2xl p-4 ${
-                      option === q.answer
-                        ? "bg-green-500/20 border-green-500/30 text-green-300"
-                        : "bg-white/5 border-white/10"
-                    }`}
-                  >
+                  const selected =
+                    selectedAnswers[index];
 
-                    {option}
+                  const isCorrect =
+                    option === q.answer;
 
-                  </div>
+                  const isSelected =
+                    selected === option;
 
-                ))}
+                  return (
 
-              </div>
+                    <button
+                      key={option}
+                      onClick={() =>
+                        handleSelect(index, option)
+                      }
+                      className={`border rounded-2xl p-4 text-left transition-all duration-300 ${
+                        isSelected && isCorrect
+                          ? "bg-green-500/20 border-green-500/30 text-green-300"
+                          : isSelected && !isCorrect
+                          ? "bg-red-500/20 border-red-500/30 text-red-300"
+                          : "bg-white/5 border-white/10 hover:border-orange-500/40"
+                      }`}
+                    >
 
-              <div className="mt-6 text-orange-300 font-semibold">
+                      {option}
 
-                Correct Answer:
-                {" "}
-                {q.answer}
+                    </button>
+
+                  );
+
+                })}
 
               </div>
 
