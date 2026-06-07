@@ -144,16 +144,19 @@ export default function Page() {
       {/* Hero */}
       <section className="relative px-6 pt-28 pb-20 overflow-hidden">
 
+        {/* Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/10 blur-[140px] rounded-full"></div>
 
         <div className="relative max-w-5xl mx-auto text-center">
 
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-5 py-2 text-orange-200 text-sm mb-8">
 
             🔥 SSC CGL Tier 1 PYQs
 
           </div>
 
+          {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
 
             SSC CGL 2025
@@ -163,6 +166,7 @@ export default function Page() {
 
           </h1>
 
+          {/* Description */}
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl mx-auto mt-8">
 
             Practice SSC CGL questions
@@ -173,6 +177,7 @@ export default function Page() {
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-5 mt-12">
 
+            {/* Score */}
             <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-4">
 
               <p className="text-sm text-orange-200/70">
@@ -191,6 +196,7 @@ export default function Page() {
 
             </div>
 
+            {/* Attempted */}
             <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl px-8 py-4">
 
               <p className="text-sm text-blue-200/70">
@@ -207,6 +213,7 @@ export default function Page() {
 
             </div>
 
+            {/* Accuracy */}
             <div className="bg-green-500/10 border border-green-500/20 rounded-2xl px-8 py-4">
 
               <p className="text-sm text-green-200/70">
@@ -224,6 +231,7 @@ export default function Page() {
 
             </div>
 
+            {/* Timer */}
             <div className="bg-red-500/10 border border-red-500/20 rounded-2xl px-8 py-4">
 
               <p className="text-sm text-red-200/70">
@@ -306,91 +314,169 @@ export default function Page() {
       {/* Questions */}
       <section className="px-6 pb-28">
 
-        <div className="max-w-5xl mx-auto space-y-8">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_280px] gap-8">
 
-          {questions.map((q, index) => (
+          {/* Questions */}
+          <div className="space-y-8">
 
-            <div
-              key={index}
-              className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
-            >
+            {questions.map((q, index) => (
 
-              <h2 className="text-2xl font-bold leading-relaxed">
+              <div
+                key={index}
+                id={`question-${index}`}
+                className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+              >
 
-                Q{index + 1}.
-                {" "}
-                {q.question}
+                {/* Question */}
+                <h2 className="text-2xl font-bold leading-relaxed">
 
-              </h2>
+                  Q{index + 1}.
+                  {" "}
+                  {q.question}
 
-              <div className="grid md:grid-cols-2 gap-4 mt-8">
+                </h2>
 
-                {q.options.map((option) => {
+                {/* Options */}
+                <div className="grid md:grid-cols-2 gap-4 mt-8">
 
-                  const selected =
-                    selectedAnswers[index];
+                  {q.options.map((option) => {
 
-                  const isCorrect =
-                    option === q.answer;
+                    const selected =
+                      selectedAnswers[index];
 
-                  const isSelected =
-                    selected === option;
+                    const isCorrect =
+                      option === q.answer;
 
-                  return (
+                    const isSelected =
+                      selected === option;
 
-                    <button
-                      key={option}
-                      onClick={() =>
-                        handleSelect(index, option)
-                      }
-                      className={`border rounded-2xl p-4 text-left transition-all duration-300 ${
-                        isSelected && isCorrect
-                          ? "bg-green-500/20 border-green-500/30 text-green-300"
-                          : isSelected && !isCorrect
-                          ? "bg-red-500/20 border-red-500/30 text-red-300"
-                          : "bg-white/5 border-white/10 hover:border-orange-500/40"
-                      }`}
-                    >
+                    return (
 
-                      {option}
+                      <button
+                        key={option}
+                        onClick={() =>
+                          handleSelect(index, option)
+                        }
+                        className={`border rounded-2xl p-4 text-left transition-all duration-300 ${
+                          isSelected && isCorrect
+                            ? "bg-green-500/20 border-green-500/30 text-green-300"
+                            : isSelected && !isCorrect
+                            ? "bg-red-500/20 border-red-500/30 text-red-300"
+                            : "bg-white/5 border-white/10 hover:border-orange-500/40"
+                        }`}
+                      >
 
-                    </button>
+                        {option}
 
-                  );
+                      </button>
 
-                })}
+                    );
 
-              </div>
-
-              {selectedAnswers[index] && (
-
-                <div className="mt-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
-
-                  <h3 className="text-orange-300 font-bold text-lg">
-
-                    Explanation
-
-                  </h3>
-
-                  <p className="text-white/70 mt-3 leading-relaxed">
-
-                    {q.explanation}
-
-                  </p>
+                  })}
 
                 </div>
 
-              )}
+                {/* Explanation */}
+                {selectedAnswers[index] && (
+
+                  <div className="mt-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
+
+                    <h3 className="text-orange-300 font-bold text-lg">
+
+                      Explanation
+
+                    </h3>
+
+                    <p className="text-white/70 mt-3 leading-relaxed">
+
+                      {q.explanation}
+
+                    </p>
+
+                  </div>
+
+                )}
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* Question Palette */}
+          <div className="sticky top-28 h-fit bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-6">
+
+            <h3 className="text-2xl font-bold mb-6">
+
+              Question Palette
+
+            </h3>
+
+            <div className="grid grid-cols-5 gap-3">
+
+              {questions.map((_, index) => {
+
+                const attempted =
+                  selectedAnswers[index];
+
+                return (
+
+                  <button
+                    key={index}
+                    onClick={() => {
+
+                      const element =
+                        document.getElementById(
+                          `question-${index}`
+                        );
+
+                      element?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+
+                    }}
+                    className={`h-12 rounded-xl font-bold transition ${
+                      attempted
+                        ? "bg-green-500/20 border border-green-500/30 text-green-300"
+                        : "bg-white/5 border border-white/10 text-white/60"
+                    }`}
+                  >
+
+                    {index + 1}
+
+                  </button>
+
+                );
+
+              })}
 
             </div>
 
-          ))}
+            <div className="mt-8 space-y-3 text-sm">
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-4 h-4 rounded bg-green-500/30"></div>
+
+                Attempted
+
+              </div>
+
+              <div className="flex items-center gap-3">
+
+                <div className="w-4 h-4 rounded bg-white/10"></div>
+
+                Unattempted
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
       </section>
-
-      
 
     </main>
 
