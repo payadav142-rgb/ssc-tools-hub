@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
@@ -61,6 +64,29 @@ export default function Page() {
   const [selectedAnswers, setSelectedAnswers] =
     useState<{ [key: number]: string }>({});
 
+  const [timeLeft, setTimeLeft] =
+    useState(300);
+
+  useEffect(() => {
+
+    if (timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+
+      setTimeLeft((prev) => prev - 1);
+
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+  }, [timeLeft]);
+
+  const minutes =
+    Math.floor(timeLeft / 60);
+
+  const seconds =
+    timeLeft % 60;
+
   const handleSelect = (
     questionIndex: number,
     option: string
@@ -78,6 +104,16 @@ export default function Page() {
       (q, index) =>
         selectedAnswers[index] === q.answer
     ).length;
+
+  const attempted =
+    Object.keys(selectedAnswers).length;
+
+  const accuracy =
+    attempted > 0
+      ? Math.round(
+          (score / attempted) * 100
+        )
+      : 0;
 
   return (
 
@@ -113,19 +149,90 @@ export default function Page() {
           {/* Description */}
           <p className="text-white/60 text-xl leading-relaxed max-w-3xl mx-auto mt-8">
 
-            Practice memory based SSC CGL previous year questions
-            with answers, explanations and score tracking.
+            Practice SSC CGL memory based questions
+            with explanations, timer and score tracking.
 
           </p>
 
-          {/* Score */}
-          <div className="mt-10 inline-flex bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-4 text-2xl font-bold text-orange-300">
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-5 mt-12">
 
-            Score:
-            {" "}
-            {score}
-            /
-            {questions.length}
+            {/* Score */}
+            <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-4">
+
+              <p className="text-sm text-orange-200/70">
+
+                Score
+
+              </p>
+
+              <h3 className="text-3xl font-bold text-orange-300">
+
+                {score}
+                /
+                {questions.length}
+
+              </h3>
+
+            </div>
+
+            {/* Attempted */}
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl px-8 py-4">
+
+              <p className="text-sm text-blue-200/70">
+
+                Attempted
+
+              </p>
+
+              <h3 className="text-3xl font-bold text-blue-300">
+
+                {attempted}
+
+              </h3>
+
+            </div>
+
+            {/* Accuracy */}
+            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl px-8 py-4">
+
+              <p className="text-sm text-green-200/70">
+
+                Accuracy
+
+              </p>
+
+              <h3 className="text-3xl font-bold text-green-300">
+
+                {accuracy}
+                %
+
+              </h3>
+
+            </div>
+
+            {/* Timer */}
+            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl px-8 py-4">
+
+              <p className="text-sm text-red-200/70">
+
+                Timer
+
+              </p>
+
+              <h3 className="text-3xl font-bold text-red-300">
+
+                ⏳
+                {" "}
+                {minutes}
+                :
+                {seconds < 10
+                  ? `0${seconds}`
+                  : seconds}
+
+              </h3>
+
+            </div>
 
           </div>
 
