@@ -1,7 +1,6 @@
 "use client";
 
 import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import ToolContainer from "../../components/ToolContainer";
 
 export default function SSCCGLSalaryPage() {
@@ -90,8 +89,6 @@ export default function SSCCGLSalaryPage() {
         </div>
 
       </section>
-
-      <Footer />
 
     </ToolContainer>
 
