@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SSC MTS Salary 2026 — In Hand Salary & Pay Level",
+  title: "SSC MTS Cutoff 2026 — Expected & Previous Year Cutoff",
   description:
-    "Check SSC MTS salary, pay level, allowances and job profile details.",
+    "Check SSC MTS expected cutoff and previous year trends.",
 };
 
 export default function Page() {
@@ -12,11 +12,11 @@ export default function Page() {
       <div className="max-w-5xl mx-auto">
 
         <h1 className="text-5xl font-bold">
-          SSC MTS Salary 2026
+          SSC MTS Cutoff 2026
         </h1>
 
         <p className="text-white/60 mt-6 text-lg">
-          Complete SSC MTS salary structure and allowances.
+          Expected SSC MTS cutoff and previous year analysis.
         </p>
 
       </div>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SSC MTS Salary 2026 — In Hand Salary & Pay Level",
+  title: "Best SSC MTS Books 2026 — Subject Wise Book List",
   description:
-    "Check SSC MTS salary, pay level, allowances and job profile details.",
+    "Check the best SSC MTS books for Maths, Reasoning, English and GK.",
 };
 
 export default function Page() {
@@ -12,11 +12,11 @@ export default function Page() {
       <div className="max-w-5xl mx-auto">
 
         <h1 className="text-5xl font-bold">
-          SSC MTS Salary 2026
+          Best SSC MTS Books 2026
         </h1>
 
         <p className="text-white/60 mt-6 text-lg">
-          Complete SSC MTS salary structure and allowances.
+          Recommended SSC MTS books for preparation.
         </p>
 
       </div>
