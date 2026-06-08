@@ -9,79 +9,112 @@ import ToolContainer from "../../components/ToolContainer";
 import { tools } from "../../data/tools";
 
 export default function ToolsPage() {
+  const [search, setSearch] = useState("");
 
-  const [search, setSearch] =
-    useState("");
+  const [selectedCategory, setSelectedCategory] =
+    useState("All");
 
-  const [
-    selectedCategory,
-    setSelectedCategory,
-  ] = useState("All");
+  const filteredTools = tools.filter((tool) => {
+    const matchesSearch = tool.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
-  const filteredTools =
-    tools.filter((tool) => {
+    const matchesCategory =
+      selectedCategory === "All"
+        ? true
+        : tool.category === selectedCategory;
 
-      const matchesSearch =
-        tool.title
-          .toLowerCase()
-          .includes(
-            search.toLowerCase()
-          );
-
-      const matchesCategory =
-        selectedCategory === "All"
-          ? true
-          : tool.category ===
-            selectedCategory;
-
-      return (
-        matchesSearch &&
-        matchesCategory
-      );
-
-    });
+    return matchesSearch && matchesCategory;
+  });
 
   return (
-
     <ToolContainer>
 
       <Navbar />
 
       <section className="px-4 md:px-6 py-20">
 
-        {/* Heading */}
-        <div className="text-center">
+        {/* Hero */}
+        <div className="text-center max-w-4xl mx-auto">
 
-          <h1 className="text-4xl md:text-6xl font-bold">
-            SSC Tools
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+
+            Smart <span className="text-orange-400">SSC Tools</span>
+
           </h1>
 
-          <p className="text-white/60 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Free smart tools for SSC preparation, performance tracking,
-            planning, quizzes, analytics, and productivity.
+          <p className="text-white/50 mt-6 text-lg leading-relaxed">
+
+            Free SSC calculators, productivity systems,
+            quizzes, rank predictors and preparation tools
+            designed for serious SSC aspirants.
+
           </p>
 
         </div>
 
+        {/* Stats */}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 mt-16">
+
+          {[
+            {
+              title: "20+",
+              desc: "Free Tools",
+            },
+            {
+              title: "100%",
+              desc: "Free Access",
+            },
+            {
+              title: "Daily",
+              desc: "Updated",
+            },
+            {
+              title: "SSC",
+              desc: "Focused",
+            },
+          ].map((item, index) => (
+
+            <div
+              key={index}
+              className="bg-[#111827]/80 border border-orange-500/10 rounded-[28px] p-6 text-center"
+            >
+
+              <h2 className="text-4xl font-bold text-orange-400">
+
+                {item.title}
+
+              </h2>
+
+              <p className="text-white/60 mt-2">
+
+                {item.desc}
+
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
         {/* Search */}
-        <div className="max-w-3xl mx-auto mt-12">
+        <div className="max-w-3xl mx-auto mt-14">
 
           <input
             type="text"
             value={search}
             onChange={(e) =>
-              setSearch(
-                e.target.value
-              )
+              setSearch(e.target.value)
             }
-            placeholder="Search tools..."
-            className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-6 py-5 outline-none text-lg"
+            placeholder="Search SSC tools..."
+            className="w-full bg-[#111827]/80 border border-orange-500/10 rounded-3xl px-6 py-5 outline-none text-lg focus:border-orange-500/40 transition"
           />
 
         </div>
 
         {/* Categories */}
-        <div className="flex flex-wrap gap-4 mt-8 justify-center">
+        <div className="flex flex-wrap gap-4 mt-10 justify-center">
 
           {[
             "All",
@@ -96,15 +129,12 @@ export default function ToolsPage() {
             <button
               key={category}
               onClick={() =>
-                setSelectedCategory(
-                  category
-                )
+                setSelectedCategory(category)
               }
-              className={`px-5 py-3 rounded-2xl border transition ${
-                selectedCategory ===
-                category
-                  ? "bg-white text-black border-white"
-                  : "bg-white/[0.04] text-white border-white/10"
+              className={`px-5 py-3 rounded-2xl border transition-all duration-300 ${
+                selectedCategory === category
+                  ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white border-orange-500"
+                  : "bg-[#111827]/80 text-white border-orange-500/10 hover:border-orange-500/40"
               }`}
             >
 
@@ -119,39 +149,51 @@ export default function ToolsPage() {
         {/* Tools Grid */}
         <div className="max-w-7xl mx-auto mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {filteredTools.map(
-            (tool) => (
+          {filteredTools.map((tool) => (
 
-              <a
-                key={tool.title}
-                href={tool.link}
-                className="bg-white/[0.04] border border-white/10 rounded-[32px] p-8 hover:border-white/20 hover:scale-[1.02] transition duration-300 block"
-              >
+            <a
+              key={tool.title}
+              href={tool.link}
+              className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 block shadow-[0_0_50px_rgba(249,115,22,0.05)]"
+            >
 
-                <h2 className="text-3xl font-bold leading-snug">
-                  {tool.title}
-                </h2>
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/10 flex items-center justify-center text-3xl mb-6">
 
-                <p className="text-white/60 mt-5 leading-relaxed">
-                  {tool.description}
+                🛠️
+
+              </div>
+
+              <h2 className="text-3xl font-bold leading-snug group-hover:text-orange-300 transition">
+
+                {tool.title}
+
+              </h2>
+
+              <p className="text-white/60 mt-5 leading-relaxed">
+
+                {tool.description}
+
+              </p>
+
+              <div className="mt-8 flex items-center justify-between">
+
+                <p className="text-sm text-white/40">
+
+                  {tool.category}
+
                 </p>
 
-                <div className="mt-6 flex items-center justify-between">
+                <span className="text-orange-400 text-xl">
 
-                  <p className="text-sm text-white/40">
-                    {tool.category}
-                  </p>
+                  →
 
-                  <span className="text-white/40 text-xl">
-                    →
-                  </span>
+                </span>
 
-                </div>
+              </div>
 
-              </a>
+            </a>
 
-            )
-          )}
+          ))}
 
         </div>
 
@@ -160,12 +202,16 @@ export default function ToolsPage() {
 
           <div className="text-center mt-20">
 
-            <h2 className="text-3xl font-bold">
+            <h2 className="text-4xl font-bold">
+
               No Tools Found
+
             </h2>
 
             <p className="text-white/50 mt-4">
-              Try searching with another keyword.
+
+              Try another keyword or category.
+
             </p>
 
           </div>
@@ -177,7 +223,5 @@ export default function ToolsPage() {
       <Footer />
 
     </ToolContainer>
-
   );
-
 }
