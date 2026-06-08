@@ -1,5 +1,4 @@
 import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import ToolContainer from "../../components/ToolContainer";
 
 export default function ResourcesPage() {
@@ -327,7 +326,7 @@ export default function ResourcesPage() {
 
       </section>
 
-      <Footer />
+    
 
     </ToolContainer>
 
