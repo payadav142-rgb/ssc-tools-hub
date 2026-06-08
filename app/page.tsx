@@ -1,10 +1,8 @@
 import Link from "next/link";
 
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import FeaturedTools from "../components/FeaturedTools";
-import Footer from "../components/Footer";
 import LatestUpdates from "../components/LatestUpdates";
 import AdBanner from "../components/AdBanner";
 
@@ -18,8 +16,6 @@ export default function Home() {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full"></div>
 
       <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full"></div>
-
-      <Navbar />
 
       {/* Hero */}
       <Hero />
@@ -260,7 +256,10 @@ export default function Home() {
 
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
 
-            SSC Tools Hub — <span className="text-orange-400">Smart SSC Preparation Platform</span>
+            SSC Tools Hub —
+            <span className="text-orange-400">
+              {" "}Smart SSC Preparation Platform
+            </span>
 
           </h2>
 
@@ -325,8 +324,6 @@ export default function Home() {
         </div>
 
       </section>
-
-      <Footer />
 
     </main>
 
