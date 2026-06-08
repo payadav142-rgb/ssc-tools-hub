@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import Navbar from "../components/Navbar";
-
 import Hero from "../components/Hero";
 import Categories from "../components/Categories";
 import FeaturedTools from "../components/FeaturedTools";
@@ -9,9 +8,7 @@ import LatestUpdates from "../components/LatestUpdates";
 import AdBanner from "../components/AdBanner";
 
 export default function Home() {
-
   return (
-
     <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden">
 
       {/* Glow Effects */}
@@ -25,55 +22,6 @@ export default function Home() {
       {/* Hero */}
       <Hero />
 
-      {/* Stats Section */}
-      <section className="px-4 md:px-6 py-24 relative z-10">
-
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-
-          {[
-            {
-              title: "20+",
-              desc: "Smart SSC Tools",
-            },
-            {
-              title: "100%",
-              desc: "Free Platform",
-            },
-            {
-              title: "AI",
-              desc: "Smart Analytics",
-            },
-            {
-              title: "Daily",
-              desc: "SSC Productivity",
-            },
-          ].map((item, index) => (
-
-            <div
-              key={index}
-              className="bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 text-center hover:border-orange-500/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_40px_rgba(249,115,22,0.08)]"
-            >
-
-              <h2 className="text-5xl font-extrabold bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
-
-                {item.title}
-
-              </h2>
-
-              <p className="text-white/60 mt-4 text-lg">
-
-                {item.desc}
-
-              </p>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
       {/* Categories */}
       <Categories />
 
@@ -82,13 +30,9 @@ export default function Home() {
 
       {/* Ad Banner */}
       <section className="px-6 pb-20">
-
         <div className="max-w-7xl mx-auto">
-
           <AdBanner />
-
         </div>
-
       </section>
 
       {/* Latest Blogs */}
@@ -101,15 +45,11 @@ export default function Home() {
             <div>
 
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight">
-
                 Latest <span className="text-orange-400">SSC Blogs</span>
-
               </h2>
 
               <p className="text-white/50 mt-5 text-lg">
-
                 Latest guides and SSC preparation articles.
-
               </p>
 
             </div>
@@ -118,9 +58,7 @@ export default function Home() {
               href="/blog"
               className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/20"
             >
-
               View All
-
             </Link>
 
           </div>
@@ -149,27 +87,20 @@ export default function Home() {
                 link: "/ssc-chsl-notification",
               },
             ].map((blog, index) => (
-
               <Link
                 key={index}
                 href={blog.link}
                 className="bg-[#111827]/70 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-1 transition-all duration-300 shadow-[0_0_40px_rgba(249,115,22,0.06)]"
               >
-
                 <h3 className="text-2xl font-bold leading-tight">
-
                   {blog.title}
-
                 </h3>
 
-                <p className="text-white/60 mt-5 leading-7 text-lg">
-
+                <p className="text-white/60 mt-5 leading-7">
                   {blog.desc}
-
                 </p>
 
               </Link>
-
             ))}
 
           </div>
@@ -181,154 +112,25 @@ export default function Home() {
       {/* Latest Updates */}
       <LatestUpdates />
 
-      {/* Trending Tools */}
-      <section className="px-4 md:px-6 py-24 relative z-10">
-
-        <div className="max-w-7xl mx-auto">
-
-          <div className="text-center">
-
-            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-
-              Trending <span className="text-orange-400">SSC Tools</span>
-
-            </h2>
-
-            <p className="text-white/50 mt-6 text-lg max-w-2xl mx-auto leading-relaxed">
-
-              Most used SSC preparation tools by students across India.
-
-            </p>
-
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-20">
-
-            {[
-              {
-                tag: "Analytics",
-                title: "SSC Rank Predictor",
-                desc: "Predict your SSC rank instantly using smart score analysis.",
-                link: "/tools/rank-predictor",
-              },
-              {
-                tag: "Productivity",
-                title: "Daily Study Tracker",
-                desc: "Track your SSC preparation consistency daily.",
-                link: "/tools/study-tracker",
-              },
-              {
-                tag: "Quizzes",
-                title: "SSC Quiz Challenge",
-                desc: "Practice SSC MCQs and improve your score instantly.",
-                link: "/tools/quiz-challenge",
-              },
-            ].map((tool, index) => (
-
-              <Link
-                key={index}
-                href={tool.link}
-                className="group bg-[#111827]/70 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 block shadow-[0_0_50px_rgba(249,115,22,0.05)]"
-              >
-
-                <p className="text-sm text-orange-300 font-medium">
-
-                  {tool.tag}
-
-                </p>
-
-                <h3 className="text-3xl font-bold mt-5 group-hover:text-orange-300 transition">
-
-                  {tool.title}
-
-                </h3>
-
-                <p className="text-white/60 mt-5 leading-relaxed text-lg">
-
-                  {tool.desc}
-
-                </p>
-
-              </Link>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SEO Section */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-7xl mx-auto bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14 shadow-[0_0_50px_rgba(249,115,22,0.06)]">
-
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-
-            SSC Tools Hub —
-            <span className="text-orange-400">
-              {" "}Smart SSC Preparation Platform
-            </span>
-
-          </h2>
-
-          <p className="text-white/70 leading-8 text-lg mt-8">
-
-            SSC Tools Hub is a modern platform designed for SSC aspirants.
-            Access smart calculators, rank predictors, study planners,
-            PYQs, revision tools, productivity systems and AI-powered SSC resources.
-
-          </p>
-
-          <p className="text-white/70 leading-8 text-lg mt-6">
-
-            Whether you are preparing for SSC CGL, CHSL, MTS or GD,
-            SSC Tools Hub helps students stay productive, organized
-            and exam-ready with modern preparation tools.
-
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* Bottom Ad */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-7xl mx-auto">
-
-          <AdBanner />
-
-        </div>
-
-      </section>
-
       {/* CTA */}
       <section className="px-4 md:px-6 pb-28">
 
         <div className="max-w-5xl mx-auto bg-gradient-to-r from-orange-500/20 to-amber-400/10 border border-orange-500/20 rounded-[40px] p-10 md:p-16 text-center backdrop-blur-xl shadow-[0_0_80px_rgba(249,115,22,0.12)]">
 
           <h2 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-
             Start Your SSC Preparation Journey Today
-
           </h2>
 
           <p className="text-white/60 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
-
             Access smart SSC tools, analytics, planners, quizzes,
             revision systems and productivity features completely free.
-
           </p>
 
           <Link
             href="/tools"
             className="inline-block mt-10 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 px-10 py-5 rounded-2xl text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-xl shadow-orange-500/20"
           >
-
             Explore Tools
-
           </Link>
 
         </div>
@@ -336,7 +138,5 @@ export default function Home() {
       </section>
 
     </main>
-
   );
-
 }
