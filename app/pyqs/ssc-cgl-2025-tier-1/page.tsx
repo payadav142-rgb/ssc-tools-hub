@@ -1,69 +1,17 @@
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "../../../components/Navbar";
 
+import {
+  sscCgl2025Questions,
+} from "../../../data/pyqs/ssc-cgl-2025";
+
 export default function Page() {
 
-  const questions = [
-
-    {
-      question:
-        "What is the square root of 144?",
-
-      options:
-        ["10", "11", "12", "13"],
-
-      answer:
-        "12",
-
-      explanation:
-        "12 × 12 = 144, therefore square root of 144 is 12.",
-    },
-
-    {
-      question:
-        "Who is known as the Father of the Indian Constitution?",
-
-      options:
-        [
-          "Mahatma Gandhi",
-          "B. R. Ambedkar",
-          "Jawaharlal Nehru",
-          "Sardar Patel",
-        ],
-
-      answer:
-        "B. R. Ambedkar",
-
-      explanation:
-        "Dr. B. R. Ambedkar was the chairman of the Drafting Committee of the Indian Constitution.",
-    },
-
-    {
-      question:
-        "Simplify: 25 × 4",
-
-      options:
-        ["50", "75", "100", "125"],
-
-      answer:
-        "100",
-
-      explanation:
-        "25 multiplied by 4 equals 100.",
-    },
-
-  ];
-
   const [selectedAnswers, setSelectedAnswers] =
-    useState<{ [key: number]: string }>(
-      {}
-    );
+    useState<{ [key: number]: string }>({});
 
   const [timeLeft, setTimeLeft] =
     useState(300);
@@ -135,8 +83,11 @@ export default function Page() {
 
   /* Score */
   const score =
-    questions.filter(
-      (q, index) =>
+    sscCgl2025Questions.filter(
+      (
+        q: any,
+        index: number
+      ) =>
         selectedAnswers[index] === q.answer
     ).length;
 
@@ -222,7 +173,7 @@ export default function Page() {
 
                 {score}
                 /
-                {questions.length}
+                {sscCgl2025Questions.length}
 
               </h3>
 
@@ -329,7 +280,7 @@ export default function Page() {
 
                   {score}
                   /
-                  {questions.length}
+                  {sscCgl2025Questions.length}
 
                 </span>
 
@@ -357,87 +308,101 @@ export default function Page() {
           {/* Questions */}
           <div className="space-y-8">
 
-            {questions.map((q, index) => (
+            {sscCgl2025Questions.map(
+              (
+                q: any,
+                index: number
+              ) => (
 
-              <div
-                key={index}
-                id={`question-${index}`}
-                className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
-              >
+                <div
+                  key={q.id}
+                  id={`question-${index}`}
+                  className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+                >
 
-                {/* Question */}
-                <h2 className="text-2xl font-bold leading-relaxed">
+                  {/* Question */}
+                  <h2 className="text-2xl font-bold leading-relaxed">
 
-                  Q{index + 1}.
-                  {" "}
-                  {q.question}
+                    Q{index + 1}.
+                    {" "}
+                    {q.question}
 
-                </h2>
+                  </h2>
 
-                {/* Options */}
-                <div className="grid md:grid-cols-2 gap-4 mt-8">
+                  {/* Options */}
+                  <div className="grid md:grid-cols-2 gap-4 mt-8">
 
-                  {q.options.map((option) => {
+                    {q.options.map(
+                      (
+                        option: string
+                      ) => {
 
-                    const selected =
-                      selectedAnswers[index];
+                        const selected =
+                          selectedAnswers[index];
 
-                    const isCorrect =
-                      option === q.answer;
+                        const isCorrect =
+                          option === q.answer;
 
-                    const isSelected =
-                      selected === option;
+                        const isSelected =
+                          selected === option;
 
-                    return (
+                        return (
 
-                      <button
-                        key={option}
-                        onClick={() =>
-                          handleSelect(index, option)
-                        }
-                        className={`border rounded-2xl p-4 text-left transition-all duration-300 ${
-                          isSelected && isCorrect
-                            ? "bg-green-500/20 border-green-500/30 text-green-300"
-                            : isSelected && !isCorrect
-                            ? "bg-red-500/20 border-red-500/30 text-red-300"
-                            : "bg-white/5 border-white/10 hover:border-orange-500/40"
-                        }`}
-                      >
+                          <button
+                            key={option}
+                            onClick={() =>
+                              handleSelect(
+                                index,
+                                option
+                              )
+                            }
+                            className={`border rounded-2xl p-4 text-left transition-all duration-300 ${
+                              isSelected &&
+                              isCorrect
+                                ? "bg-green-500/20 border-green-500/30 text-green-300"
+                                : isSelected &&
+                                  !isCorrect
+                                ? "bg-red-500/20 border-red-500/30 text-red-300"
+                                : "bg-white/5 border-white/10 hover:border-orange-500/40"
+                            }`}
+                          >
 
-                        {option}
+                            {option}
 
-                      </button>
+                          </button>
 
-                    );
+                        );
 
-                  })}
-
-                </div>
-
-                {/* Explanation */}
-                {selectedAnswers[index] && (
-
-                  <div className="mt-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
-
-                    <h3 className="text-orange-300 font-bold text-lg">
-
-                      Explanation
-
-                    </h3>
-
-                    <p className="text-white/70 mt-3 leading-relaxed">
-
-                      {q.explanation}
-
-                    </p>
+                      }
+                    )}
 
                   </div>
 
-                )}
+                  {/* Explanation */}
+                  {selectedAnswers[index] && (
 
-              </div>
+                    <div className="mt-6 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
 
-            ))}
+                      <h3 className="text-orange-300 font-bold text-lg">
+
+                        Explanation
+
+                      </h3>
+
+                      <p className="text-white/70 mt-3 leading-relaxed">
+
+                        {q.explanation}
+
+                      </p>
+
+                    </div>
+
+                  )}
+
+                </div>
+
+              )
+            )}
 
           </div>
 
@@ -452,41 +417,46 @@ export default function Page() {
 
             <div className="grid grid-cols-5 gap-3">
 
-              {questions.map((_, index) => {
+              {sscCgl2025Questions.map(
+                (
+                  _: any,
+                  index: number
+                ) => {
 
-                const attempted =
-                  selectedAnswers[index];
+                  const attempted =
+                    selectedAnswers[index];
 
-                return (
+                  return (
 
-                  <button
-                    key={index}
-                    onClick={() => {
+                    <button
+                      key={index}
+                      onClick={() => {
 
-                      const element =
-                        document.getElementById(
-                          `question-${index}`
-                        );
+                        const element =
+                          document.getElementById(
+                            `question-${index}`
+                          );
 
-                      element?.scrollIntoView({
-                        behavior: "smooth",
-                      });
+                        element?.scrollIntoView({
+                          behavior: "smooth",
+                        });
 
-                    }}
-                    className={`h-12 rounded-xl font-bold transition ${
-                      attempted
-                        ? "bg-green-500/20 border border-green-500/30 text-green-300"
-                        : "bg-white/5 border border-white/10 text-white/60"
-                    }`}
-                  >
+                      }}
+                      className={`h-12 rounded-xl font-bold transition ${
+                        attempted
+                          ? "bg-green-500/20 border border-green-500/30 text-green-300"
+                          : "bg-white/5 border border-white/10 text-white/60"
+                      }`}
+                    >
 
-                    {index + 1}
+                      {index + 1}
 
-                  </button>
+                    </button>
 
-                );
+                  );
 
-              })}
+                }
+              )}
 
             </div>
 
