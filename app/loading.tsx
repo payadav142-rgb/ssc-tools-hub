@@ -1,22 +1,25 @@
-export default function Loading() {
+import Hero from "../components/Hero";
+import Categories from "../components/Categories";
+import FeaturedTools from "../components/FeaturedTools";
+import LatestUpdates from "../components/LatestUpdates";
+
+export default function Home() {
 
   return (
 
-    <main className="min-h-screen bg-black text-white flex items-center justify-center">
+    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden">
 
-      <div className="text-center">
+      {/* Hero Section */}
+      <Hero />
 
-        <div className="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto">
+      {/* Categories */}
+      <Categories />
 
-        </div>
+      {/* Featured Tools */}
+      <FeaturedTools />
 
-        <p className="mt-6 text-white/60 text-lg">
-
-          Loading...
-
-        </p>
-
-      </div>
+      {/* Latest Updates */}
+      <LatestUpdates />
 
     </main>
 
