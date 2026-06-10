@@ -1,5 +1,9 @@
+"use client";
+
 import type { Metadata } from "next";
+
 import Link from "next/link";
+import { useMemo, useState } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -59,8 +63,47 @@ const blogs = [
   },
 ];
 
+const categories = [
+  "All",
+  "Notification",
+  "Salary",
+  "Books",
+];
+
 export default function BlogPage() {
+
+  const [search, setSearch] =
+    useState("");
+
+  const [selectedCategory, setSelectedCategory] =
+    useState("All");
+
+  const filteredBlogs =
+    useMemo(() => {
+
+      return blogs.filter((blog) => {
+
+        const matchesSearch =
+          blog.title
+            .toLowerCase()
+            .includes(search.toLowerCase());
+
+        const matchesCategory =
+          selectedCategory === "All"
+            ? true
+            : blog.tag === selectedCategory;
+
+        return (
+          matchesSearch &&
+          matchesCategory
+        );
+
+      });
+
+    }, [search, selectedCategory]);
+
   return (
+
     <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
       {/* Glow Effects */}
@@ -75,7 +118,13 @@ export default function BlogPage() {
           {/* Hero */}
           <div className="text-center max-w-4xl mx-auto">
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+            <p className="text-orange-300 font-medium tracking-[0.25em] uppercase">
+
+              SSC Resources
+
+            </p>
+
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-tight">
 
               SSC <span className="text-orange-400">Blog</span>
 
@@ -91,22 +140,36 @@ export default function BlogPage() {
 
           </div>
 
-          {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
+          {/* Search */}
+          <div className="max-w-3xl mx-auto mt-14">
 
-            {[
-              "SSC CGL",
-              "SSC CHSL",
-              "SSC MTS",
-              "SSC GD",
-              "Salary",
-              "Books",
-              "Cutoff",
-            ].map((item) => (
+            <input
+              type="text"
+              value={search}
+              onChange={(e) =>
+                setSearch(e.target.value)
+              }
+              placeholder="Search SSC articles..."
+              className="w-full bg-[#111827]/80 border border-orange-500/10 focus:border-orange-500/40 rounded-3xl px-6 py-5 outline-none text-lg backdrop-blur-xl"
+            />
+
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+
+            {categories.map((item) => (
 
               <button
                 key={item}
-                className="px-5 py-3 rounded-2xl bg-[#111827]/80 border border-orange-500/10 hover:border-orange-500/40 transition"
+                onClick={() =>
+                  setSelectedCategory(item)
+                }
+                className={`px-5 py-3 rounded-2xl border transition-all duration-300 ${
+                  selectedCategory === item
+                    ? "bg-gradient-to-r from-orange-500 to-orange-600 border-orange-500 text-white"
+                    : "bg-[#111827]/80 border-orange-500/10 hover:border-orange-500/40 text-white/70 hover:text-white"
+                }`}
               >
 
                 {item}
@@ -122,7 +185,7 @@ export default function BlogPage() {
 
             <Link
               href="/ssc-cgl-notification"
-              className="group block bg-gradient-to-br from-orange-500/15 to-amber-400/5 border border-orange-500/20 rounded-[40px] p-10 md:p-14 hover:border-orange-500/40 transition-all duration-300"
+              className="group block bg-gradient-to-br from-orange-500/15 to-amber-400/5 border border-orange-500/20 rounded-[40px] p-10 md:p-14 hover:border-orange-500/40 transition-all duration-300 shadow-[0_0_80px_rgba(249,115,22,0.08)]"
             >
 
               <p className="text-orange-300 font-medium">
@@ -155,10 +218,41 @@ export default function BlogPage() {
 
           </div>
 
-          {/* Blog Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+          {/* Trending */}
+          <div className="mt-24">
 
-            {blogs.map((blog) => (
+            <div className="flex items-center justify-between flex-wrap gap-5">
+
+              <div>
+
+                <h2 className="text-4xl md:text-5xl font-bold">
+
+                  Trending <span className="text-orange-400">Articles</span>
+
+                </h2>
+
+                <p className="text-white/50 mt-4 text-lg">
+
+                  Most searched SSC topics right now.
+
+                </p>
+
+              </div>
+
+              <div className="text-white/40 text-sm">
+
+                {filteredBlogs.length} Articles Found
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Blog Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+            {filteredBlogs.map((blog) => (
 
               <Link
                 key={blog.href}
@@ -166,13 +260,23 @@ export default function BlogPage() {
                 className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 shadow-[0_0_50px_rgba(249,115,22,0.05)]"
               >
 
-                <p className="text-sm text-orange-300 font-medium">
+                <div className="flex items-center justify-between">
 
-                  {blog.tag}
+                  <p className="text-sm text-orange-300 font-medium">
 
-                </p>
+                    {blog.tag}
 
-                <h2 className="text-3xl font-bold mt-5 leading-snug group-hover:text-orange-300 transition">
+                  </p>
+
+                  <div className="w-10 h-10 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-300">
+
+                    📘
+
+                  </div>
+
+                </div>
+
+                <h2 className="text-3xl font-bold mt-6 leading-snug group-hover:text-orange-300 transition">
 
                   {blog.title}
 
@@ -206,10 +310,31 @@ export default function BlogPage() {
 
           </div>
 
+          {/* Empty State */}
+          {filteredBlogs.length === 0 && (
+
+            <div className="text-center mt-20">
+
+              <h2 className="text-4xl font-bold">
+
+                No Articles Found
+
+              </h2>
+
+              <p className="text-white/50 mt-5 text-lg">
+
+                Try searching with another keyword.
+
+              </p>
+
+            </div>
+
+          )}
+
           {/* SEO Content */}
           <section className="mt-28">
 
-            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
+            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14 shadow-[0_0_60px_rgba(249,115,22,0.05)]">
 
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
 
@@ -246,5 +371,7 @@ export default function BlogPage() {
       </div>
 
     </main>
+
   );
+
 }

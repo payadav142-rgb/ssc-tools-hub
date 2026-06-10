@@ -65,6 +65,228 @@ Candidates should analyze previous year cutoff trends to understand safe scores 
   },
 
   {
+  slug: "ssc-cgl-eligibility",
+
+  title:
+    "SSC CGL Eligibility 2026",
+
+  description:
+    "Check SSC CGL eligibility criteria, age limit, qualification and nationality details.",
+
+  content:
+    `
+SSC CGL eligibility criteria includes educational qualification, age limit and nationality requirements.
+
+Candidates must complete graduation from a recognized university to apply for SSC CGL examination.
+
+The age limit varies according to post and category. Most posts fall between 18 to 32 years.
+
+Age relaxation is provided for SC, ST, OBC and other reserved categories according to government rules.
+
+Candidates should carefully read official notification before applying online.
+`,
+},
+
+{
+  slug: "ssc-cgl-vacancy",
+
+  title:
+    "SSC CGL Vacancy 2026",
+
+  description:
+    "Expected SSC CGL vacancy 2026 with post-wise vacancy details.",
+
+  content:
+    `
+SSC CGL vacancy depends on department requirements and yearly recruitment needs.
+
+Lakhs of candidates apply every year for SSC CGL vacancies across India.
+
+Popular departments include:
+
+• Income Tax
+• CBI
+• GST
+• Ministry Departments
+• Central Secretariat
+
+Candidates should check category-wise and post-wise vacancies before filling preferences.
+`,
+},
+
+{
+  slug: "ssc-cgl-admit-card",
+
+  title:
+    "SSC CGL Admit Card 2026",
+
+  description:
+    "Download SSC CGL admit card and check exam city details.",
+
+  content:
+    `
+SSC CGL admit card is released region-wise before examination.
+
+Candidates can download admit card using registration number and password.
+
+Important details available on admit card:
+
+• Exam Date
+• Exam City
+• Shift Timing
+• Reporting Time
+• Candidate Details
+
+Carry valid ID proof along with admit card on examination day.
+`,
+},
+
+{
+  slug: "ssc-cgl-preparation-strategy",
+
+  title:
+    "SSC CGL Preparation Strategy 2026",
+
+  description:
+    "Best SSC CGL preparation strategy for beginners and repeaters.",
+
+  content:
+    `
+SSC CGL preparation requires consistency, mock tests and smart revision.
+
+Students should focus on:
+
+• Daily practice
+• PYQ solving
+• Mock analysis
+• Time management
+• Revision strategy
+
+Attempting sectional quizzes daily improves speed and accuracy significantly.
+`,
+},
+
+{
+  slug: "ssc-chsl-notification",
+
+  title:
+    "SSC CHSL Notification 2026",
+
+  description:
+    "Check SSC CHSL notification, exam date, eligibility and vacancies.",
+
+  content:
+    `
+SSC CHSL notification contains details regarding vacancies, eligibility and exam dates.
+
+Candidates can apply online after official notification release.
+
+SSC CHSL recruits candidates for:
+
+• LDC
+• JSA
+• DEO
+
+Students should regularly check SSC official website for latest updates.
+`,
+},
+
+{
+  slug: "ssc-chsl-cutoff",
+
+  title:
+    "SSC CHSL Cutoff 2026",
+
+  description:
+    "Expected SSC CHSL cutoff and previous year analysis.",
+
+  content:
+    `
+SSC CHSL cutoff changes every year based on paper difficulty and vacancies.
+
+General category cutoff is usually higher due to competition level.
+
+Candidates should analyze previous year cutoff trends for better preparation strategy.
+`,
+},
+
+{
+  slug: "ssc-mts-notification",
+
+  title:
+    "SSC MTS Notification 2026",
+
+  description:
+    "SSC MTS notification, eligibility and exam pattern details.",
+
+  content:
+    `
+SSC MTS notification provides information regarding vacancies, syllabus and exam dates.
+
+Candidates who passed class 10th are eligible for SSC MTS examination.
+
+SSC MTS is one of the most popular SSC exams among students.
+`,
+},
+
+{
+  slug: "ssc-mts-salary",
+
+  title:
+    "SSC MTS Salary 2026",
+
+  description:
+    "SSC MTS salary structure, pay level and allowances.",
+
+  content:
+    `
+SSC MTS salary includes basic pay, HRA, DA and travel allowance.
+
+The approximate in-hand salary ranges between ₹22,000 to ₹30,000 depending on city.
+
+SSC MTS employees receive multiple government benefits and job security.
+`,
+},
+
+{
+  slug: "ssc-gd-notification",
+
+  title:
+    "SSC GD Notification 2026",
+
+  description:
+    "SSC GD Constable notification, vacancy and exam details.",
+
+  content:
+    `
+SSC GD notification is released for recruitment in CAPFs and armed forces.
+
+Candidates must check physical eligibility standards before applying.
+
+SSC GD examination includes CBT, PET/PST and medical examination stages.
+`,
+},
+
+{
+  slug: "ssc-gd-cutoff",
+
+  title:
+    "SSC GD Cutoff 2026",
+
+  description:
+    "Expected SSC GD cutoff and previous year trends.",
+
+  content:
+    `
+SSC GD cutoff depends on vacancies, category and paper difficulty.
+
+Candidates preparing for SSC GD should regularly solve mock tests and previous year papers.
+
+Cutoff analysis helps students understand competition level and safe score targets.
+`,
+},
+
+  {
     slug: "ssc-cgl-books",
 
     title:
