@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import Navbar from "../../components/Navbar";
-import ToolContainer from "../../components/ToolContainer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 
@@ -9,15 +8,7 @@ export const metadata: Metadata = {
     "SSC CGL Syllabus 2026 — Tier 1 & Tier 2 Complete Syllabus",
 
   description:
-    "Check complete SSC CGL syllabus 2026 for Tier 1 and Tier 2 including Quantitative Aptitude, English, Reasoning and General Awareness.",
-
-  keywords: [
-    "SSC CGL Syllabus 2026",
-    "SSC CGL Tier 1 Syllabus",
-    "SSC CGL Tier 2 Syllabus",
-    "SSC CGL Exam Pattern",
-    "SSC CGL Preparation",
-  ],
+    "Check complete SSC CGL syllabus 2026 for Tier 1 and Tier 2 exam preparation with subject-wise topics.",
 
 };
 
@@ -25,312 +16,195 @@ export default function Page() {
 
   return (
 
-    <ToolContainer>
+    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-      <Navbar />
+      {/* Glow */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
+      <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+      <section className="relative z-10 px-6 py-20">
 
-        <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="max-w-5xl mx-auto">
 
-        <section className="relative z-10 px-6 py-20">
+          {/* Hero */}
+          <div>
 
-          <div className="max-w-5xl mx-auto">
+            <p className="text-orange-300 font-medium">
 
-            {/* Hero */}
-            <div className="text-center">
+              SSC CGL 2026
 
-              <p className="text-orange-300 font-medium">
+            </p>
 
-                SSC CGL 2026
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
 
-              </p>
+              SSC CGL Syllabus 2026
 
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
+            </h1>
 
-                SSC CGL <span className="text-orange-400">Syllabus 2026</span>
+            <p className="text-white/60 text-xl leading-9 mt-8 max-w-4xl">
 
-              </h1>
+              Complete SSC CGL Tier 1 and Tier 2 syllabus
+              with subject-wise topics, preparation strategy
+              and latest exam pattern.
 
-              <p className="text-white/60 text-lg leading-8 mt-8 max-w-3xl mx-auto">
+            </p>
 
-                Check complete SSC CGL syllabus for Tier 1 and Tier 2 exams
-                including Quantitative Aptitude, English Language,
-                General Awareness and Reasoning topics.
+          </div>
 
-              </p>
+          {/* Tier Sections */}
+          <div className="space-y-10 mt-20">
 
-            </div>
+            {[
+              {
+                title: "General Intelligence & Reasoning",
+                topics:
+                  "Analogy, Coding-Decoding, Blood Relation, Series, Classification, Puzzle and Logical Reasoning.",
+              },
 
-            {/* Overview */}
-            <div className="mt-20 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
+              {
+                title: "Quantitative Aptitude",
+                topics:
+                  "Percentage, Ratio, Algebra, Geometry, Trigonometry, Profit & Loss, SI-CI and Data Interpretation.",
+              },
 
-              <h2 className="text-4xl font-bold">
+              {
+                title: "English Language",
+                topics:
+                  "Grammar, Vocabulary, Error Detection, Synonyms, Antonyms, Cloze Test and Comprehension.",
+              },
 
-                SSC CGL Syllabus Overview
+              {
+                title: "General Awareness",
+                topics:
+                  "History, Geography, Polity, Economy, Science, Current Affairs and Static GK.",
+              },
 
-              </h2>
+            ].map((item) => (
 
-              <p className="text-white/70 leading-8 text-lg mt-8">
+              <div
+                key={item.title}
+                className="bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-8 md:p-10"
+              >
 
-                SSC Combined Graduate Level (CGL) examination is conducted
-                every year by Staff Selection Commission for recruitment
-                to various Group B and Group C posts.
+                <h2 className="text-3xl md:text-4xl font-bold">
 
-              </p>
+                  {item.title}
 
-              <p className="text-white/70 leading-8 text-lg mt-6">
+                </h2>
 
-                Candidates preparing for SSC CGL 2026 should understand
-                the latest syllabus and exam pattern carefully to build
-                an effective preparation strategy.
+                <p className="text-white/65 text-lg leading-8 mt-6">
 
-              </p>
+                  {item.topics}
 
-            </div>
-
-            {/* Tier 1 */}
-            <div className="mt-24">
-
-              <h2 className="text-4xl md:text-5xl font-bold">
-
-                SSC CGL Tier 1 Syllabus
-
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8 mt-12">
-
-                {[
-                  {
-                    title: "General Intelligence & Reasoning",
-                    topics: [
-                      "Analogy",
-                      "Coding-Decoding",
-                      "Blood Relations",
-                      "Direction Test",
-                      "Puzzle",
-                      "Number Series",
-                    ],
-                  },
-
-                  {
-                    title: "Quantitative Aptitude",
-                    topics: [
-                      "Percentage",
-                      "Profit & Loss",
-                      "Time & Work",
-                      "Algebra",
-                      "Geometry",
-                      "Trigonometry",
-                    ],
-                  },
-
-                  {
-                    title: "English Language",
-                    topics: [
-                      "Reading Comprehension",
-                      "Vocabulary",
-                      "Synonyms",
-                      "Antonyms",
-                      "Idioms & Phrases",
-                      "Grammar",
-                    ],
-                  },
-
-                  {
-                    title: "General Awareness",
-                    topics: [
-                      "History",
-                      "Geography",
-                      "Polity",
-                      "Economics",
-                      "Science",
-                      "Current Affairs",
-                    ],
-                  },
-
-                ].map((item, index) => (
-
-                  <div
-                    key={index}
-                    className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
-                  >
-
-                    <h3 className="text-2xl font-bold text-orange-300">
-
-                      {item.title}
-
-                    </h3>
-
-                    <ul className="mt-6 space-y-4 text-white/70">
-
-                      {item.topics.map((topic, i) => (
-
-                        <li key={i}>
-
-                          • {topic}
-
-                        </li>
-
-                      ))}
-
-                    </ul>
-
-                  </div>
-
-                ))}
+                </p>
 
               </div>
 
+            ))}
+
+          </div>
+
+          {/* Tier 2 */}
+          <div className="mt-24 bg-[#111827]/70 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
+
+            <h2 className="text-4xl font-bold">
+
+              SSC CGL Tier 2 Syllabus
+
+            </h2>
+
+            <p className="text-white/70 text-lg leading-9 mt-8">
+
+              SSC CGL Tier 2 examination includes advanced level Quantitative Aptitude, English Language, Computer Knowledge and Data Entry Speed Test.
+
+            </p>
+
+            <p className="text-white/70 text-lg leading-9 mt-8">
+
+              Candidates should focus on mock tests, previous year questions and revision strategy for better performance in Tier 2 examination.
+
+            </p>
+
+          </div>
+
+          {/* Preparation Tips */}
+          <div className="mt-24">
+
+            <h2 className="text-4xl font-bold">
+
+              SSC CGL Preparation Tips
+
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 mt-10">
+
+              {[
+                "Practice previous year questions daily.",
+                "Focus on mock tests and revision.",
+                "Improve speed and accuracy regularly.",
+                "Create a proper study timetable.",
+              ].map((tip) => (
+
+                <div
+                  key={tip}
+                  className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-lg leading-8">
+
+                    {tip}
+
+                  </p>
+
+                </div>
+
+              ))}
+
             </div>
 
-            {/* Tier 2 */}
-            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
+          </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold">
+          {/* FAQ */}
+          <div className="mt-24">
 
-                SSC CGL Tier 2 Syllabus
+            <h2 className="text-4xl font-bold">
 
-              </h2>
+              Frequently Asked Questions
 
-              <p className="text-white/70 text-lg leading-8 mt-8">
+            </h2>
 
-                SSC CGL Tier 2 examination contains multiple papers including
-                Mathematical Abilities, English Language,
-                Reasoning, Computer Knowledge and Data Entry Speed Test.
+            <div className="space-y-6 mt-10">
 
-              </p>
+              <div className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6">
 
-              <div className="grid md:grid-cols-2 gap-8 mt-12">
+                <h3 className="text-2xl font-semibold">
 
-                <div className="bg-black/20 border border-orange-500/10 rounded-3xl p-8">
+                  Is SSC CGL syllabus difficult?
 
-                  <h3 className="text-2xl font-bold">
+                </h3>
 
-                    Mathematical Abilities
+                <p className="text-white/60 mt-4 leading-8">
 
-                  </h3>
+                  SSC CGL syllabus is moderate and requires regular practice and revision.
 
-                  <p className="text-white/60 leading-8 mt-5">
-
-                    Algebra, Geometry, Mensuration,
-                    Statistics, Trigonometry,
-                    Number System and Arithmetic.
-
-                  </p>
-
-                </div>
-
-                <div className="bg-black/20 border border-orange-500/10 rounded-3xl p-8">
-
-                  <h3 className="text-2xl font-bold">
-
-                    English Language
-
-                  </h3>
-
-                  <p className="text-white/60 leading-8 mt-5">
-
-                    Vocabulary, Grammar,
-                    Reading Comprehension,
-                    Sentence Correction
-                    and Writing Ability.
-
-                  </p>
-
-                </div>
+                </p>
 
               </div>
 
-            </div>
+              <div className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6">
 
-            {/* Preparation Tips */}
-            <div className="mt-24">
+                <h3 className="text-2xl font-semibold">
 
-              <h2 className="text-4xl font-bold">
+                  Does SSC CGL syllabus change every year?
 
-                SSC CGL Preparation Tips
+                </h3>
 
-              </h2>
+                <p className="text-white/60 mt-4 leading-8">
 
-              <div className="space-y-6 mt-10">
+                  Major syllabus changes are rare but candidates should always check latest official notification.
 
-                {[
-                  "Solve previous year question papers regularly.",
-                  "Practice mock tests for speed and accuracy.",
-                  "Focus on revision and short notes.",
-                  "Improve current affairs preparation daily.",
-                  "Maintain consistency and proper time management.",
-                ].map((tip, index) => (
-
-                  <div
-                    key={index}
-                    className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6"
-                  >
-
-                    <p className="text-white/70 text-lg">
-
-                      ✅ {tip}
-
-                    </p>
-
-                  </div>
-
-                ))}
-
-              </div>
-
-            </div>
-
-            {/* FAQ */}
-            <div className="mt-24">
-
-              <h2 className="text-4xl font-bold">
-
-                Frequently Asked Questions
-
-              </h2>
-
-              <div className="space-y-6 mt-10">
-
-                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
-
-                  <h3 className="text-2xl font-semibold">
-
-                    Is SSC CGL syllabus difficult?
-
-                  </h3>
-
-                  <p className="text-white/60 leading-8 mt-4">
-
-                    SSC CGL syllabus is moderate in difficulty.
-                    Consistent practice and revision can help candidates
-                    score well in the examination.
-
-                  </p>
-
-                </div>
-
-                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
-
-                  <h3 className="text-2xl font-semibold">
-
-                    Does SSC CGL syllabus change every year?
-
-                  </h3>
-
-                  <p className="text-white/60 leading-8 mt-4">
-
-                    Major syllabus topics usually remain similar,
-                    but candidates should always check the latest
-                    official SSC notification.
-
-                  </p>
-
-                </div>
+                </p>
 
               </div>
 
@@ -338,11 +212,56 @@ export default function Page() {
 
           </div>
 
-        </section>
+          {/* Internal Links */}
+          <div className="grid md:grid-cols-3 gap-8 mt-24">
 
-      </main>
+            {[
+              {
+                title: "SSC CGL Salary",
+                link: "/ssc-cgl-salary",
+              },
 
-    </ToolContainer>
+              {
+                title: "SSC CGL Cutoff",
+                link: "/ssc-cgl-cutoff",
+              },
+
+              {
+                title: "SSC CGL Exam Pattern",
+                link: "/ssc-cgl-exam-pattern",
+              },
+
+            ].map((item) => (
+
+              <Link
+                key={item.title}
+                href={item.link}
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+
+                  {item.title}
+
+                </h3>
+
+                <p className="text-white/50 mt-4">
+
+                  Read More →
+
+                </p>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
 
   );
 
