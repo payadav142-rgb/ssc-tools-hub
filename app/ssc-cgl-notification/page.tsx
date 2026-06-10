@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-import Navbar from "../../components/Navbar";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 
   title:
-    "SSC CGL Notification 2026 — Official PDF, Vacancy & Apply Online",
+    "SSC CGL Notification 2026 — Apply Online, Vacancy & Exam Date",
 
   description:
-    "Download SSC CGL 2026 official notification PDF. Check vacancy, eligibility, important dates, exam pattern and apply online details.",
+    "Check SSC CGL notification 2026 including vacancy, eligibility, exam date, syllabus and apply online details.",
 
 };
 
@@ -16,274 +16,297 @@ export default function Page() {
 
   return (
 
-    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden">
+    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-      <Navbar />
+      {/* Glow */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-      {/* Hero */}
-      <section className="relative px-6 pt-28 pb-20 overflow-hidden">
+      <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        {/* Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+      <section className="relative z-10 px-6 py-20">
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-5 py-2 text-orange-200 text-sm mb-8">
+          {/* Hero */}
+          <div>
 
-            🔥 Official SSC Notification Released
+            <p className="text-orange-300 font-medium">
 
-          </div>
+              SSC Recruitment 2026
 
-          {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight max-w-5xl">
+            </p>
 
-            SSC CGL Notification
-            <span className="text-orange-400">
-              {" "}2026
-            </span>
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
 
-          </h1>
+              SSC CGL Notification 2026
 
-          {/* Description */}
-          <p className="text-white/60 text-xl leading-relaxed max-w-3xl mt-8">
+            </h1>
 
-            Download official SSC CGL 2026 notification PDF,
-            check vacancies, eligibility, important dates,
-            exam pattern and online application details.
+            <p className="text-white/60 text-xl leading-9 mt-8 max-w-4xl">
 
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-5 mt-10">
-
-            <a
-              href="https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_cgl_2026.pdf"
-              target="_blank"
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/20"
-            >
-
-              Download PDF
-
-            </a>
-
-            <a
-              href="https://ssc.gov.in/"
-              target="_blank"
-              className="border border-orange-500/20 bg-orange-500/10 hover:bg-orange-500/20 px-8 py-4 rounded-2xl font-semibold transition"
-            >
-
-              Official Website
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* Important Dates */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-6xl mx-auto">
-
-          <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-10">
-
-            <h2 className="text-4xl font-bold mb-10">
-
-              Important Dates 📅
-
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-
-              <div className="bg-orange-500/10 border border-orange-500/10 rounded-3xl p-6">
-
-                <p className="text-white/50">
-                  Notification Release
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
-                  Released
-                </h3>
-
-              </div>
-
-              <div className="bg-orange-500/10 border border-orange-500/10 rounded-3xl p-6">
-
-                <p className="text-white/50">
-                  Application Start
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
-                  Active Now
-                </h3>
-
-              </div>
-
-              <div className="bg-orange-500/10 border border-orange-500/10 rounded-3xl p-6">
-
-                <p className="text-white/50">
-                  Tier 1 Exam
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
-                  As Per SSC Schedule
-                </h3>
-
-              </div>
-
-              <div className="bg-orange-500/10 border border-orange-500/10 rounded-3xl p-6">
-
-                <p className="text-white/50">
-                  Official Notification PDF
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
-                  Available
-                </h3>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* Vacancy + Eligibility */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-
-          {/* Vacancy */}
-          <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-10">
-
-            <div className="text-5xl mb-6">
-              🏢
-            </div>
-
-            <h2 className="text-4xl font-bold">
-
-              SSC CGL Vacancy
-
-            </h2>
-
-            <p className="text-white/60 leading-8 mt-6 text-lg">
-
-              SSC CGL 2026 recruitment includes multiple Group B and Group C posts across various government departments and ministries.
+              Check SSC CGL 2026 notification,
+              eligibility, vacancy, exam date,
+              syllabus, age limit and apply online process.
 
             </p>
 
           </div>
 
-          {/* Eligibility */}
-          <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-10">
+          {/* Quick Info */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20">
 
-            <div className="text-5xl mb-6">
-              🎓
-            </div>
+            {[
+              {
+                title: "Graduate Level",
+                desc: "Eligibility",
+              },
+              {
+                title: "Tier 1 & 2",
+                desc: "Exam Stages",
+              },
+              {
+                title: "Govt Job",
+                desc: "Central Government Posts",
+              },
+            ].map((item, index) => (
+
+              <div
+                key={index}
+                className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+              >
+
+                <h2 className="text-3xl font-bold text-orange-300">
+
+                  {item.title}
+
+                </h2>
+
+                <p className="text-white/60 mt-4 text-lg">
+
+                  {item.desc}
+
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* Main Content */}
+          <div className="mt-24 bg-[#111827]/70 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
 
             <h2 className="text-4xl font-bold">
 
-              Eligibility Criteria
+              SSC CGL 2026 Overview
 
             </h2>
 
-            <p className="text-white/60 leading-8 mt-6 text-lg">
+            <p className="text-white/70 text-lg leading-9 mt-8">
 
-              Candidates must possess a graduation degree from a recognized university. Age limit varies according to posts.
+              SSC Combined Graduate Level Examination is one of the most popular government exams conducted for recruitment in various ministries and departments of the Government of India.
 
             </p>
 
+            <p className="text-white/70 text-lg leading-9 mt-8">
+
+              Through SSC CGL examination, candidates are recruited for posts like Income Tax Inspector, GST Inspector, Assistant Section Officer, CBI Sub Inspector and Auditor.
+
+            </p>
+
+            {/* Eligibility */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              SSC CGL Eligibility
+
+            </h2>
+
+            <div className="space-y-6 mt-10">
+
+              {[
+                "Candidates must have graduation degree from recognized university.",
+                "Minimum age is generally 18 years.",
+                "Maximum age depends on post and category.",
+                "Age relaxation is provided for reserved categories.",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-lg leading-8">
+
+                    {item}
+
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* Selection Process */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              SSC CGL Selection Process
+
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6 mt-10">
+
+              {[
+                "Tier 1 Examination",
+                "Tier 2 Examination",
+                "Document Verification",
+                "Final Merit List",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-xl font-medium">
+
+                    {item}
+
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* Important Posts */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              Popular SSC CGL Posts
+
+            </h2>
+
+            <div className="space-y-6 mt-10">
+
+              {[
+                "Income Tax Inspector",
+                "GST Inspector",
+                "CBI Sub Inspector",
+                "Assistant Section Officer",
+                "Auditor",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-xl font-medium">
+
+                    {item}
+
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* FAQ */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              Frequently Asked Questions
+
+            </h2>
+
+            <div className="space-y-6 mt-10">
+
+              <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+
+                <h3 className="text-2xl font-semibold">
+
+                  Who can apply for SSC CGL?
+
+                </h3>
+
+                <p className="text-white/60 mt-4 leading-8">
+
+                  Candidates having graduation degree from recognized university can apply for SSC CGL examination.
+
+                </p>
+
+              </div>
+
+              <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+
+                <h3 className="text-2xl font-semibold">
+
+                  Is SSC CGL a good career option?
+
+                </h3>
+
+                <p className="text-white/60 mt-4 leading-8">
+
+                  Yes, SSC CGL offers excellent salary, job security, promotion opportunities and government benefits.
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Internal Links */}
+          <div className="grid md:grid-cols-3 gap-8 mt-24">
+
+            {[
+              {
+                title: "SSC CGL Salary",
+                link: "/ssc-cgl-salary",
+              },
+
+              {
+                title: "SSC CGL Syllabus",
+                link: "/ssc-cgl-syllabus",
+              },
+
+              {
+                title: "SSC CGL Exam Pattern",
+                link: "/ssc-cgl-exam-pattern",
+              },
+
+            ].map((item) => (
+
+              <Link
+                key={item.title}
+                href={item.link}
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+
+                  {item.title}
+
+                </h3>
+
+                <p className="text-white/50 mt-4">
+
+                  Read More →
+
+                </p>
+
+              </Link>
+
+            ))}
+
           </div>
 
         </div>
 
       </section>
-
-      {/* Exam Pattern */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-6xl mx-auto bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-10">
-
-          <h2 className="text-4xl font-bold mb-8">
-
-            SSC CGL Exam Pattern 📝
-
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-6">
-
-            <div className="bg-orange-500/10 rounded-3xl p-6 border border-orange-500/10">
-
-              <h3 className="text-2xl font-bold">
-                Quant
-              </h3>
-
-            </div>
-
-            <div className="bg-orange-500/10 rounded-3xl p-6 border border-orange-500/10">
-
-              <h3 className="text-2xl font-bold">
-                Reasoning
-              </h3>
-
-            </div>
-
-            <div className="bg-orange-500/10 rounded-3xl p-6 border border-orange-500/10">
-
-              <h3 className="text-2xl font-bold">
-                English
-              </h3>
-
-            </div>
-
-            <div className="bg-orange-500/10 rounded-3xl p-6 border border-orange-500/10">
-
-              <h3 className="text-2xl font-bold">
-                GK
-              </h3>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SEO Content */}
-      <section className="px-6 pb-28">
-
-        <div className="max-w-6xl mx-auto bg-[#111827]/80 border border-orange-500/10 rounded-[36px] p-10">
-
-          <h2 className="text-4xl font-bold mb-8">
-
-            SSC CGL 2026 Notification Details
-
-          </h2>
-
-          <p className="text-white/65 leading-9 text-lg">
-
-            Staff Selection Commission has officially released SSC CGL 2026 notification for recruitment of candidates into multiple government departments. Candidates can now check official eligibility criteria, application process, exam pattern, syllabus and vacancy details.
-
-          </p>
-
-          <p className="text-white/65 leading-9 text-lg mt-6">
-
-            SSC CGL is one of the most popular government exams in India for graduate students. Lakhs of aspirants apply every year for posts such as Income Tax Inspector, Assistant Section Officer, Examiner, Auditor and many more.
-
-          </p>
-
-        </div>
-
-      </section>
-
-    
 
     </main>
 
