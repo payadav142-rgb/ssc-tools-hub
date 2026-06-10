@@ -9,6 +9,9 @@ export const blogs = [
     description:
       "Complete SSC CGL salary structure, in-hand salary, allowances and job benefits.",
 
+    category:
+      "Salary",
+
     content:
       `
 SSC CGL salary is one of the biggest reasons why lakhs of students prepare for this exam every year.
@@ -48,8 +51,17 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Expected and previous year SSC CGL cutoff analysis.",
 
+    category:
+      "Cutoff",
+
     content:
-      "SSC CGL cutoff depends on vacancies, paper difficulty and competition level.",
+      `
+SSC CGL cutoff depends on vacancies, paper difficulty and competition level.
+
+The cutoff changes every year based on candidate performance and available vacancies.
+
+Candidates should analyze previous year cutoff trends to understand safe scores and preparation strategy.
+`,
   },
 
   {
@@ -61,8 +73,17 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Top recommended books for SSC CGL preparation.",
 
+    category:
+      "Books",
+
     content:
-      "Choosing the right SSC CGL books can improve preparation strategy and score.",
+      `
+Choosing the right SSC CGL books can improve preparation strategy and score.
+
+Candidates should focus on standard books for Quantitative Aptitude, English, Reasoning and General Awareness.
+
+Regular mock tests and PYQs should also be included in preparation.
+`,
   },
 
   {
@@ -74,8 +95,17 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Complete SSC CGL syllabus for Tier 1 and Tier 2 exams.",
 
+    category:
+      "Syllabus",
+
     content:
-      "SSC CGL syllabus includes Quantitative Aptitude, Reasoning, English and General Awareness. Candidates should prepare according to latest syllabus.",
+      `
+SSC CGL syllabus includes Quantitative Aptitude, Reasoning, English and General Awareness.
+
+Candidates should prepare according to latest syllabus and exam pattern.
+
+Revision and mock practice are important for scoring high marks.
+`,
   },
 
   {
@@ -87,8 +117,17 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Detailed SSC CGL exam pattern with marking scheme and tiers.",
 
+    category:
+      "Exam Pattern",
+
     content:
-      "SSC CGL exam consists of Tier 1 and Tier 2 examinations. Understanding exam pattern is important for preparation strategy.",
+      `
+SSC CGL exam consists of Tier 1 and Tier 2 examinations.
+
+Tier 1 contains objective questions while Tier 2 includes multiple papers depending on post preference.
+
+Understanding exam pattern is important for preparation strategy.
+`,
   },
 
   {
@@ -100,8 +139,15 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Complete SSC CHSL syllabus and preparation guide.",
 
+    category:
+      "Syllabus",
+
     content:
-      "SSC CHSL syllabus includes English, Reasoning, Quantitative Aptitude and General Awareness subjects.",
+      `
+SSC CHSL syllabus includes English, Reasoning, Quantitative Aptitude and General Awareness subjects.
+
+Candidates should focus on speed, accuracy and regular revision.
+`,
   },
 
   {
@@ -113,8 +159,15 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Latest SSC MTS syllabus and subject-wise topics.",
 
+    category:
+      "Syllabus",
+
     content:
-      "SSC MTS exam tests reasoning ability, numerical aptitude, general awareness and English language skills.",
+      `
+SSC MTS exam tests reasoning ability, numerical aptitude, general awareness and English language skills.
+
+Candidates should practice mock tests regularly for better performance.
+`,
   },
 
   {
@@ -126,8 +179,15 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Complete SSC GD Constable syllabus and exam pattern.",
 
+    category:
+      "Syllabus",
+
     content:
-      "SSC GD syllabus covers reasoning, GK, mathematics and language sections for constable recruitment exams.",
+      `
+SSC GD syllabus covers reasoning, GK, mathematics and language sections for constable recruitment exams.
+
+Physical fitness preparation is also important along with written preparation.
+`,
   },
 
 ];
