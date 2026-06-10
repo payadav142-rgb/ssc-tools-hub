@@ -1,87 +1,18 @@
 import type { Metadata } from "next";
+
 import Link from "next/link";
 
+import { blogs } from "../../data/blogs";
+
 export const metadata: Metadata = {
+
   title:
     "SSC Blog — Latest SSC Updates, Salary, Syllabus & Preparation",
 
   description:
     "Read latest SSC blogs including SSC CGL, CHSL, MTS and GD updates, syllabus, salary and preparation guides.",
+
 };
-
-const blogs = [
-  {
-    title: "SSC CGL Notification 2026",
-    description:
-      "Complete SSC CGL notification, vacancy, eligibility and exam details.",
-    href: "/blog/ssc-cgl-notification",
-    tag: "Notification",
-  },
-
-  {
-    title: "SSC CGL Salary 2026",
-    description:
-      "Check SSC CGL salary, allowances and promotion details.",
-    href: "/blog/ssc-cgl-salary",
-    tag: "Salary",
-  },
-
-  {
-    title: "SSC CHSL Salary 2026",
-    description:
-      "Complete SSC CHSL salary structure with in-hand pay details.",
-    href: "/blog/ssc-chsl-salary",
-    tag: "Salary",
-  },
-
-  {
-    title: "SSC MTS Salary 2026",
-    description:
-      "SSC MTS salary, pay level and job profile explained.",
-    href: "/blog/ssc-mts-salary",
-    tag: "Salary",
-  },
-
-  {
-    title: "SSC GD Salary 2026",
-    description:
-      "SSC GD salary structure, promotion and allowances.",
-    href: "/blog/ssc-gd-salary",
-    tag: "Salary",
-  },
-
-  {
-    title: "SSC CHSL Books 2026",
-    description:
-      "Best books for SSC CHSL preparation and practice.",
-    href: "/blog/ssc-chsl-books",
-    tag: "Books",
-  },
-
-  {
-    title: "SSC CGL Eligibility 2026",
-    description:
-      "Check SSC CGL eligibility, age limit and qualification details.",
-    href: "/blog/ssc-cgl-eligibility",
-    tag: "Eligibility",
-  },
-
-  {
-    title: "SSC CGL Vacancy 2026",
-    description:
-      "Expected SSC CGL vacancy with post-wise details.",
-    href: "/blog/ssc-cgl-vacancy",
-    tag: "Vacancy",
-  },
-
-  {
-    title: "SSC CHSL Notification 2026",
-    description:
-      "Check SSC CHSL exam date, eligibility and vacancy details.",
-    href: "/blog/ssc-chsl-notification",
-    tag: "Notification",
-  },
-];
 
 export default function BlogPage() {
 
@@ -101,7 +32,7 @@ export default function BlogPage() {
           {/* Hero */}
           <div className="text-center max-w-4xl mx-auto">
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
 
               SSC <span className="text-orange-400">Blog</span>
 
@@ -110,45 +41,18 @@ export default function BlogPage() {
             <p className="text-white/50 text-lg mt-8 leading-relaxed">
 
               Latest SSC updates, preparation guides,
-              syllabus, salary, cutoff, notifications
-              and exam resources for SSC aspirants.
+              salary details, syllabus, cutoff,
+              notifications and exam resources.
 
             </p>
 
           </div>
 
-          {/* Category Chips */}
-          <div className="flex flex-wrap justify-center gap-4 mt-14">
-
-            {[
-              "SSC CGL",
-              "SSC CHSL",
-              "SSC MTS",
-              "SSC GD",
-              "Salary",
-              "Books",
-              "Cutoff",
-              "Eligibility",
-            ].map((item) => (
-
-              <div
-                key={item}
-                className="px-5 py-3 rounded-2xl bg-[#111827]/80 border border-orange-500/10 hover:border-orange-500/40 transition"
-              >
-
-                {item}
-
-              </div>
-
-            ))}
-
-          </div>
-
-          {/* Featured Article */}
+          {/* Featured */}
           <div className="mt-20">
 
             <Link
-              href="/blog/ssc-cgl-notification"
+              href={`/blog/${blogs[0].slug}`}
               className="group block bg-gradient-to-br from-orange-500/15 to-amber-400/5 border border-orange-500/20 rounded-[40px] p-10 md:p-14 hover:border-orange-500/40 transition-all duration-300"
             >
 
@@ -160,15 +64,13 @@ export default function BlogPage() {
 
               <h2 className="text-4xl md:text-5xl font-bold mt-5 leading-tight group-hover:text-orange-300 transition">
 
-                SSC CGL Notification 2026
+                {blogs[0].title}
 
               </h2>
 
               <p className="text-white/60 mt-6 text-lg leading-relaxed max-w-3xl">
 
-                Check SSC CGL 2026 notification,
-                eligibility, exam date, vacancy,
-                syllabus and complete application process.
+                {blogs[0].description}
 
               </p>
 
@@ -188,14 +90,14 @@ export default function BlogPage() {
             {blogs.map((blog) => (
 
               <Link
-                key={blog.href}
-                href={blog.href}
+                key={blog.slug}
+                href={`/blog/${blog.slug}`}
                 className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 shadow-[0_0_50px_rgba(249,115,22,0.05)]"
               >
 
                 <p className="text-sm text-orange-300 font-medium">
 
-                  {blog.tag}
+                  SSC Article
 
                 </p>
 
@@ -232,41 +134,6 @@ export default function BlogPage() {
             ))}
 
           </div>
-
-          {/* SEO Section */}
-          <section className="mt-28">
-
-            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
-
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-
-                SSC Preparation Resources &
-                <span className="text-orange-400">
-                  {" "}Latest Updates
-                </span>
-
-              </h2>
-
-              <p className="text-white/70 text-lg leading-8 mt-8">
-
-                SSC Tools Hub provides latest SSC CGL,
-                CHSL, MTS and GD updates including
-                syllabus, salary, cutoff, preparation strategy,
-                exam pattern and notification details.
-
-              </p>
-
-              <p className="text-white/70 text-lg leading-8 mt-6">
-
-                Our SSC blog section is regularly updated
-                with exam resources and preparation guides
-                for SSC aspirants across India.
-
-              </p>
-
-            </div>
-
-          </section>
 
         </div>
 
