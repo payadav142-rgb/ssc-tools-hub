@@ -9,9 +9,6 @@ export const blogs = [
     description:
       "Complete SSC CGL salary structure, in-hand salary, allowances and job benefits.",
 
-    category:
-      "Salary",
-
     content:
       `
 SSC CGL salary is one of the biggest reasons why lakhs of students prepare for this exam every year.
@@ -51,240 +48,13 @@ Candidates should regularly check the official SSC notification for latest salar
     description:
       "Expected and previous year SSC CGL cutoff analysis.",
 
-    category:
-      "Cutoff",
-
     content:
       `
 SSC CGL cutoff depends on vacancies, paper difficulty and competition level.
 
-The cutoff changes every year based on candidate performance and available vacancies.
-
-Candidates should analyze previous year cutoff trends to understand safe scores and preparation strategy.
+Candidates should analyze previous year cutoff trends to understand safe scores and category-wise competition.
 `,
   },
-
-  {
-  slug: "ssc-cgl-eligibility",
-
-  title:
-    "SSC CGL Eligibility 2026",
-
-  description:
-    "Check SSC CGL eligibility criteria, age limit, qualification and nationality details.",
-
-  content:
-    `
-SSC CGL eligibility criteria includes educational qualification, age limit and nationality requirements.
-
-Candidates must complete graduation from a recognized university to apply for SSC CGL examination.
-
-The age limit varies according to post and category. Most posts fall between 18 to 32 years.
-
-Age relaxation is provided for SC, ST, OBC and other reserved categories according to government rules.
-
-Candidates should carefully read official notification before applying online.
-`,
-},
-
-{
-  slug: "ssc-cgl-vacancy",
-
-  title:
-    "SSC CGL Vacancy 2026",
-
-  description:
-    "Expected SSC CGL vacancy 2026 with post-wise vacancy details.",
-
-  content:
-    `
-SSC CGL vacancy depends on department requirements and yearly recruitment needs.
-
-Lakhs of candidates apply every year for SSC CGL vacancies across India.
-
-Popular departments include:
-
-• Income Tax
-• CBI
-• GST
-• Ministry Departments
-• Central Secretariat
-
-Candidates should check category-wise and post-wise vacancies before filling preferences.
-`,
-},
-
-{
-  slug: "ssc-cgl-admit-card",
-
-  title:
-    "SSC CGL Admit Card 2026",
-
-  description:
-    "Download SSC CGL admit card and check exam city details.",
-
-  content:
-    `
-SSC CGL admit card is released region-wise before examination.
-
-Candidates can download admit card using registration number and password.
-
-Important details available on admit card:
-
-• Exam Date
-• Exam City
-• Shift Timing
-• Reporting Time
-• Candidate Details
-
-Carry valid ID proof along with admit card on examination day.
-`,
-},
-
-{
-  slug: "ssc-cgl-preparation-strategy",
-
-  title:
-    "SSC CGL Preparation Strategy 2026",
-
-  description:
-    "Best SSC CGL preparation strategy for beginners and repeaters.",
-
-  content:
-    `
-SSC CGL preparation requires consistency, mock tests and smart revision.
-
-Students should focus on:
-
-• Daily practice
-• PYQ solving
-• Mock analysis
-• Time management
-• Revision strategy
-
-Attempting sectional quizzes daily improves speed and accuracy significantly.
-`,
-},
-
-{
-  slug: "ssc-chsl-notification",
-
-  title:
-    "SSC CHSL Notification 2026",
-
-  description:
-    "Check SSC CHSL notification, exam date, eligibility and vacancies.",
-
-  content:
-    `
-SSC CHSL notification contains details regarding vacancies, eligibility and exam dates.
-
-Candidates can apply online after official notification release.
-
-SSC CHSL recruits candidates for:
-
-• LDC
-• JSA
-• DEO
-
-Students should regularly check SSC official website for latest updates.
-`,
-},
-
-{
-  slug: "ssc-chsl-cutoff",
-
-  title:
-    "SSC CHSL Cutoff 2026",
-
-  description:
-    "Expected SSC CHSL cutoff and previous year analysis.",
-
-  content:
-    `
-SSC CHSL cutoff changes every year based on paper difficulty and vacancies.
-
-General category cutoff is usually higher due to competition level.
-
-Candidates should analyze previous year cutoff trends for better preparation strategy.
-`,
-},
-
-{
-  slug: "ssc-mts-notification",
-
-  title:
-    "SSC MTS Notification 2026",
-
-  description:
-    "SSC MTS notification, eligibility and exam pattern details.",
-
-  content:
-    `
-SSC MTS notification provides information regarding vacancies, syllabus and exam dates.
-
-Candidates who passed class 10th are eligible for SSC MTS examination.
-
-SSC MTS is one of the most popular SSC exams among students.
-`,
-},
-
-{
-  slug: "ssc-mts-salary",
-
-  title:
-    "SSC MTS Salary 2026",
-
-  description:
-    "SSC MTS salary structure, pay level and allowances.",
-
-  content:
-    `
-SSC MTS salary includes basic pay, HRA, DA and travel allowance.
-
-The approximate in-hand salary ranges between ₹22,000 to ₹30,000 depending on city.
-
-SSC MTS employees receive multiple government benefits and job security.
-`,
-},
-
-{
-  slug: "ssc-gd-notification",
-
-  title:
-    "SSC GD Notification 2026",
-
-  description:
-    "SSC GD Constable notification, vacancy and exam details.",
-
-  content:
-    `
-SSC GD notification is released for recruitment in CAPFs and armed forces.
-
-Candidates must check physical eligibility standards before applying.
-
-SSC GD examination includes CBT, PET/PST and medical examination stages.
-`,
-},
-
-{
-  slug: "ssc-gd-cutoff",
-
-  title:
-    "SSC GD Cutoff 2026",
-
-  description:
-    "Expected SSC GD cutoff and previous year trends.",
-
-  content:
-    `
-SSC GD cutoff depends on vacancies, category and paper difficulty.
-
-Candidates preparing for SSC GD should regularly solve mock tests and previous year papers.
-
-Cutoff analysis helps students understand competition level and safe score targets.
-`,
-},
 
   {
     slug: "ssc-cgl-books",
@@ -295,16 +65,11 @@ Cutoff analysis helps students understand competition level and safe score targe
     description:
       "Top recommended books for SSC CGL preparation.",
 
-    category:
-      "Books",
-
     content:
       `
 Choosing the right SSC CGL books can improve preparation strategy and score.
 
-Candidates should focus on standard books for Quantitative Aptitude, English, Reasoning and General Awareness.
-
-Regular mock tests and PYQs should also be included in preparation.
+Candidates should practice quantitative aptitude, reasoning, English and general awareness daily using trusted books.
 `,
   },
 
@@ -317,16 +82,11 @@ Regular mock tests and PYQs should also be included in preparation.
     description:
       "Complete SSC CGL syllabus for Tier 1 and Tier 2 exams.",
 
-    category:
-      "Syllabus",
-
     content:
       `
 SSC CGL syllabus includes Quantitative Aptitude, Reasoning, English and General Awareness.
 
-Candidates should prepare according to latest syllabus and exam pattern.
-
-Revision and mock practice are important for scoring high marks.
+Candidates should prepare according to latest Tier 1 and Tier 2 syllabus topics.
 `,
   },
 
@@ -337,18 +97,22 @@ Revision and mock practice are important for scoring high marks.
       "SSC CGL Exam Pattern 2026",
 
     description:
-      "Detailed SSC CGL exam pattern with marking scheme and tiers.",
-
-    category:
-      "Exam Pattern",
+      "Complete SSC CGL Tier 1 and Tier 2 exam pattern with marking scheme.",
 
     content:
       `
-SSC CGL exam consists of Tier 1 and Tier 2 examinations.
+SSC CGL exam pattern includes Tier 1 and Tier 2 examinations.
 
-Tier 1 contains objective questions while Tier 2 includes multiple papers depending on post preference.
+Tier 1 includes:
 
-Understanding exam pattern is important for preparation strategy.
+• Quantitative Aptitude
+• Reasoning
+• English
+• General Awareness
+
+Tier 2 includes advanced level questions and computer knowledge sections.
+
+Understanding SSC CGL exam pattern helps candidates improve preparation strategy and time management.
 `,
   },
 
@@ -361,14 +125,35 @@ Understanding exam pattern is important for preparation strategy.
     description:
       "Complete SSC CHSL syllabus and preparation guide.",
 
-    category:
-      "Syllabus",
-
     content:
       `
 SSC CHSL syllabus includes English, Reasoning, Quantitative Aptitude and General Awareness subjects.
 
-Candidates should focus on speed, accuracy and regular revision.
+Candidates should focus on mock tests and revision for better performance.
+`,
+  },
+
+  {
+    slug: "ssc-chsl-exam-pattern",
+
+    title:
+      "SSC CHSL Exam Pattern 2026",
+
+    description:
+      "Check SSC CHSL exam pattern, subjects and marking scheme.",
+
+    content:
+      `
+SSC CHSL exam consists of Tier 1 and Tier 2 examinations.
+
+Subjects include:
+
+• English
+• Quantitative Aptitude
+• General Awareness
+• Reasoning
+
+Candidates should understand negative marking and paper structure carefully.
 `,
   },
 
@@ -381,14 +166,28 @@ Candidates should focus on speed, accuracy and regular revision.
     description:
       "Latest SSC MTS syllabus and subject-wise topics.",
 
-    category:
-      "Syllabus",
-
     content:
       `
 SSC MTS exam tests reasoning ability, numerical aptitude, general awareness and English language skills.
 
-Candidates should practice mock tests regularly for better performance.
+Understanding syllabus properly improves preparation quality.
+`,
+  },
+
+  {
+    slug: "ssc-mts-exam-pattern",
+
+    title:
+      "SSC MTS Exam Pattern 2026",
+
+    description:
+      "Complete SSC MTS exam pattern and paper structure.",
+
+    content:
+      `
+SSC MTS exam pattern includes Numerical Aptitude, Reasoning, English and General Awareness.
+
+The examination is conducted in online mode with objective type questions.
 `,
   },
 
@@ -401,14 +200,26 @@ Candidates should practice mock tests regularly for better performance.
     description:
       "Complete SSC GD Constable syllabus and exam pattern.",
 
-    category:
-      "Syllabus",
-
     content:
       `
 SSC GD syllabus covers reasoning, GK, mathematics and language sections for constable recruitment exams.
+`,
+  },
 
-Physical fitness preparation is also important along with written preparation.
+  {
+    slug: "ssc-gd-exam-pattern",
+
+    title:
+      "SSC GD Exam Pattern 2026",
+
+    description:
+      "Check SSC GD Constable exam pattern and selection process.",
+
+    content:
+      `
+SSC GD exam includes CBT examination followed by physical tests.
+
+Subjects include reasoning, mathematics, GK and language sections.
 `,
   },
 
