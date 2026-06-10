@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "SSC CGL Cutoff 2026 — Expected & Previous Year Cutoff",
 
   description:
-    "Check SSC CGL cutoff 2026 including expected cutoff, previous year trends and category wise analysis.",
+    "Check SSC CGL cutoff 2026 including expected cutoff, previous year trends and category wise marks analysis.",
 
 };
 
@@ -45,8 +45,8 @@ export default function Page() {
             <p className="text-white/60 text-xl leading-9 mt-8 max-w-4xl">
 
               Check SSC CGL expected cutoff,
-              previous year trends, category wise marks
-              and normalization details.
+              previous year cutoff marks,
+              category wise analysis and trends.
 
             </p>
 
@@ -57,18 +57,18 @@ export default function Page() {
 
             {[
               {
-                title: "Tier 1",
-                desc: "Expected Cutoff",
+                title: "Expected Cutoff",
+                desc: "Tier 1 Analysis",
+              },
+
+              {
+                title: "Previous Year",
+                desc: "Past Trends",
               },
 
               {
                 title: "Category Wise",
-                desc: "UR / OBC / SC / ST",
-              },
-
-              {
-                title: "Previous Trends",
-                desc: "Cutoff Analysis",
+                desc: "UR, OBC, SC, ST",
               },
 
             ].map((item, index) => (
@@ -84,7 +84,7 @@ export default function Page() {
 
                 </h2>
 
-                <p className="text-white/60 mt-4 text-lg">
+                <p className="text-white/60 mt-4">
 
                   {item.desc}
 
@@ -107,18 +107,88 @@ export default function Page() {
 
             <p className="text-white/70 text-lg leading-9 mt-8">
 
-              SSC CGL cutoff depends on multiple factors including
-              exam difficulty, number of vacancies,
-              normalization process and overall competition.
+              SSC CGL cutoff depends on multiple factors
+              including vacancies, exam difficulty,
+              number of candidates and competition level.
 
             </p>
 
-            <p className="text-white/70 text-lg leading-9 mt-8">
+            {/* Cutoff Table */}
+            <div className="overflow-x-auto mt-12">
 
-              Candidates scoring above average cutoff
-              generally have better chances for Tier 2 qualification.
+              <table className="w-full border border-orange-500/10 rounded-3xl overflow-hidden">
 
-            </p>
+                <thead className="bg-orange-500 text-black">
+
+                  <tr>
+
+                    <th className="px-6 py-4 text-left">
+
+                      Category
+
+                    </th>
+
+                    <th className="px-6 py-4 text-left">
+
+                      Expected Cutoff
+
+                    </th>
+
+                  </tr>
+
+                </thead>
+
+                <tbody>
+
+                  {[
+                    {
+                      category: "General",
+                      cutoff: "145 - 155",
+                    },
+
+                    {
+                      category: "OBC",
+                      cutoff: "140 - 150",
+                    },
+
+                    {
+                      category: "SC",
+                      cutoff: "125 - 135",
+                    },
+
+                    {
+                      category: "ST",
+                      cutoff: "115 - 125",
+                    },
+
+                  ].map((item) => (
+
+                    <tr
+                      key={item.category}
+                      className="border-t border-orange-500/10"
+                    >
+
+                      <td className="px-6 py-5">
+
+                        {item.category}
+
+                      </td>
+
+                      <td className="px-6 py-5 text-orange-300 font-semibold">
+
+                        {item.cutoff}
+
+                      </td>
+
+                    </tr>
+
+                  ))}
+
+                </tbody>
+
+              </table>
+
+            </div>
 
             {/* Factors */}
             <h2 className="text-4xl font-bold mt-20">
@@ -127,54 +197,15 @@ export default function Page() {
 
             </h2>
 
-            <div className="space-y-6 mt-10">
-
-              {[
-                "Total number of vacancies",
-                "Difficulty level of exam",
-                "Number of candidates appearing",
-                "Normalization process",
-                "Previous year cutoff trends",
-              ].map((item) => (
-
-                <div
-                  key={item}
-                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
-                >
-
-                  <p className="text-lg font-medium">
-
-                    {item}
-
-                  </p>
-
-                </div>
-
-              ))}
-
-            </div>
-
-            {/* Previous Year */}
-            <h2 className="text-4xl font-bold mt-20">
-
-              Previous Year Cutoff Trends
-
-            </h2>
-
-            <p className="text-white/70 text-lg leading-9 mt-8">
-
-              SSC CGL previous year cutoffs help candidates
-              understand competition level and target score strategy.
-
-            </p>
-
             <div className="grid md:grid-cols-2 gap-6 mt-10">
 
               {[
-                "General category cutoff is usually highest.",
-                "Reserved categories receive relaxation.",
-                "Cutoff changes every year.",
-                "Higher vacancies may reduce cutoff.",
+                "Total vacancies",
+                "Exam difficulty level",
+                "Number of candidates",
+                "Previous year trends",
+                "Normalization process",
+                "Overall competition",
               ].map((item) => (
 
                 <div
@@ -194,20 +225,35 @@ export default function Page() {
 
             </div>
 
-            {/* Preparation */}
+            {/* Previous Year */}
             <h2 className="text-4xl font-bold mt-20">
 
-              How To Score Above Cutoff
+              Previous Year SSC CGL Cutoff Trends
+
+            </h2>
+
+            <p className="text-white/70 text-lg leading-9 mt-8">
+
+              Previous year cutoff analysis helps candidates
+              understand competition level and expected marks
+              required to qualify the examination.
+
+            </p>
+
+            {/* Preparation Tips */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              Tips To Score Above Cutoff
 
             </h2>
 
             <div className="space-y-6 mt-10">
 
               {[
-                "Solve previous year question papers regularly.",
+                "Practice previous year papers regularly.",
+                "Focus on accuracy and time management.",
                 "Attempt mock tests weekly.",
-                "Improve speed and accuracy.",
-                "Focus on revision and weak subjects.",
+                "Revise important topics consistently.",
               ].map((item) => (
 
                 <div
@@ -240,13 +286,13 @@ export default function Page() {
 
                 <h3 className="text-2xl font-semibold">
 
-                  Is SSC CGL cutoff same every year?
+                  Is SSC CGL cutoff released category wise?
 
                 </h3>
 
                 <p className="text-white/60 mt-4 leading-8">
 
-                  No, SSC CGL cutoff changes every year depending on vacancies and exam difficulty.
+                  Yes, SSC releases category wise cutoff for General, OBC, SC, ST and other categories.
 
                 </p>
 
@@ -256,13 +302,13 @@ export default function Page() {
 
                 <h3 className="text-2xl font-semibold">
 
-                  Does normalization affect cutoff?
+                  Does SSC CGL cutoff change every year?
 
                 </h3>
 
                 <p className="text-white/60 mt-4 leading-8">
 
-                  Yes, normalization process can affect final cutoff marks.
+                  Yes, cutoff changes yearly depending on vacancies, exam level and competition.
 
                 </p>
 
@@ -277,11 +323,6 @@ export default function Page() {
 
             {[
               {
-                title: "SSC CGL Salary",
-                link: "/ssc-cgl-salary",
-              },
-
-              {
                 title: "SSC CGL Syllabus",
                 link: "/ssc-cgl-syllabus",
               },
@@ -289,6 +330,11 @@ export default function Page() {
               {
                 title: "SSC CGL Exam Pattern",
                 link: "/ssc-cgl-exam-pattern",
+              },
+
+              {
+                title: "SSC CGL Salary",
+                link: "/ssc-cgl-salary",
               },
 
             ].map((item) => (
