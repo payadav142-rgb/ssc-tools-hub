@@ -61,25 +61,40 @@ export default async function BlogPostPage({
 
         <Navbar />
 
-        <section className="px-6 py-24">
+        <main className="min-h-screen bg-[#0B0F19] text-white relative overflow-hidden">
 
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <h1 className="text-5xl font-bold">
+          <section className="px-6 py-32 relative z-10">
 
-              Blog Not Found
+            <div className="max-w-4xl mx-auto text-center">
 
-            </h1>
+              <h1 className="text-5xl md:text-6xl font-extrabold">
 
-            <p className="text-white/50 mt-6">
+                Blog Not Found
 
-              The article you are looking for does not exist.
+              </h1>
 
-            </p>
+              <p className="text-white/50 mt-8 text-lg">
 
-          </div>
+                The article you are looking for does not exist.
 
-        </section>
+              </p>
+
+              <Link
+                href="/blog"
+                className="inline-block mt-10 bg-gradient-to-r from-orange-500 to-orange-600 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
+              >
+
+                Back To Blog
+
+              </Link>
+
+            </div>
+
+          </section>
+
+        </main>
 
       </ToolContainer>
 
@@ -101,151 +116,268 @@ export default async function BlogPostPage({
 
       <Navbar />
 
-      <section className="px-6 py-20">
+      <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-        <div className="max-w-4xl mx-auto">
+        {/* Glow Effects */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-          {/* Tag */}
-          <p className="text-orange-300 font-medium">
+        <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-            SSC Blog
+        <section className="relative z-10 px-6 py-20">
 
-          </p>
+          <div className="max-w-5xl mx-auto">
 
-          {/* Title */}
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mt-5">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-3 text-sm text-white/40">
 
-            {blog.title}
+              <Link
+                href="/"
+                className="hover:text-orange-300 transition"
+              >
+                Home
+              </Link>
 
-          </h1>
+              <span>
+                /
+              </span>
 
-          {/* Meta */}
-          <div className="flex items-center gap-4 mt-8 text-white/40 text-sm">
+              <Link
+                href="/blog"
+                className="hover:text-orange-300 transition"
+              >
+                Blog
+              </Link>
 
-            <span>
-              Updated 2026
-            </span>
+              <span>
+                /
+              </span>
 
-            <span>
-              •
-            </span>
+              <span className="text-orange-300">
 
-            <span>
-              SSC Tools Hub
-            </span>
+                Article
 
-          </div>
-
-          {/* Description */}
-          <p className="text-white/70 text-xl leading-9 mt-10">
-
-            {blog.description}
-
-          </p>
-
-          {/* Content */}
-          <div className="mt-14 bg-[#111827]/70 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
-
-            <div className="text-white/75 leading-9 text-lg whitespace-pre-line">
-
-              {blog.content}
+              </span>
 
             </div>
 
-          </div>
+            {/* Hero */}
+            <div className="mt-12">
 
-          {/* FAQ */}
-          <div className="mt-20">
+              <p className="text-orange-300 font-medium tracking-wide uppercase">
 
-            <h2 className="text-4xl font-bold">
+                SSC Blog
 
-              Frequently Asked Questions
+              </p>
 
-            </h2>
+              <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-6 tracking-tight">
 
-            <div className="space-y-6 mt-10">
+                {blog.title}
 
-              <div className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6">
+              </h1>
 
-                <h3 className="text-2xl font-semibold">
+              <p className="text-white/65 text-xl leading-9 mt-10 max-w-4xl">
 
-                  Is SSC preparation difficult?
+                {blog.description}
 
-                </h3>
+              </p>
 
-                <p className="text-white/60 mt-4 leading-7">
+              {/* Meta */}
+              <div className="flex flex-wrap items-center gap-5 mt-10 text-white/40 text-sm">
 
-                  SSC exams require consistency,
-                  mock tests, revision and smart strategy.
+                <span>
+                  Updated 2026
+                </span>
 
-                </p>
+                <span>
+                  •
+                </span>
 
-              </div>
+                <span>
+                  SSC Tools Hub
+                </span>
 
-              <div className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6">
+                <span>
+                  •
+                </span>
 
-                <h3 className="text-2xl font-semibold">
-
-                  Which SSC exam is best?
-
-                </h3>
-
-                <p className="text-white/60 mt-4 leading-7">
-
-                  SSC CGL is considered one of
-                  the best SSC exams because of salary,
-                  promotion and career growth.
-
-                </p>
+                <span>
+                  5 min read
+                </span>
 
               </div>
 
             </div>
 
-          </div>
+            {/* Article */}
+            <article className="mt-16 bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[40px] p-8 md:p-14 shadow-[0_0_60px_rgba(249,115,22,0.06)]">
 
-          {/* Related Posts */}
-          <div className="mt-24">
+              <div className="prose prose-invert max-w-none">
 
-            <h2 className="text-4xl font-bold">
+                <div className="text-white/80 leading-10 text-[18px] whitespace-pre-line">
 
-              Related Articles
+                  {blog.content}
 
-            </h2>
+                </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-10">
+              </div>
 
-              {relatedBlogs.map((item) => (
+            </article>
 
-                <Link
-                  key={item.slug}
-                  href={`/blog/${item.slug}`}
-                  className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-7 hover:border-orange-500/40 hover:-translate-y-1 transition-all duration-300"
-                >
+            {/* CTA */}
+            <div className="mt-16 bg-gradient-to-r from-orange-500/15 to-amber-400/10 border border-orange-500/20 rounded-[40px] p-10 md:p-14 text-center">
 
-                  <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
 
-                    {item.title}
+                Prepare Smarter With
+                <span className="text-orange-400">
+                  {" "}SSC Tools Hub
+                </span>
+
+              </h2>
+
+              <p className="text-white/60 text-lg leading-8 mt-8 max-w-3xl mx-auto">
+
+                Access smart SSC tools, study planners,
+                mock analysis, PYQs, quizzes,
+                revision systems and productivity features.
+
+              </p>
+
+              <Link
+                href="/tools"
+                className="inline-block mt-10 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/20"
+              >
+
+                Explore Tools
+
+              </Link>
+
+            </div>
+
+            {/* FAQ */}
+            <section className="mt-24">
+
+              <h2 className="text-4xl md:text-5xl font-bold">
+
+                Frequently Asked Questions
+
+              </h2>
+
+              <div className="space-y-6 mt-12">
+
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8">
+
+                  <h3 className="text-2xl font-bold">
+
+                    Is SSC preparation difficult?
 
                   </h3>
 
-                  <p className="text-white/60 mt-5 leading-7">
+                  <p className="text-white/60 mt-5 leading-8 text-lg">
 
-                    {item.description}
+                    SSC exams require consistency,
+                    mock tests, revision,
+                    smart strategy and regular practice.
 
                   </p>
 
+                </div>
+
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8">
+
+                  <h3 className="text-2xl font-bold">
+
+                    Which SSC exam is best?
+
+                  </h3>
+
+                  <p className="text-white/60 mt-5 leading-8 text-lg">
+
+                    SSC CGL is considered one of the best SSC exams
+                    because of salary, promotion,
+                    job stability and career growth.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </section>
+
+            {/* Related Blogs */}
+            <section className="mt-28">
+
+              <div className="flex items-center justify-between flex-col md:flex-row gap-6">
+
+                <div>
+
+                  <h2 className="text-4xl md:text-5xl font-bold">
+
+                    Related Articles
+
+                  </h2>
+
+                  <p className="text-white/50 mt-4 text-lg">
+
+                    More SSC preparation guides and resources.
+
+                  </p>
+
+                </div>
+
+                <Link
+                  href="/blog"
+                  className="bg-white text-black px-7 py-3 rounded-2xl font-semibold hover:scale-105 transition"
+                >
+
+                  View All
+
                 </Link>
 
-              ))}
+              </div>
 
-            </div>
+              <div className="grid md:grid-cols-3 gap-8 mt-14">
+
+                {relatedBlogs.map((item) => (
+
+                  <Link
+                    key={item.slug}
+                    href={`/blog/${item.slug}`}
+                    className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 shadow-[0_0_40px_rgba(249,115,22,0.05)]"
+                  >
+
+                    <h3 className="text-2xl font-bold leading-snug group-hover:text-orange-300 transition">
+
+                      {item.title}
+
+                    </h3>
+
+                    <p className="text-white/60 mt-5 leading-8">
+
+                      {item.description}
+
+                    </p>
+
+                    <div className="mt-8 text-orange-400 font-medium">
+
+                      Read Article →
+
+                    </div>
+
+                  </Link>
+
+                ))}
+
+              </div>
+
+            </section>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+      </main>
 
     </ToolContainer>
 
