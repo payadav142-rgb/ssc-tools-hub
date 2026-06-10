@@ -1,88 +1,274 @@
-"use client";
+import type { Metadata } from "next";
 
-import Navbar from "../../components/Navbar";
-import ToolContainer from "../../components/ToolContainer";
+import Link from "next/link";
 
-export default function SSCCGLSalaryPage() {
+export const metadata: Metadata = {
+
+  title:
+    "SSC CGL Salary 2026 — In Hand Salary, Pay Level & Promotion",
+
+  description:
+    "Check SSC CGL salary 2026 including in-hand salary, pay level, allowances, promotion, job profile and career growth.",
+
+};
+
+export default function Page() {
 
   return (
 
-    <ToolContainer>
+    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-      <Navbar />
+      {/* Glow */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <section className="px-6 py-20">
+      <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <section className="relative z-10 px-6 py-20">
 
         <div className="max-w-5xl mx-auto">
 
-          <h1 className="text-5xl font-bold leading-tight">
+          {/* Hero */}
+          <div>
 
-            SSC CGL Salary 2026 — Complete Salary Structure
+            <p className="text-orange-300 font-medium">
 
-          </h1>
+              SSC CGL 2026
 
-          <p className="text-white/60 mt-6 text-lg leading-8">
+            </p>
 
-            SSC CGL offers one of the best government salaries in India.
-            Selected candidates receive attractive in-hand salary,
-            HRA, DA, TA and multiple government benefits.
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
 
-          </p>
+              SSC CGL Salary 2026
 
-          <div className="mt-10 bg-white/5 border border-white/10 rounded-3xl p-8">
+            </h1>
 
-            <h2 className="text-3xl font-bold mb-6">
+            <p className="text-white/60 text-xl leading-9 mt-8 max-w-4xl">
 
-              SSC CGL Salary Overview
+              Check SSC CGL in-hand salary, pay level,
+              allowances, promotion, job profile,
+              career growth and complete salary structure.
 
-            </h2>
-
-            <ul className="space-y-4 text-white/70 text-lg">
-
-              <li>
-                • Pay Level: Level 4 to Level 8
-              </li>
-
-              <li>
-                • In-Hand Salary: ₹35,000 to ₹75,000
-              </li>
-
-              <li>
-                • House Rent Allowance (HRA)
-              </li>
-
-              <li>
-                • Dearness Allowance (DA)
-              </li>
-
-              <li>
-                • Transport Allowance (TA)
-              </li>
-
-              <li>
-                • Government Pension Benefits
-              </li>
-
-            </ul>
+            </p>
 
           </div>
 
-          <div className="mt-10 bg-white/5 border border-white/10 rounded-3xl p-8">
+          {/* Salary Cards */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20">
 
-            <h2 className="text-3xl font-bold mb-6">
+            {[
+              {
+                title: "₹35K - ₹75K",
+                desc: "Monthly In-Hand Salary",
+              },
+              {
+                title: "Level 4 - 8",
+                desc: "Pay Level",
+              },
+              {
+                title: "Govt Job",
+                desc: "Career Stability",
+              },
+            ].map((item, index) => (
 
-              Why SSC CGL Jobs Are Popular
+              <div
+                key={index}
+                className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+              >
+
+                <h2 className="text-4xl font-bold text-orange-300">
+
+                  {item.title}
+
+                </h2>
+
+                <p className="text-white/60 mt-4 text-lg">
+
+                  {item.desc}
+
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* Main Content */}
+          <div className="mt-24 bg-[#111827]/70 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
+
+            <h2 className="text-4xl font-bold">
+
+              SSC CGL Salary Structure
 
             </h2>
 
-            <p className="text-white/70 text-lg leading-8">
+            <p className="text-white/70 text-lg leading-9 mt-8">
 
-              SSC CGL jobs provide financial stability,
-              career growth, job security and multiple promotions.
-              Many aspirants choose SSC CGL because of
-              excellent work-life balance and government benefits.
+              SSC CGL is one of the most popular government exams in India because of its attractive salary, promotion opportunities and job security.
+
+              The SSC CGL salary depends on the department, city and post selected by the candidate. The salary structure is based on pay levels defined by the 7th Pay Commission.
 
             </p>
+
+            <p className="text-white/70 text-lg leading-9 mt-8">
+
+              Candidates selected through SSC CGL receive multiple benefits including DA, HRA, TA, pension benefits and medical facilities.
+
+            </p>
+
+            {/* Allowances */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              SSC CGL Allowances
+
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6 mt-10">
+
+              {[
+                "Dearness Allowance (DA)",
+                "House Rent Allowance (HRA)",
+                "Travel Allowance (TA)",
+                "Medical Benefits",
+                "Pension Benefits",
+                "Paid Leaves",
+              ].map((item) => (
+
+                <div
+                  key={item}
+                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-xl font-medium">
+
+                    {item}
+
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* Popular Posts */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              Popular SSC CGL Posts
+
+            </h2>
+
+            <div className="space-y-6 mt-10">
+
+              {[
+                "Income Tax Inspector",
+                "GST Inspector",
+                "CBI Sub Inspector",
+                "Assistant Section Officer",
+                "Examiner",
+              ].map((post) => (
+
+                <div
+                  key={post}
+                  className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+                >
+
+                  <p className="text-xl font-medium">
+
+                    {post}
+
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* FAQ */}
+            <h2 className="text-4xl font-bold mt-20">
+
+              Frequently Asked Questions
+
+            </h2>
+
+            <div className="space-y-6 mt-10">
+
+              <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+
+                <h3 className="text-2xl font-semibold">
+
+                  What is SSC CGL in-hand salary?
+
+                </h3>
+
+                <p className="text-white/60 mt-4 leading-8">
+
+                  SSC CGL in-hand salary ranges between ₹35,000 to ₹75,000 depending on post and location.
+
+                </p>
+
+              </div>
+
+              <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+
+                <h3 className="text-2xl font-semibold">
+
+                  Which SSC CGL post has highest salary?
+
+                </h3>
+
+                <p className="text-white/60 mt-4 leading-8">
+
+                  Assistant Audit Officer and Assistant Section Officer are among the highest paying SSC CGL posts.
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Internal Links */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20">
+
+            {[
+              {
+                title: "SSC CGL Syllabus",
+                link: "/ssc-cgl-syllabus",
+              },
+              {
+                title: "SSC CGL Cutoff",
+                link: "/ssc-cgl-cutoff",
+              },
+              {
+                title: "SSC CGL Exam Pattern",
+                link: "/ssc-cgl-exam-pattern",
+              },
+            ].map((item) => (
+
+              <Link
+                key={item.title}
+                href={item.link}
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+
+                  {item.title}
+
+                </h3>
+
+                <p className="text-white/50 mt-4">
+
+                  Read More →
+
+                </p>
+
+              </Link>
+
+            ))}
 
           </div>
 
@@ -90,7 +276,7 @@ export default function SSCCGLSalaryPage() {
 
       </section>
 
-    </ToolContainer>
+    </main>
 
   );
 
