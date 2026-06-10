@@ -1,9 +1,5 @@
-"use client";
-
 import type { Metadata } from "next";
-
 import Link from "next/link";
-import { useMemo, useState } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -18,15 +14,15 @@ const blogs = [
     title: "SSC CGL Notification 2026",
     description:
       "Complete SSC CGL notification, vacancy, eligibility and exam details.",
-    href: "/ssc-cgl-notification",
+    href: "/blog/ssc-cgl-notification",
     tag: "Notification",
   },
 
   {
     title: "SSC CGL Salary 2026",
     description:
-      "Check SSC CGL salary, allowances, perks and promotion details.",
-    href: "/ssc-cgl-salary",
+      "Check SSC CGL salary, allowances and promotion details.",
+    href: "/blog/ssc-cgl-salary",
     tag: "Salary",
   },
 
@@ -34,7 +30,7 @@ const blogs = [
     title: "SSC CHSL Salary 2026",
     description:
       "Complete SSC CHSL salary structure with in-hand pay details.",
-    href: "/ssc-chsl-salary",
+    href: "/blog/ssc-chsl-salary",
     tag: "Salary",
   },
 
@@ -42,7 +38,7 @@ const blogs = [
     title: "SSC MTS Salary 2026",
     description:
       "SSC MTS salary, pay level and job profile explained.",
-    href: "/ssc-mts-salary",
+    href: "/blog/ssc-mts-salary",
     tag: "Salary",
   },
 
@@ -50,7 +46,7 @@ const blogs = [
     title: "SSC GD Salary 2026",
     description:
       "SSC GD salary structure, promotion and allowances.",
-    href: "/ssc-gd-salary",
+    href: "/blog/ssc-gd-salary",
     tag: "Salary",
   },
 
@@ -58,49 +54,36 @@ const blogs = [
     title: "SSC CHSL Books 2026",
     description:
       "Best books for SSC CHSL preparation and practice.",
-    href: "/ssc-chsl-books",
+    href: "/blog/ssc-chsl-books",
     tag: "Books",
+  },
+
+  {
+    title: "SSC CGL Eligibility 2026",
+    description:
+      "Check SSC CGL eligibility, age limit and qualification details.",
+    href: "/blog/ssc-cgl-eligibility",
+    tag: "Eligibility",
+  },
+
+  {
+    title: "SSC CGL Vacancy 2026",
+    description:
+      "Expected SSC CGL vacancy with post-wise details.",
+    href: "/blog/ssc-cgl-vacancy",
+    tag: "Vacancy",
+  },
+
+  {
+    title: "SSC CHSL Notification 2026",
+    description:
+      "Check SSC CHSL exam date, eligibility and vacancy details.",
+    href: "/blog/ssc-chsl-notification",
+    tag: "Notification",
   },
 ];
 
-const categories = [
-  "All",
-  "Notification",
-  "Salary",
-  "Books",
-];
-
 export default function BlogPage() {
-
-  const [search, setSearch] =
-    useState("");
-
-  const [selectedCategory, setSelectedCategory] =
-    useState("All");
-
-  const filteredBlogs =
-    useMemo(() => {
-
-      return blogs.filter((blog) => {
-
-        const matchesSearch =
-          blog.title
-            .toLowerCase()
-            .includes(search.toLowerCase());
-
-        const matchesCategory =
-          selectedCategory === "All"
-            ? true
-            : blog.tag === selectedCategory;
-
-        return (
-          matchesSearch &&
-          matchesCategory
-        );
-
-      });
-
-    }, [search, selectedCategory]);
 
   return (
 
@@ -118,13 +101,7 @@ export default function BlogPage() {
           {/* Hero */}
           <div className="text-center max-w-4xl mx-auto">
 
-            <p className="text-orange-300 font-medium tracking-[0.25em] uppercase">
-
-              SSC Resources
-
-            </p>
-
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
 
               SSC <span className="text-orange-400">Blog</span>
 
@@ -133,59 +110,46 @@ export default function BlogPage() {
             <p className="text-white/50 text-lg mt-8 leading-relaxed">
 
               Latest SSC updates, preparation guides,
-              salary details, syllabus, cutoff,
-              notifications and exam resources.
+              syllabus, salary, cutoff, notifications
+              and exam resources for SSC aspirants.
 
             </p>
 
           </div>
 
-          {/* Search */}
-          <div className="max-w-3xl mx-auto mt-14">
+          {/* Category Chips */}
+          <div className="flex flex-wrap justify-center gap-4 mt-14">
 
-            <input
-              type="text"
-              value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
-              placeholder="Search SSC articles..."
-              className="w-full bg-[#111827]/80 border border-orange-500/10 focus:border-orange-500/40 rounded-3xl px-6 py-5 outline-none text-lg backdrop-blur-xl"
-            />
+            {[
+              "SSC CGL",
+              "SSC CHSL",
+              "SSC MTS",
+              "SSC GD",
+              "Salary",
+              "Books",
+              "Cutoff",
+              "Eligibility",
+            ].map((item) => (
 
-          </div>
-
-          {/* Categories */}
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-
-            {categories.map((item) => (
-
-              <button
+              <div
                 key={item}
-                onClick={() =>
-                  setSelectedCategory(item)
-                }
-                className={`px-5 py-3 rounded-2xl border transition-all duration-300 ${
-                  selectedCategory === item
-                    ? "bg-gradient-to-r from-orange-500 to-orange-600 border-orange-500 text-white"
-                    : "bg-[#111827]/80 border-orange-500/10 hover:border-orange-500/40 text-white/70 hover:text-white"
-                }`}
+                className="px-5 py-3 rounded-2xl bg-[#111827]/80 border border-orange-500/10 hover:border-orange-500/40 transition"
               >
 
                 {item}
 
-              </button>
+              </div>
 
             ))}
 
           </div>
 
-          {/* Featured Blog */}
+          {/* Featured Article */}
           <div className="mt-20">
 
             <Link
-              href="/ssc-cgl-notification"
-              className="group block bg-gradient-to-br from-orange-500/15 to-amber-400/5 border border-orange-500/20 rounded-[40px] p-10 md:p-14 hover:border-orange-500/40 transition-all duration-300 shadow-[0_0_80px_rgba(249,115,22,0.08)]"
+              href="/blog/ssc-cgl-notification"
+              className="group block bg-gradient-to-br from-orange-500/15 to-amber-400/5 border border-orange-500/20 rounded-[40px] p-10 md:p-14 hover:border-orange-500/40 transition-all duration-300"
             >
 
               <p className="text-orange-300 font-medium">
@@ -203,8 +167,8 @@ export default function BlogPage() {
               <p className="text-white/60 mt-6 text-lg leading-relaxed max-w-3xl">
 
                 Check SSC CGL 2026 notification,
-                vacancy, eligibility, syllabus,
-                exam date and complete application details.
+                eligibility, exam date, vacancy,
+                syllabus and complete application process.
 
               </p>
 
@@ -218,41 +182,10 @@ export default function BlogPage() {
 
           </div>
 
-          {/* Trending */}
-          <div className="mt-24">
-
-            <div className="flex items-center justify-between flex-wrap gap-5">
-
-              <div>
-
-                <h2 className="text-4xl md:text-5xl font-bold">
-
-                  Trending <span className="text-orange-400">Articles</span>
-
-                </h2>
-
-                <p className="text-white/50 mt-4 text-lg">
-
-                  Most searched SSC topics right now.
-
-                </p>
-
-              </div>
-
-              <div className="text-white/40 text-sm">
-
-                {filteredBlogs.length} Articles Found
-
-              </div>
-
-            </div>
-
-          </div>
-
           {/* Blog Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
 
-            {filteredBlogs.map((blog) => (
+            {blogs.map((blog) => (
 
               <Link
                 key={blog.href}
@@ -260,23 +193,13 @@ export default function BlogPage() {
                 className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 shadow-[0_0_50px_rgba(249,115,22,0.05)]"
               >
 
-                <div className="flex items-center justify-between">
+                <p className="text-sm text-orange-300 font-medium">
 
-                  <p className="text-sm text-orange-300 font-medium">
+                  {blog.tag}
 
-                    {blog.tag}
+                </p>
 
-                  </p>
-
-                  <div className="w-10 h-10 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-300">
-
-                    📘
-
-                  </div>
-
-                </div>
-
-                <h2 className="text-3xl font-bold mt-6 leading-snug group-hover:text-orange-300 transition">
+                <h2 className="text-3xl font-bold mt-5 leading-snug group-hover:text-orange-300 transition">
 
                   {blog.title}
 
@@ -310,31 +233,10 @@ export default function BlogPage() {
 
           </div>
 
-          {/* Empty State */}
-          {filteredBlogs.length === 0 && (
-
-            <div className="text-center mt-20">
-
-              <h2 className="text-4xl font-bold">
-
-                No Articles Found
-
-              </h2>
-
-              <p className="text-white/50 mt-5 text-lg">
-
-                Try searching with another keyword.
-
-              </p>
-
-            </div>
-
-          )}
-
-          {/* SEO Content */}
+          {/* SEO Section */}
           <section className="mt-28">
 
-            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14 shadow-[0_0_60px_rgba(249,115,22,0.05)]">
+            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
 
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
 
@@ -349,8 +251,8 @@ export default function BlogPage() {
 
                 SSC Tools Hub provides latest SSC CGL,
                 CHSL, MTS and GD updates including
-                salary, syllabus, cutoff, exam pattern,
-                preparation strategy and important notifications.
+                syllabus, salary, cutoff, preparation strategy,
+                exam pattern and notification details.
 
               </p>
 
