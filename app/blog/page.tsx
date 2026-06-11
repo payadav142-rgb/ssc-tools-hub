@@ -5,19 +5,15 @@ import Link from "next/link";
 import { blogs } from "../../data/blogs";
 
 export const metadata: Metadata = {
-
   title:
     "SSC Blog — Latest SSC Updates, Salary, Syllabus & Preparation",
 
   description:
     "Read latest SSC blogs including SSC CGL, CHSL, MTS and GD updates, syllabus, salary and preparation guides.",
-
 };
 
 export default function BlogPage() {
-
   return (
-
     <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
       {/* Glow Effects */}
@@ -48,7 +44,52 @@ export default function BlogPage() {
 
           </div>
 
-          {/* Featured */}
+          {/* Stats */}
+          <div className="grid md:grid-cols-4 gap-6 mt-16">
+
+            {[
+              {
+                title: "50+",
+                desc: "SSC Articles",
+              },
+              {
+                title: "Daily",
+                desc: "Updates",
+              },
+              {
+                title: "CGL",
+                desc: "Focused",
+              },
+              {
+                title: "100%",
+                desc: "Free Guides",
+              },
+            ].map((item, index) => (
+
+              <div
+                key={index}
+                className="bg-[#111827]/80 border border-orange-500/10 rounded-[28px] p-6 text-center"
+              >
+
+                <h2 className="text-4xl font-bold text-orange-400">
+
+                  {item.title}
+
+                </h2>
+
+                <p className="text-white/60 mt-2">
+
+                  {item.desc}
+
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+          {/* Featured Article */}
           <div className="mt-20">
 
             <Link
@@ -74,7 +115,7 @@ export default function BlogPage() {
 
               </p>
 
-              <div className="inline-flex items-center gap-2 mt-8 bg-white text-black px-6 py-3 rounded-2xl font-semibold">
+              <div className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-semibold">
 
                 Read Article →
 
@@ -135,12 +176,34 @@ export default function BlogPage() {
 
           </div>
 
+          {/* SEO Section */}
+          <section className="mt-24">
+
+            <div className="bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14 text-center">
+
+              <h2 className="text-4xl md:text-5xl font-bold">
+
+                SSC Preparation Resources
+
+              </h2>
+
+              <p className="text-white/60 mt-6 max-w-3xl mx-auto leading-8 text-lg">
+
+                Explore SSC CGL, CHSL, MTS and GD study material,
+                preparation guides, salary details, syllabus,
+                exam patterns, previous year analysis and
+                latest SSC recruitment updates.
+
+              </p>
+
+            </div>
+
+          </section>
+
         </div>
 
       </div>
 
     </main>
-
   );
-
 }
