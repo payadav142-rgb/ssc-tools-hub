@@ -260,4 +260,12 @@ export const tools = [
   link: "/ssc-cgl-admit-card",
 },
 
+{
+  title: "PDF Mock Converter",
+  description:
+    "Upload SSC PDFs and instantly convert them into mock tests.",
+  link: "/tools/pdf-mock-converter",
+  category: "Analytics",
+},
+
 ];

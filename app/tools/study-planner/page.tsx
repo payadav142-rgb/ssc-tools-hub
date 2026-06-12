@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
 import ToolContainer from "../../../components/ToolContainer";
 
 export default function StudyPlannerPage() {
@@ -171,8 +170,6 @@ export default function StudyPlannerPage() {
         </div>
 
       </section>
-
-      <Footer />
 
     </ToolContainer>
 
