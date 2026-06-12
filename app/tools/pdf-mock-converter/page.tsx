@@ -5,11 +5,6 @@ import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import ToolContainer from "../../../components/ToolContainer";
 
-import * as pdfjsLib from "pdfjs-dist";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
-
 export default function PdfMockConverterPage() {
   const [loading, setLoading] =
     useState(false);
@@ -28,6 +23,12 @@ export default function PdfMockConverterPage() {
     setLoading(true);
 
     try {
+      const pdfjsLib =
+        await import("pdfjs-dist");
+
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+
       const arrayBuffer =
         await file.arrayBuffer();
 
