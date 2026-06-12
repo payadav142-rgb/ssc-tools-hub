@@ -27,7 +27,7 @@ export default function PdfMockConverterPage() {
         await import("pdfjs-dist");
 
       pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "/pdf.worker.min.mjs";
+        "/pdf.worker.min.mjs";
 
       const arrayBuffer =
         await file.arrayBuffer();
@@ -57,8 +57,47 @@ export default function PdfMockConverterPage() {
             )
             .join(" ");
 
+        let cleanedText =
+          pageText;
+
+        cleanedText =
+          cleanedText.replace(
+            /PRAYAS SSC COMPILATION/gi,
+            ""
+          );
+
+        cleanedText =
+          cleanedText.replace(
+            /JOIN TELEGRAM-?:AMAN PRAYAS GK GS/gi,
+            ""
+          );
+
+        cleanedText =
+          cleanedText.replace(
+            /Click Here to Challenge/gi,
+            ""
+          );
+
+        cleanedText =
+          cleanedText.replace(
+            /Not Answered/gi,
+            ""
+          );
+
+        cleanedText =
+          cleanedText.replace(
+            /Q\.No:\s*\d+/gi,
+            ""
+          );
+
+        cleanedText =
+          cleanedText.replace(
+            /\s{2,}/g,
+            " "
+          );
+
         extractedText +=
-          pageText + "\n\n";
+          cleanedText + "\n\n";
       }
 
       setPdfText(extractedText);
@@ -78,23 +117,18 @@ export default function PdfMockConverterPage() {
       <Navbar />
 
       <section className="px-6 py-24">
-
         <div className="max-w-5xl mx-auto">
 
           <div className="text-center">
 
             <h1 className="text-5xl md:text-6xl font-extrabold">
-
               PDF Mock Converter
-
             </h1>
 
             <p className="text-white/60 text-lg mt-6 max-w-2xl mx-auto">
-
               Upload SSC PDFs and convert
               them into interactive mock
               tests.
-
             </p>
 
           </div>
@@ -102,9 +136,7 @@ export default function PdfMockConverterPage() {
           <div className="mt-16 bg-[#111827]/70 border border-orange-500/10 rounded-[32px] p-10">
 
             <label className="block text-lg mb-5 text-white/70">
-
               Upload PDF
-
             </label>
 
             <input
@@ -119,9 +151,7 @@ export default function PdfMockConverterPage() {
             {loading && (
 
               <div className="mt-8 text-orange-400">
-
                 Reading PDF...
-
               </div>
 
             )}
@@ -133,17 +163,13 @@ export default function PdfMockConverterPage() {
                 <div className="flex items-center justify-between">
 
                   <h2 className="text-3xl font-bold">
-
                     Extracted Text
-
                   </h2>
 
                   <button
                     className="bg-white text-black px-6 py-3 rounded-2xl font-semibold"
                   >
-
                     Start Mock
-
                   </button>
 
                 </div>
@@ -161,7 +187,6 @@ export default function PdfMockConverterPage() {
           </div>
 
         </div>
-
       </section>
 
     </ToolContainer>
