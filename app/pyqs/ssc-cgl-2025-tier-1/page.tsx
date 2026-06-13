@@ -486,6 +486,62 @@ export default function Page() {
 
       </section>
 
+            {/* Related SSC Resources */}
+      <section className="px-6 pb-24">
+
+        <div className="max-w-5xl mx-auto">
+
+          <h2 className="text-4xl font-bold mb-10">
+            Related SSC Resources
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+
+            <a
+              href="/ssc-cgl-syllabus"
+              className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-6 hover:border-orange-500/40 transition"
+            >
+              <h3 className="text-2xl font-bold">
+                SSC CGL Syllabus
+              </h3>
+
+              <p className="text-white/60 mt-3">
+                Complete Tier 1 & Tier 2 syllabus.
+              </p>
+            </a>
+
+            <a
+              href="/ssc-cgl-notification"
+              className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-6 hover:border-orange-500/40 transition"
+            >
+              <h3 className="text-2xl font-bold">
+                SSC CGL Notification
+              </h3>
+
+              <p className="text-white/60 mt-3">
+                Vacancy, eligibility and exam details.
+              </p>
+            </a>
+
+            <a
+              href="/ssc-cgl-salary"
+              className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-6 hover:border-orange-500/40 transition"
+            >
+              <h3 className="text-2xl font-bold">
+                SSC CGL Salary
+              </h3>
+
+              <p className="text-white/60 mt-3">
+                In-hand salary and allowances.
+              </p>
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </main>
 
   );
