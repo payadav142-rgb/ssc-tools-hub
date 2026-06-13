@@ -214,6 +214,58 @@ export default function Page() {
 
             </div>
 
+            {/* Vacancy Details */}
+<h2 className="text-4xl font-bold mt-20">
+  SSC CGL Vacancy
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC releases category-wise and post-wise vacancies
+  through the official notification. Vacancy numbers
+  may vary every year depending on departmental
+  requirements and recruitment needs.
+</p>
+
+<div className="grid md:grid-cols-2 gap-6 mt-10">
+
+  <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+    <p className="text-xl font-medium">
+      Income Tax Department
+    </p>
+  </div>
+
+  <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+    <p className="text-xl font-medium">
+      Central GST Department
+    </p>
+  </div>
+
+  <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+    <p className="text-xl font-medium">
+      CBI & Investigation Agencies
+    </p>
+  </div>
+
+  <div className="bg-black/30 border border-orange-500/10 rounded-3xl p-6">
+    <p className="text-xl font-medium">
+      Ministries & Central Departments
+    </p>
+  </div>
+
+</div>
+
+{/* Exam Pattern */}
+<h2 className="text-4xl font-bold mt-20">
+  SSC CGL Exam Pattern
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC CGL selection process consists of Tier 1 and
+  Tier 2 examinations. Questions are asked from
+  Quantitative Aptitude, General Intelligence,
+  English Language and General Awareness.
+</p>
+
             {/* FAQ */}
             <h2 className="text-4xl font-bold mt-20">
 
