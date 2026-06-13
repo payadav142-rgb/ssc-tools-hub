@@ -93,7 +93,59 @@ export default function Page() {
               government departments.
             </p>
           </section>
+<section className="bg-[#111827] rounded-[32px] p-10">
+  <h2 className="text-4xl font-bold">
+    SSC CHSL Posts
+  </h2>
 
+  <ul className="text-white/70 text-lg mt-6 space-y-3">
+    <li>• Lower Division Clerk (LDC)</li>
+    <li>• Junior Secretariat Assistant (JSA)</li>
+    <li>• Postal Assistant (PA)</li>
+    <li>• Sorting Assistant (SA)</li>
+    <li>• Data Entry Operator (DEO)</li>
+  </ul>
+
+  <p className="text-white/70 text-lg leading-8 mt-8">
+    SSC CHSL offers multiple clerical and administrative
+    positions in central government departments. Salary,
+    responsibilities and promotion opportunities vary
+    depending on the post and department.
+  </p>
+</section>
+
+<section className="bg-[#111827] rounded-[32px] p-10">
+  <h2 className="text-4xl font-bold">
+    Frequently Asked Questions
+  </h2>
+
+  <div className="space-y-6 mt-8">
+
+    <div>
+      <h3 className="text-2xl font-semibold">
+        What is the in-hand salary of SSC CHSL?
+      </h3>
+
+      <p className="text-white/70 mt-3">
+        The in-hand salary generally ranges from
+        ₹28,000 to ₹40,000 depending on the city,
+        post and applicable allowances.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="text-2xl font-semibold">
+        Is SSC CHSL a permanent government job?
+      </h3>
+
+      <p className="text-white/70 mt-3">
+        Yes, SSC CHSL recruits candidates for
+        permanent central government positions.
+      </p>
+    </div>
+
+  </div>
+</section>
         </div>
 
       </div>
