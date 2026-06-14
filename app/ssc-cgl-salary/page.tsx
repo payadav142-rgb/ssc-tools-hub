@@ -188,6 +188,92 @@ export default function Page() {
             {/* FAQ */}
             <h2 className="text-4xl font-bold mt-20">
 
+{/* In Hand Salary */}
+<h2 className="text-4xl font-bold mt-20">
+  SSC CGL In Hand Salary
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC CGL in hand salary varies according to the post,
+  city category and pay level. Most candidates receive
+  monthly in hand salary between ₹35,000 and ₹75,000.
+  Posts located in metro cities generally receive higher
+  HRA and overall salary compared to smaller cities.
+</p>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  Apart from basic pay, employees receive DA, HRA,
+  Transport Allowance and other government benefits.
+  Annual salary growth also occurs through increments
+  and revisions.
+</p>
+
+{/* Promotion */}
+<h2 className="text-4xl font-bold mt-20">
+  SSC CGL Promotion & Career Growth
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC CGL posts offer excellent promotion opportunities.
+  Employees can move to higher administrative positions
+  through departmental exams, seniority and regular
+  promotion cycles.
+</p>
+
+<div className="space-y-6 mt-10">
+
+  {[
+    "Assistant Section Officer → Section Officer",
+    "Income Tax Inspector → Income Tax Officer",
+    "GST Inspector → Superintendent",
+    "Auditor → Senior Auditor",
+  ].map((item) => (
+
+    <div
+      key={item}
+      className="bg-black/30 border border-orange-500/10 rounded-3xl p-6"
+    >
+      <p className="text-xl font-medium">
+        {item}
+      </p>
+    </div>
+
+  ))}
+
+</div>
+
+{/* Job Profile */}
+<h2 className="text-4xl font-bold mt-20">
+  SSC CGL Job Profile
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC CGL recruits candidates for various ministries,
+  departments and government organizations. Job
+  responsibilities differ according to the post,
+  department and field assignment.
+</p>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  Common responsibilities include administration,
+  taxation work, auditing, investigation, file
+  management, policy implementation and public service.
+</p>
+
+{/* Why SSC CGL */}
+<h2 className="text-4xl font-bold mt-20">
+  Why SSC CGL Is A Popular Career Choice
+</h2>
+
+<p className="text-white/70 text-lg leading-9 mt-8">
+  SSC CGL provides job security, attractive salary,
+  government allowances, work-life balance and long
+  term career growth. It remains one of the most
+  preferred government examinations in India.
+</p>
+
+
+
               Frequently Asked Questions
 
             </h2>
