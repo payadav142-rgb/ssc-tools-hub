@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "SSC MTS Salary 2026 — In Hand Salary, Pay Level & Allowances",
@@ -145,6 +146,49 @@ export default function Page() {
               </div>
 
             </section>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-16">
+
+  <Link
+    href="/ssc-mts-syllabus"
+    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
+  >
+    <h3 className="text-2xl font-bold">
+      SSC MTS Syllabus
+    </h3>
+
+    <p className="text-white/50 mt-3">
+      Read More →
+    </p>
+  </Link>
+
+  <Link
+    href="/ssc-mts-cutoff"
+    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
+  >
+    <h3 className="text-2xl font-bold">
+      SSC MTS Cut Off
+    </h3>
+
+    <p className="text-white/50 mt-3">
+      Read More →
+    </p>
+  </Link>
+
+  <Link
+    href="/ssc-mts-books"
+    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
+  >
+    <h3 className="text-2xl font-bold">
+      SSC MTS Books
+    </h3>
+
+    <p className="text-white/50 mt-3">
+      Read More →
+    </p>
+  </Link>
+
+</div>
 
           </div>
 
