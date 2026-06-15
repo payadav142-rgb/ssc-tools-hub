@@ -83,6 +83,22 @@ export default function Page() {
             </ul>
           </div>
 
+          <div className="mt-10 bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8">
+
+  <h2 className="text-3xl font-bold text-orange-300">
+    How To Choose SSC CHSL Books
+  </h2>
+
+  <p className="text-white/70 mt-6 leading-8">
+    Candidates should choose books that cover the complete SSC CHSL syllabus,
+    provide sufficient practice questions and include previous year papers.
+    It is recommended to avoid using too many books for the same subject.
+    Consistent revision from a limited number of quality books is usually
+    more effective than studying from multiple sources.
+  </p>
+
+</div>
+
           {/* FAQ */}
           <div className="mt-20">
 
@@ -116,6 +132,22 @@ export default function Page() {
 
           </div>
 
+          <div className="mt-10 bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8">
+
+  <h2 className="text-3xl font-bold text-orange-300">
+    SSC CHSL Preparation Tips
+  </h2>
+
+  <ul className="mt-6 space-y-4 text-white/70">
+    <li>• Follow the latest SSC CHSL syllabus.</li>
+    <li>• Practice previous year question papers regularly.</li>
+    <li>• Focus on mock tests and time management.</li>
+    <li>• Revise important formulas and concepts frequently.</li>
+    <li>• Read current affairs daily for General Awareness preparation.</li>
+  </ul>
+
+</div>
+
           {/* Internal Links */}
           <div className="grid md:grid-cols-3 gap-8 mt-24">
 
@@ -138,11 +170,11 @@ export default function Page() {
             </Link>
 
             <Link
-              href="/blog"
+              href="/ssc-chsl-cutoff"
               className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
             >
               <h3 className="text-2xl font-bold">
-                SSC Blog
+                SSC CHSL-Cut Off
               </h3>
             </Link>
 
