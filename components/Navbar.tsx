@@ -38,7 +38,7 @@ export default function Navbar() {
 
     {
       name: "Syllabus",
-      href: "/ssc-cgl-syllabus",
+      href: "/syllabus",
     },
 
     {
