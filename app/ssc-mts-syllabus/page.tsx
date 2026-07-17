@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import Navbar from "../../components/Navbar";
 import ToolContainer from "../../components/ToolContainer";
 
 export const metadata: Metadata = {
-
-  title:
-    "SSC MTS Syllabus 2026 — Complete Exam Syllabus",
+  title: "SSC MTS Syllabus 2026 — Complete Exam Syllabus",
 
   description:
-    "Check complete SSC MTS syllabus 2026 including Reasoning, Numerical Aptitude, English and General Awareness with latest exam pattern.",
+    "Check complete SSC MTS syllabus 2026 including Numerical Aptitude, Reasoning, English and General Awareness with latest exam pattern.",
 
   keywords: [
     "SSC MTS Syllabus 2026",
@@ -18,13 +17,10 @@ export const metadata: Metadata = {
     "SSC MTS Paper 1 Syllabus",
     "SSC MTS Havaldar Syllabus",
   ],
-
 };
 
 export default function Page() {
-
   return (
-
     <ToolContainer>
 
       <Navbar />
@@ -38,56 +34,90 @@ export default function Page() {
 
         <section className="relative z-10 px-6 py-20">
 
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
 
             {/* Hero */}
             <div className="text-center">
 
               <p className="text-orange-300 font-medium">
-
                 SSC MTS 2026
-
               </p>
 
               <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
-
                 SSC MTS <span className="text-orange-400">Syllabus 2026</span>
-
               </h1>
 
-              <p className="text-white/60 text-lg leading-8 mt-8 max-w-3xl mx-auto">
-
+              <p className="text-white/60 text-lg md:text-xl leading-9 mt-8 max-w-4xl mx-auto">
                 Check complete SSC MTS syllabus 2026 including
-                Numerical Aptitude, Reasoning,
-                English Language and General Awareness topics.
-
+                Numerical Aptitude, Reasoning, English,
+                General Awareness, latest paper pattern
+                and preparation strategy.
               </p>
 
             </div>
 
+            {/* Quick Cards */}
+            <div className="grid md:grid-cols-4 gap-8 mt-20">
+
+              {[
+                {
+                  title: "Subjects",
+                  value: "4",
+                },
+
+                {
+                  title: "Sessions",
+                  value: "2",
+                },
+
+                {
+                  title: "Mode",
+                  value: "Online CBT",
+                },
+
+                {
+                  title: "Level",
+                  value: "10th Pass",
+                },
+
+              ].map((item, index) => (
+
+                <div
+                  key={index}
+                  className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+                >
+
+                  <h2 className="text-3xl font-bold text-orange-300">
+                    {item.value}
+                  </h2>
+
+                  <p className="text-white/60 mt-4 text-lg">
+                    {item.title}
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
             {/* Overview */}
-            <div className="mt-20 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-8 md:p-12">
+            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
 
               <h2 className="text-4xl font-bold">
-
                 SSC MTS Syllabus Overview
-
               </h2>
 
-              <p className="text-white/70 leading-8 text-lg mt-8">
-
+              <p className="text-white/70 text-lg leading-9 mt-8">
                 SSC Multi Tasking Staff (MTS) examination is conducted
-                by Staff Selection Commission for recruitment
-                to non-gazetted and non-ministerial posts.
-
+                by the Staff Selection Commission for recruitment to
+                various non-technical Group C posts in central government departments.
               </p>
 
-              <p className="text-white/70 leading-8 text-lg mt-6">
-
-                Candidates preparing for SSC MTS 2026 should understand
-                the latest syllabus and exam pattern properly
-                to improve preparation strategy and performance.
-
+              <p className="text-white/70 text-lg leading-9 mt-6">
+                Understanding the latest SSC MTS syllabus and exam pattern
+                helps candidates prepare effectively and score better
+                in both examination sessions.
               </p>
 
             </div>
@@ -96,9 +126,7 @@ export default function Page() {
             <div className="mt-24">
 
               <h2 className="text-4xl md:text-5xl font-bold">
-
                 SSC MTS Exam Subjects
-
               </h2>
 
               <div className="grid md:grid-cols-2 gap-8 mt-12">
@@ -160,9 +188,7 @@ export default function Page() {
                   >
 
                     <h3 className="text-2xl font-bold text-orange-300">
-
                       {item.title}
-
                     </h3>
 
                     <ul className="mt-6 space-y-4 text-white/70">
@@ -170,9 +196,7 @@ export default function Page() {
                       {item.topics.map((topic, i) => (
 
                         <li key={i}>
-
                           • {topic}
-
                         </li>
 
                       ))}
@@ -186,94 +210,112 @@ export default function Page() {
               </div>
 
             </div>
-
-            {/* Exam Pattern */}
+                        {/* Paper Pattern */}
             <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
 
               <h2 className="text-4xl md:text-5xl font-bold">
-
-                SSC MTS Exam Pattern
-
+                SSC MTS Paper Pattern 2026
               </h2>
 
               <p className="text-white/70 text-lg leading-8 mt-8">
-
-                SSC MTS examination consists of objective type questions
-                from multiple subjects including reasoning,
-                numerical aptitude, English and general awareness.
-
+                SSC MTS examination is conducted in two sessions.
+                Both sessions are held on the same day in
+                Computer Based Test (CBT) mode.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-8 mt-12">
+              <div className="overflow-x-auto mt-10">
 
-                <div className="bg-black/20 border border-orange-500/10 rounded-3xl p-8">
+                <table className="w-full border border-orange-500/10 rounded-3xl overflow-hidden">
 
-                  <h3 className="text-2xl font-bold">
+                  <thead className="bg-orange-500 text-black">
 
-                    Session 1
+                    <tr>
 
-                  </h3>
+                      <th className="px-6 py-4 text-left">
+                        Session
+                      </th>
 
-                  <p className="text-white/60 leading-8 mt-5">
+                      <th className="px-6 py-4 text-left">
+                        Subjects
+                      </th>
 
-                    Numerical Aptitude and
-                    Reasoning Ability based questions
-                    are included in first session.
+                      <th className="px-6 py-4 text-left">
+                        Marks
+                      </th>
 
-                  </p>
+                    </tr>
 
-                </div>
+                  </thead>
 
-                <div className="bg-black/20 border border-orange-500/10 rounded-3xl p-8">
+                  <tbody>
 
-                  <h3 className="text-2xl font-bold">
+                    {[
+                      [
+                        "Session 1",
+                        "Numerical Aptitude & Reasoning",
+                        "120",
+                      ],
 
-                    Session 2
+                      [
+                        "Session 2",
+                        "English & General Awareness",
+                        "150",
+                      ],
 
-                  </h3>
+                    ].map((row) => (
 
-                  <p className="text-white/60 leading-8 mt-5">
+                      <tr
+                        key={row[0]}
+                        className="border-t border-orange-500/10"
+                      >
 
-                    English Language and
-                    General Awareness questions
-                    are included in second session.
+                        <td className="px-6 py-5">
+                          {row[0]}
+                        </td>
 
-                  </p>
+                        <td className="px-6 py-5">
+                          {row[1]}
+                        </td>
 
-                </div>
+                        <td className="px-6 py-5 text-orange-300 font-semibold">
+                          {row[2]}
+                        </td>
+
+                      </tr>
+
+                    ))}
+
+                  </tbody>
+
+                </table>
 
               </div>
 
             </div>
 
-            {/* Tips */}
+            {/* Marking Scheme */}
             <div className="mt-24">
 
               <h2 className="text-4xl font-bold">
-
-                SSC MTS Preparation Tips
-
+                SSC MTS Marking Scheme
               </h2>
 
-              <div className="space-y-6 mt-10">
+              <div className="grid md:grid-cols-2 gap-8 mt-10">
 
                 {[
-                  "Solve SSC MTS previous year papers regularly.",
-                  "Focus on speed and accuracy improvement.",
-                  "Practice mock tests weekly.",
-                  "Improve current affairs preparation daily.",
-                  "Revise formulas and short notes consistently.",
-                ].map((tip, index) => (
+                  "Session 1 has no negative marking.",
+                  "Session 2 has 1 mark negative marking.",
+                  "Each correct answer carries prescribed marks.",
+                  "Accuracy improves overall score significantly.",
+                ].map((item) => (
 
                   <div
-                    key={index}
+                    key={item}
                     className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6"
                   >
 
-                    <p className="text-white/70 text-lg">
-
-                      ✅ {tip}
-
+                    <p className="text-lg leading-8">
+                      ✅ {item}
                     </p>
 
                   </div>
@@ -284,13 +326,44 @@ export default function Page() {
 
             </div>
 
-            {/* FAQ */}
+            {/* Preparation Tips */}
             <div className="mt-24">
 
               <h2 className="text-4xl font-bold">
+                SSC MTS Preparation Tips
+              </h2>
 
+              <div className="space-y-6 mt-10">
+
+                {[
+                  "Solve previous year question papers regularly.",
+                  "Practice mock tests every week.",
+                  "Focus on accuracy along with speed.",
+                  "Revise formulas and grammar rules daily.",
+                  "Prepare current affairs consistently.",
+                ].map((tip) => (
+
+                  <div
+                    key={tip}
+                    className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6"
+                  >
+
+                    <p className="text-lg leading-8">
+                      ✅ {tip}
+                    </p>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+                        {/* FAQ */}
+            <div className="mt-24">
+
+              <h2 className="text-4xl font-bold">
                 Frequently Asked Questions
-
               </h2>
 
               <div className="space-y-6 mt-10">
@@ -298,17 +371,13 @@ export default function Page() {
                 <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
 
                   <h3 className="text-2xl font-semibold">
-
                     Is SSC MTS syllabus difficult?
-
                   </h3>
 
                   <p className="text-white/60 leading-8 mt-4">
-
                     SSC MTS syllabus is considered easy to moderate.
-                    Regular practice and revision can help candidates
-                    score well in the examination.
-
+                    Regular practice, revision and mock tests help
+                    candidates score well in the examination.
                   </p>
 
                 </div>
@@ -316,21 +385,81 @@ export default function Page() {
                 <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
 
                   <h3 className="text-2xl font-semibold">
-
                     Does SSC MTS have negative marking?
-
                   </h3>
 
                   <p className="text-white/60 leading-8 mt-4">
+                    Yes. Negative marking is applicable in Session 2
+                    of the SSC MTS Computer Based Examination.
+                  </p>
 
-                    Yes, negative marking is applicable
-                    in some sections of SSC MTS examination.
+                </div>
 
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
+
+                  <h3 className="text-2xl font-semibold">
+                    How many subjects are included in SSC MTS syllabus?
+                  </h3>
+
+                  <p className="text-white/60 leading-8 mt-4">
+                    The SSC MTS syllabus covers four major subjects:
+                    Numerical Aptitude, Reasoning Ability,
+                    English Language and General Awareness.
                   </p>
 
                 </div>
 
               </div>
+
+            </div>
+
+            {/* Internal Links */}
+            <div className="grid md:grid-cols-3 gap-8 mt-24">
+
+              <Link
+                href="/ssc-mts-exam-pattern"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC MTS Exam Pattern
+                </h3>
+
+                <p className="text-white/50 mt-4">
+                  Latest paper pattern →
+                </p>
+
+              </Link>
+
+              <Link
+                href="/ssc-mts-cutoff"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC MTS Cutoff
+                </h3>
+
+                <p className="text-white/50 mt-4">
+                  Expected & previous year cutoff →
+                </p>
+
+              </Link>
+
+              <Link
+                href="/ssc-mts-salary"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC MTS Salary
+                </h3>
+
+                <p className="text-white/50 mt-4">
+                  Salary, perks & allowances →
+                </p>
+
+              </Link>
 
             </div>
 
