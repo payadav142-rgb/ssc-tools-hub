@@ -1,199 +1,375 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
+import Navbar from "../../components/Navbar";
+import ToolContainer from "../../components/ToolContainer";
+
 export const metadata: Metadata = {
-  title:
-    "SSC GD Salary 2026 — In Hand Salary, Pay Scale & Promotion",
+  title: "SSC GD Salary 2026 — In Hand Salary, Pay Level & Allowances",
+
   description:
-    "Check SSC GD salary 2026 including in hand salary, pay scale, allowances, job profile and promotion opportunities.",
+    "Check SSC GD Constable Salary 2026 including in-hand salary, basic pay, pay level, allowances, job profile and promotion details.",
+
+  keywords: [
+    "SSC GD Salary 2026",
+    "SSC GD In Hand Salary",
+    "SSC GD Salary Structure",
+    "SSC GD Pay Level",
+    "SSC GD Allowances",
+  ],
 };
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
+    <ToolContainer>
 
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+      <Navbar />
 
-      <section className="relative z-10 px-6 py-20">
+      <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-        <div className="max-w-5xl mx-auto">
+        {/* Glow */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-          <p className="text-orange-300 font-medium">
-            SSC GD Constable
-          </p>
+        <div className="absolute top-[40%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold mt-5">
-            SSC GD Salary 2026
-          </h1>
+        <section className="relative z-10 px-6 py-20">
 
-          <p className="text-white/60 text-xl mt-8 leading-9">
-            Complete SSC GD salary structure including
-            in-hand salary, allowances, job profile
-            and promotion opportunities.
-          </p>
+          <div className="max-w-6xl mx-auto">
 
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {/* Hero */}
+            <div className="text-center">
 
-            <div className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8">
-              <p className="text-white/50">Pay Level</p>
-              <h3 className="text-2xl font-bold mt-3 text-orange-300">
-                Level 3
-              </h3>
+              <p className="text-orange-300 font-medium">
+                SSC GD 2026
+              </p>
+
+              <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mt-5">
+                SSC GD <span className="text-orange-400">Salary 2026</span>
+              </h1>
+
+              <p className="text-white/60 text-lg md:text-xl leading-9 mt-8 max-w-4xl mx-auto">
+                Check SSC GD Constable Salary 2026 including
+                in-hand salary, basic pay, pay level,
+                allowances, promotion opportunities
+                and complete salary structure.
+              </p>
+
             </div>
 
-            <div className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8">
-              <p className="text-white/50">Basic Pay</p>
-              <h3 className="text-2xl font-bold mt-3 text-orange-300">
-                ₹21,700
-              </h3>
+            {/* Quick Cards */}
+            <div className="grid md:grid-cols-4 gap-8 mt-20">
+
+              {[
+                {
+                  title: "Pay Level",
+                  value: "Level 3",
+                },
+
+                {
+                  title: "Basic Pay",
+                  value: "₹21,700",
+                },
+
+                {
+                  title: "In-Hand",
+                  value: "₹30K–35K",
+                },
+
+                {
+                  title: "Job Type",
+                  value: "Central Govt",
+                },
+
+              ].map((item, index) => (
+
+                <div
+                  key={index}
+                  className="bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8"
+                >
+
+                  <h2 className="text-3xl font-bold text-orange-300">
+                    {item.value}
+                  </h2>
+
+                  <p className="text-white/60 mt-4 text-lg">
+                    {item.title}
+                  </p>
+
+                </div>
+
+              ))}
+
             </div>
 
-            <div className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8">
-              <p className="text-white/50">Job Type</p>
-              <h3 className="text-2xl font-bold mt-3 text-orange-300">
-                Central Armed Force
-              </h3>
+            {/* Salary Overview */}
+            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
+
+              <h2 className="text-4xl font-bold">
+                SSC GD Salary Overview
+              </h2>
+
+              <p className="text-white/70 text-lg leading-9 mt-8">
+                SSC GD Constables are recruited in various Central Armed Police Forces
+                such as BSF, CISF, CRPF, ITBP, SSB, Assam Rifles and SSF.
+                They receive salary according to the 7th Pay Commission
+                under Pay Level-3.
+              </p>
+
+              <p className="text-white/70 text-lg leading-9 mt-6">
+                Along with the basic pay, candidates receive several
+                allowances including Dearness Allowance (DA),
+                House Rent Allowance (HRA), Transport Allowance (TA),
+                Medical Facilities and other government benefits.
+              </p>
+
+            </div>
+                        {/* Salary Structure */}
+            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
+
+              <h2 className="text-4xl font-bold">
+                SSC GD Salary Structure 2026
+              </h2>
+
+              <p className="text-white/70 text-lg leading-9 mt-8">
+                SSC GD Constables are placed under Pay Level-3 of the
+                7th Pay Commission. Along with the basic pay,
+                employees receive various allowances and benefits
+                provided by the Central Government.
+              </p>
+
+              <div className="overflow-x-auto mt-10">
+
+                <table className="w-full border border-orange-500/10 rounded-3xl overflow-hidden">
+
+                  <thead className="bg-orange-500 text-black">
+
+                    <tr>
+
+                      <th className="px-6 py-4 text-left">
+                        Component
+                      </th>
+
+                      <th className="px-6 py-4 text-left">
+                        Details
+                      </th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    {[
+                      ["Pay Level", "Level-3"],
+                      ["Basic Pay", "₹21,700"],
+                      ["Pay Scale", "₹21,700 – ₹69,100"],
+                      ["In-Hand Salary", "₹30,000 – ₹35,000 (Approx.)"],
+                    ].map((row) => (
+
+                      <tr
+                        key={row[0]}
+                        className="border-t border-orange-500/10"
+                      >
+
+                        <td className="px-6 py-5">
+                          {row[0]}
+                        </td>
+
+                        <td className="px-6 py-5 text-orange-300 font-semibold">
+                          {row[1]}
+                        </td>
+
+                      </tr>
+
+                    ))}
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
             </div>
 
-          </div>
+            {/* In-Hand Salary */}
+            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
 
-          <div className="space-y-8 mt-20">
-
-            <section className="bg-[#111827] rounded-[32px] p-10">
               <h2 className="text-4xl font-bold">
-                SSC GD In Hand Salary
+                SSC GD In-Hand Salary
               </h2>
 
-              <p className="text-white/70 text-lg leading-8 mt-6">
-                SSC GD Constables receive basic pay,
-                DA, HRA, transport allowance and other
-                benefits. The approximate in-hand salary
-                ranges between ₹30,000 and ₹40,000 per month.
+              <p className="text-white/70 text-lg leading-9 mt-8">
+                The approximate in-hand salary of an SSC GD Constable
+                ranges between <span className="text-orange-300 font-semibold">₹30,000 to ₹35,000 per month</span>.
+                The exact salary depends on the city of posting,
+                HRA category, deductions and other applicable allowances.
               </p>
-            </section>
 
-            <section className="bg-[#111827] rounded-[32px] p-10">
+            </div>
+
+            {/* Allowances */}
+            <div className="mt-24">
+
               <h2 className="text-4xl font-bold">
-                Allowances & Benefits
+                SSC GD Allowances & Benefits
               </h2>
 
-              <ul className="text-white/70 text-lg mt-6 space-y-3">
-                <li>• Dearness Allowance (DA)</li>
-                <li>• House Rent Allowance (HRA)</li>
-                <li>• Transport Allowance</li>
-                <li>• Medical Facilities</li>
-                <li>• Pension Benefits</li>
-                <li>• Risk & Security Related Benefits</li>
-              </ul>
-            </section>
+              <div className="grid md:grid-cols-2 gap-8 mt-10">
 
-            <section className="bg-[#111827] rounded-[32px] p-10">
+                {[
+                  "Dearness Allowance (DA)",
+                  "House Rent Allowance (HRA)",
+                  "Transport Allowance (TA)",
+                  "Medical Facilities",
+                  "Pension & Retirement Benefits",
+                  "Paid Leaves and Government Holidays",
+                ].map((item) => (
+
+                  <div
+                    key={item}
+                    className="bg-[#111827]/70 border border-orange-500/10 rounded-3xl p-6"
+                  >
+
+                    <p className="text-lg leading-8">
+                      ✅ {item}
+                    </p>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* Promotion */}
+            <div className="mt-24 bg-[#111827]/80 border border-orange-500/10 rounded-[40px] p-10 md:p-14">
+
               <h2 className="text-4xl font-bold">
-                SSC GD Job Profile
+                SSC GD Promotion & Career Growth
               </h2>
 
-              <p className="text-white/70 text-lg leading-8 mt-6">
-                SSC GD Constables serve in various
-                Central Armed Police Forces and perform
-                security, law enforcement and public
-                safety duties.
+              <p className="text-white/70 text-lg leading-9 mt-8">
+                SSC GD Constables receive regular promotions based on
+                departmental examinations, experience and service record.
+                Career progression includes promotions to
+                Head Constable, Assistant Sub Inspector (ASI),
+                Sub Inspector (SI) and higher ranks over time.
               </p>
-            </section>
 
-            <section className="bg-[#111827] rounded-[32px] p-10">
-              <h2 className="text-4xl font-bold">
-                Promotion Opportunities
-              </h2>
+            </div>
+                        {/* FAQ */}
+            <div className="mt-24">
 
-              <p className="text-white/70 text-lg leading-8 mt-6">
-                SSC GD personnel can be promoted to
-                higher ranks based on service record,
-                departmental examinations and experience.
-              </p>
-            </section>
-
-            <section className="bg-[#111827] rounded-[32px] p-10">
               <h2 className="text-4xl font-bold">
                 Frequently Asked Questions
               </h2>
 
-              <div className="space-y-6 mt-8">
+              <div className="space-y-6 mt-10">
 
-                <div>
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
+
+                  <h3 className="text-2xl font-semibold">
+                    What is the basic pay of SSC GD Constable?
+                  </h3>
+
+                  <p className="text-white/60 leading-8 mt-4">
+                    The basic pay of SSC GD Constable is ₹21,700
+                    under Pay Level-3 of the 7th Pay Commission.
+                  </p>
+
+                </div>
+
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
+
                   <h3 className="text-2xl font-semibold">
                     What is the in-hand salary of SSC GD?
                   </h3>
 
-                  <p className="text-white/70 mt-3">
-                    The approximate in-hand salary ranges
-                    from ₹30,000 to ₹40,000 per month.
+                  <p className="text-white/60 leading-8 mt-4">
+                    The approximate in-hand salary ranges between
+                    ₹30,000 and ₹35,000 per month depending on
+                    the posting location and applicable allowances.
                   </p>
+
                 </div>
 
-                <div>
+                <div className="bg-[#111827]/80 border border-orange-500/10 rounded-3xl p-8">
+
                   <h3 className="text-2xl font-semibold">
-                    Is SSC GD a permanent government job?
+                    Which allowances are provided to SSC GD Constables?
                   </h3>
 
-                  <p className="text-white/70 mt-3">
-                    Yes, SSC GD is a permanent government
-                    job with salary, allowances and
-                    long-term career growth opportunities.
+                  <p className="text-white/60 leading-8 mt-4">
+                    SSC GD personnel receive Dearness Allowance,
+                    House Rent Allowance, Transport Allowance,
+                    Medical Facilities and other government benefits.
                   </p>
+
                 </div>
 
               </div>
 
-            </section>
+            </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {/* Internal Links */}
+            <div className="grid md:grid-cols-3 gap-8 mt-24">
 
-  <Link
-    href="/ssc-gd-syllabus"
-    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
-  >
-    <h3 className="text-2xl font-bold">
-      SSC GD Syllabus
-    </h3>
+              <Link
+                href="/ssc-gd-syllabus"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
 
-    <p className="text-white/50 mt-3">
-      Read More →
-    </p>
-  </Link>
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC GD Syllabus
+                </h3>
 
-  <Link
-    href="/ssc-gd-cutoff"
-    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
-  >
-    <h3 className="text-2xl font-bold">
-      SSC GD Cut Off
-    </h3>
+                <p className="text-white/50 mt-4">
+                  Complete syllabus →
+                </p>
 
-    <p className="text-white/50 mt-3">
-      Read More →
-    </p>
-  </Link>
+              </Link>
 
-  <Link
-    href="/ssc-gd-notification"
-    className="bg-[#111827] border border-orange-500/10 rounded-[28px] p-8 hover:border-orange-500/40 transition"
-  >
-    <h3 className="text-2xl font-bold">
-      SSC GD Notification
-    </h3>
+              <Link
+                href="/ssc-gd-exam-pattern"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
 
-    <p className="text-white/50 mt-3">
-      Read More →
-    </p>
-  </Link>
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC GD Exam Pattern
+                </h3>
 
-</div>
+                <p className="text-white/50 mt-4">
+                  Latest exam pattern →
+                </p>
+
+              </Link>
+
+              <Link
+                href="/ssc-gd-cutoff"
+                className="group bg-[#111827]/80 border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 transition-all"
+              >
+
+                <h3 className="text-2xl font-bold group-hover:text-orange-300 transition">
+                  SSC GD Cutoff
+                </h3>
+
+                <p className="text-white/50 mt-4">
+                  Expected & previous year cutoff →
+                </p>
+
+              </Link>
+
+            </div>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+      </main>
 
-    </main>
+    </ToolContainer>
+
   );
+
 }
