@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
+import Navbar from "../../components/Navbar";
 export const metadata: Metadata = {
   title: "SSC Syllabus 2026 — CGL, CHSL, MTS & GD Syllabus",
   description:
@@ -33,7 +33,7 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#0B0F19] text-white px-6 py-20">
-
+<Navbar />
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center">

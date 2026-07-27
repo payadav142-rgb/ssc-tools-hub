@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { blogs } from "../../data/blogs";
-
+import Navbar from "../../components/Navbar";
 export const metadata: Metadata = {
   title:
     "SSC Blog — Latest SSC Updates, Salary, Syllabus & Preparation",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
-
+<Navbar />
       {/* Glow Effects */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
