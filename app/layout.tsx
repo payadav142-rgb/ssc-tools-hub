@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
-import {
-  ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 
@@ -14,8 +12,7 @@ export const metadata: Metadata = {
     google: "c2E0Y9rYTzrEi_aYV43C725aFKUMCcaoyREP1or5amo",
   },
 
-  title:
-    "SSC Tools Hub - Smart SSC Preparation Platform",
+  title: "SSC Tools Hub - Smart SSC Preparation Platform",
 
   description:
     "SSC Tools Hub provides SSC CGL calculators, rank predictors, study planners, mock analyzers, PYQs, resources and smart preparation tools.",
@@ -37,15 +34,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="flex flex-col min-h-screen">
+        <body className="flex min-h-screen flex-col">
           <main className="flex-1">
-  {children}
-</main>
+            {children}
+          </main>
+
           <Footer />
+
           <MobileBottomBar />
         </body>
       </html>
