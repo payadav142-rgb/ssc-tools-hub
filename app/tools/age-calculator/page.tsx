@@ -3,208 +3,308 @@
 import { useState } from "react";
 
 import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-
 import ToolContainer from "../../../components/ToolContainer";
 import ToolSEOContent from "../../../components/ToolSEOContent";
 import AdBanner from "../../../components/AdBanner";
 import RelatedTools from "../../../components/RelatedTools";
 
 export default function AgeCalculatorPage() {
+  const [birthDate, setBirthDate] = useState("");
 
-  const [birthDate, setBirthDate] =
-    useState("");
+  const [age, setAge] = useState<{
+    years: number;
+    months: number;
+    days: number;
+  } | null>(null);
 
-  const [age, setAge] =
-    useState<number | null>(null);
+  const [error, setError] = useState("");
 
   function calculateAge() {
+    setError("");
+    setAge(null);
 
     if (!birthDate) {
+      setError("Please select your date of birth.");
       return;
     }
 
-    const today =
-      new Date();
+    const today = new Date();
+    const birth = new Date(`${birthDate}T00:00:00`);
 
-    const birth =
-      new Date(birthDate);
+    if (birth > today) {
+      setError("Date of birth cannot be in the future.");
+      return;
+    }
 
-    let calculatedAge =
+    let years =
       today.getFullYear() -
       birth.getFullYear();
 
-    const monthDifference =
+    let months =
       today.getMonth() -
       birth.getMonth();
 
-    if (
-      monthDifference < 0 ||
-      (
-        monthDifference === 0 &&
-        today.getDate() <
-        birth.getDate()
-      )
-    ) {
+    let days =
+      today.getDate() -
+      birth.getDate();
 
-      calculatedAge--;
+    if (days < 0) {
+      months--;
 
+      const previousMonth =
+        new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          0
+        );
+
+      days += previousMonth.getDate();
     }
 
-    setAge(calculatedAge);
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
 
+    setAge({
+      years,
+      months,
+      days,
+    });
+  }
+
+  function resetCalculator() {
+    setBirthDate("");
+    setAge(null);
+    setError("");
   }
 
   let eligibility = "";
 
   if (age !== null) {
-
-    if (
-      age >= 18 &&
-      age <= 32
-    ) {
-
+    if (age.years < 18) {
       eligibility =
-        "Eligible for most SSC exams ✅";
-
-    }
-
-    else if (age < 18) {
-
+        "You are below the usual minimum age for many SSC exams.";
+    } else if (age.years <= 32) {
       eligibility =
-        "You are below SSC eligibility age ⚠️";
-
-    }
-
-    else {
-
+        "You may be eligible for several SSC exams, subject to the specific post and cut-off date.";
+    } else {
       eligibility =
-        "Age exceeds some SSC exam limits ⚠️";
-
+        "Your age may exceed the limit for some SSC posts. Check the specific exam notification.";
     }
-
   }
 
   return (
-
     <ToolContainer>
 
       <Navbar />
 
-      <section className="px-6 py-24">
+      <main className="min-h-screen bg-[#0B0F19] text-white overflow-hidden relative">
 
-        <div className="max-w-3xl mx-auto">
+        {/* Background Glow */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-500/20 blur-[120px] rounded-full pointer-events-none" />
 
-          {/* Heading */}
-          <div className="text-center">
+        <div className="absolute top-[45%] right-0 w-[400px] h-[400px] bg-amber-400/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <h1 className="text-6xl font-extrabold">
-              SSC Age Calculator
-            </h1>
+        {/* Main Tool */}
+        <section className="relative z-10 px-4 md:px-6 py-20 md:py-28">
 
-            <p className="text-white/50 text-xl mt-6">
-              Check your SSC exam age eligibility instantly.
-            </p>
+          <div className="max-w-4xl mx-auto">
 
-          </div>
+            {/* Heading */}
+            <div className="text-center">
 
-          {/* Card */}
-          <div className="mt-16 bg-white/[0.04] border border-white/10 rounded-[32px] p-10">
+              <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-5 py-2.5 text-sm text-orange-200">
+                🎂 SSC Preparation Tool
+              </div>
 
-            {/* Input */}
-            <div>
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-8">
 
-              <label className="block text-lg mb-4 text-white/70">
-                Select Your Birth Date
-              </label>
+                SSC{" "}
 
-              <input
-                type="date"
-                value={birthDate}
-                onChange={(e) =>
-                  setBirthDate(
-                    e.target.value
-                  )
-                }
-                className="w-full bg-black border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-white/20"
-              />
+                <span className="text-orange-400">
+                  Age Calculator
+                </span>
+
+              </h1>
+
+              <p className="text-white/50 text-lg md:text-xl leading-relaxed mt-6 max-w-2xl mx-auto">
+                Calculate your exact age and get a quick
+                indication of your SSC age eligibility.
+              </p>
 
             </div>
 
-            {/* Button */}
-            <button
-              onClick={calculateAge}
-              className="w-full mt-10 bg-white text-black py-4 rounded-2xl text-lg font-semibold hover:scale-[1.01] transition"
-            >
-              Calculate Age
-            </button>
+            {/* Calculator Card */}
+            <div className="mt-16 bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[36px] p-6 md:p-10 shadow-[0_0_60px_rgba(249,115,22,0.06)]">
 
-            {/* Result */}
-            {age !== null && (
+              {/* Input */}
+              <div>
 
-              <div className="mt-14 bg-black border border-white/10 rounded-3xl p-10 text-center">
+                <label
+                  htmlFor="birthDate"
+                  className="block text-lg font-semibold text-white/80 mb-4"
+                >
+                  Date of Birth
+                </label>
 
-                <p className="text-white/50 text-lg">
-                  Your Age
-                </p>
-
-                <h2 className="text-7xl font-extrabold mt-6">
-                  {age}
-                </h2>
-
-                <p className="text-2xl mt-4">
-                  Years
-                </p>
-
-                <p className="mt-8 text-2xl font-semibold">
-                  {eligibility}
-                </p>
+                <input
+                  id="birthDate"
+                  type="date"
+                  value={birthDate}
+                  max={
+                    new Date()
+                      .toISOString()
+                      .split("T")[0]
+                  }
+                  onChange={(e) => {
+                    setBirthDate(e.target.value);
+                    setError("");
+                    setAge(null);
+                  }}
+                  className="w-full bg-[#0B0F19] border border-orange-500/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-orange-500/50 transition-all"
+                />
 
               </div>
 
-            )}
+              {/* Error */}
+              {error && (
+                <div className="mt-5 rounded-2xl border border-red-500/20 bg-red-500/10 px-5 py-4 text-red-300">
+                  ⚠️ {error}
+                </div>
+              )}
+
+              {/* Buttons */}
+              <div className="grid sm:grid-cols-2 gap-4 mt-8">
+
+                <button
+                  onClick={calculateAge}
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white py-4 rounded-2xl text-lg font-semibold transition-all duration-300 hover:scale-[1.01] shadow-lg shadow-orange-500/20"
+                >
+                  Calculate Age
+                </button>
+
+                <button
+                  onClick={resetCalculator}
+                  className="border border-orange-500/20 bg-orange-500/5 hover:bg-orange-500/10 text-white/80 hover:text-white py-4 rounded-2xl text-lg font-semibold transition-all"
+                >
+                  Reset
+                </button>
+
+              </div>
+
+              {/* Result */}
+              {age !== null && (
+
+                <div className="mt-12">
+
+                  <div className="rounded-[32px] border border-orange-500/20 bg-gradient-to-br from-orange-500/10 to-amber-400/5 p-7 md:p-10 text-center">
+
+                    <p className="text-white/50 text-lg">
+                      Your Exact Age
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-3 md:gap-6 mt-8">
+
+                      <div className="bg-[#0B0F19]/80 border border-orange-500/10 rounded-2xl p-4 md:p-6">
+
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-orange-300">
+                          {age.years}
+                        </h2>
+
+                        <p className="text-white/50 mt-2">
+                          Years
+                        </p>
+
+                      </div>
+
+                      <div className="bg-[#0B0F19]/80 border border-orange-500/10 rounded-2xl p-4 md:p-6">
+
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-orange-300">
+                          {age.months}
+                        </h2>
+
+                        <p className="text-white/50 mt-2">
+                          Months
+                        </p>
+
+                      </div>
+
+                      <div className="bg-[#0B0F19]/80 border border-orange-500/10 rounded-2xl p-4 md:p-6">
+
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-orange-300">
+                          {age.days}
+                        </h2>
+
+                        <p className="text-white/50 mt-2">
+                          Days
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                    <div className="mt-8 bg-[#0B0F19]/60 border border-orange-500/10 rounded-2xl p-5">
+
+                      <p className="text-white/70 leading-relaxed">
+                        {eligibility}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              )}
+
+            </div>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+        {/* Ad Banner */}
+        <section className="relative z-10 px-4 md:px-6 pb-20">
 
-      {/* Ad Banner */}
-      <section className="px-6 pb-20">
+          <div className="max-w-5xl mx-auto">
 
-        <div className="max-w-5xl mx-auto">
+            <AdBanner />
 
-          <AdBanner />
+          </div>
 
-        </div>
+        </section>
 
-      </section>
+        {/* SEO Content */}
+        <div className="relative z-10">
 
-      {/* SEO Content */}
-      <ToolSEOContent
-        title="SSC Age Calculator"
-        description="Check SSC exam eligibility instantly using SSC Age Calculator. Calculate your age accurately for SSC CGL, CHSL, GD, MTS and other SSC exams."
-      />
-
-      {/* Related Tools */}
-      <RelatedTools />
-
-      {/* Bottom Ad */}
-      <section className="px-6 pb-24">
-
-        <div className="max-w-5xl mx-auto">
-
-          <AdBanner />
+          <ToolSEOContent
+            title="SSC Age Calculator"
+            description="Check your age for SSC exams using our free SSC Age Calculator. Calculate your exact age and understand the general age eligibility range for SSC CGL, CHSL, GD, MTS and other SSC examinations."
+          />
 
         </div>
 
-      </section>
+        {/* Related Tools */}
+        <div className="relative z-10">
 
-      <Footer />
+          <RelatedTools />
+
+        </div>
+
+        {/* Bottom Ad */}
+        <section className="relative z-10 px-4 md:px-6 pb-24">
+
+          <div className="max-w-5xl mx-auto">
+
+            <AdBanner />
+
+          </div>
+
+        </section>
+
+      </main>
 
     </ToolContainer>
-
   );
-
 }
