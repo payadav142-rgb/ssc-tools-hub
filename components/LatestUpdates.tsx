@@ -1,135 +1,147 @@
+import Link from "next/link";
+
+const updates = [
+  {
+    title: "SSC CGL 2026 Notification",
+    desc:
+      "SSC CGL 2026 notification, vacancies, eligibility, important dates and exam details.",
+    tag: "Notification",
+    href: "/ssc-cgl-notification",
+  },
+
+  {
+    title: "SSC CGL Salary 2026",
+    desc:
+      "Explore SSC CGL salary structure, allowances, perks, deductions and promotion details.",
+    tag: "Salary",
+    href: "/ssc-cgl-salary",
+  },
+
+  {
+    title: "SSC CHSL Preparation Guide",
+    desc:
+      "Follow a structured preparation strategy with useful resources and guidance for SSC CHSL.",
+    tag: "Guide",
+    href: "/resources",
+  },
+
+  {
+    title: "SSC Cutoff Trends",
+    desc:
+      "Check previous year cutoff trends and understand how SSC cutoff marks change across exams.",
+    tag: "Analysis",
+    href: "/ssc-cgl-cutoff",
+  },
+];
+
 export default function LatestUpdates() {
-
-  const updates = [
-
-    {
-      title:
-        "SSC CGL 2026 Notification",
-      desc:
-        "SSC CGL 2026 notification officially released with updated vacancies and exam details.",
-      tag:
-        "Notification",
-    },
-
-    {
-      title:
-        "SSC CGL Salary Updated",
-      desc:
-        "New salary structure, allowances, perks and promotion details are now available.",
-      tag:
-        "Salary",
-    },
-
-    {
-      title:
-        "SSC CHSL Preparation Guide",
-      desc:
-        "Complete beginner roadmap and strategy added for SSC CHSL aspirants.",
-      tag:
-        "Guide",
-    },
-
-    {
-      title:
-        "SSC Cutoff Trends",
-      desc:
-        "Previous year and expected cutoff analysis for SSC exams updated.",
-      tag:
-        "Analysis",
-    },
-
-  ];
-
   return (
-
-    <section className="px-6 pb-28 relative">
+    <section className="relative overflow-hidden px-6 pb-28">
 
       {/* Background Glow */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[450px] h-[450px] bg-orange-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[140px]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="pointer-events-none absolute bottom-0 right-[-100px] h-[300px] w-[300px] rounded-full bg-amber-400/5 blur-[120px]" />
 
-        {/* Heading */}
-        <div className="mb-16 text-center md:text-left">
+      <div className="relative z-10 mx-auto max-w-7xl">
 
-          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+        {/* Header */}
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
-            Latest <span className="text-orange-400">Updates</span>
+          <div>
 
-          </h2>
+            <div className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
+              Stay Updated
+            </div>
 
-          <p className="text-white/50 mt-5 text-lg max-w-2xl">
+            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+              Latest{" "}
+              <span className="text-orange-400">
+                Updates
+              </span>
+            </h2>
 
-            Stay updated with latest SSC notifications,
-            salary updates, cutoff trends and preparation guides.
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/50">
+              Stay updated with important SSC notifications,
+              salary information, cutoff trends and preparation guides.
+            </p>
 
-          </p>
+          </div>
+
+          <Link
+            href="/blog"
+            className="inline-flex w-fit items-center rounded-xl border border-orange-500/20 bg-orange-500/5 px-5 py-3 text-sm font-semibold text-orange-200 transition-all duration-300 hover:border-orange-500/40 hover:bg-orange-500/10"
+          >
+            View All Updates →
+          </Link>
 
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-7">
+        {/* Updates Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
 
-          {updates.map(
-            (update, index) => (
+          {updates.map((update, index) => (
 
-              <div
-                key={index}
-                className="group relative bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 overflow-hidden shadow-[0_0_50px_rgba(249,115,22,0.05)]"
-              >
+            <Link
+              key={update.title}
+              href={update.href}
+              className="group relative overflow-hidden rounded-[30px] border border-orange-500/10 bg-[#111827]/80 p-8 shadow-[0_0_50px_rgba(249,115,22,0.05)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-orange-500/40 hover:bg-[#151D2D]"
+            >
 
-                {/* Glow */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 blur-3xl rounded-full pointer-events-none"></div>
+              {/* Card Glow */}
+              <div className="pointer-events-none absolute right-[-30px] top-[-30px] h-40 w-40 rounded-full bg-orange-500/10 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
 
-                {/* Tag */}
-                <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-2 text-sm text-orange-200 mb-6">
+              <div className="relative z-10">
 
-                  🔥 {update.tag}
+                {/* Top Row */}
+                <div className="flex items-center justify-between gap-4">
+
+                  <div className="inline-flex items-center rounded-full border border-orange-500/20 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-200">
+                    🔥 {update.tag}
+                  </div>
+
+                  <span className="text-xs font-medium text-white/25">
+                    2026
+                  </span>
 
                 </div>
 
                 {/* Title */}
-                <h3 className="text-3xl font-bold leading-snug group-hover:text-orange-300 transition">
-
+                <h3 className="mt-7 text-2xl font-bold leading-snug transition-colors duration-300 group-hover:text-orange-300 sm:text-3xl">
                   {update.title}
-
                 </h3>
 
                 {/* Description */}
-                <p className="text-white/55 mt-5 leading-relaxed text-[15px]">
-
+                <p className="mt-5 text-[15px] leading-7 text-white/50">
                   {update.desc}
-
                 </p>
 
+                {/* Divider */}
+                <div className="my-7 h-px bg-gradient-to-r from-orange-500/20 via-orange-500/5 to-transparent" />
+
                 {/* Bottom */}
-                <div className="mt-8 flex items-center justify-between">
+                <div className="flex items-center justify-between">
 
-                  <span className="text-white/30 text-sm">
-
+                  <span className="text-sm text-white/30">
                     SSC Tools Hub
-
                   </span>
 
-                  <button className="text-orange-300 font-semibold group-hover:translate-x-1 transition">
-
+                  <span className="font-semibold text-orange-300 transition-all duration-300 group-hover:translate-x-1">
                     Read More →
-
-                  </button>
+                  </span>
 
                 </div>
 
               </div>
 
-            )
-          )}
+            </Link>
+
+          ))}
 
         </div>
 
       </div>
 
     </section>
-
   );
-
 }
