@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import Navbar from "../../components/Navbar";
@@ -37,17 +38,16 @@ export default function ToolsPage() {
         <div className="text-center max-w-4xl mx-auto">
 
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-
-            Smart <span className="text-orange-400">SSC Tools</span>
-
+            Smart{" "}
+            <span className="text-orange-400">
+              SSC Tools
+            </span>
           </h1>
 
           <p className="text-white/50 mt-6 text-lg leading-relaxed">
-
             Free SSC calculators, productivity systems,
             quizzes, rank predictors and preparation tools
             designed for serious SSC aspirants.
-
           </p>
 
         </div>
@@ -80,15 +80,11 @@ export default function ToolsPage() {
             >
 
               <h2 className="text-4xl font-bold text-orange-400">
-
                 {item.title}
-
               </h2>
 
               <p className="text-white/60 mt-2">
-
                 {item.desc}
-
               </p>
 
             </div>
@@ -136,9 +132,7 @@ export default function ToolsPage() {
                   : "bg-[#111827]/80 text-white border-orange-500/10 hover:border-orange-500/40"
               }`}
             >
-
               {category}
-
             </button>
 
           ))}
@@ -150,47 +144,41 @@ export default function ToolsPage() {
 
           {filteredTools.map((tool) => (
 
-            <a
+            <Link
               key={tool.title}
               href={tool.link}
               className="group bg-[#111827]/80 backdrop-blur-xl border border-orange-500/10 rounded-[32px] p-8 hover:border-orange-500/40 hover:-translate-y-2 transition-all duration-300 block shadow-[0_0_50px_rgba(249,115,22,0.05)]"
             >
 
+              {/* Icon */}
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/10 flex items-center justify-center text-3xl mb-6">
-
                 🛠️
-
               </div>
 
+              {/* Title */}
               <h2 className="text-3xl font-bold leading-snug group-hover:text-orange-300 transition">
-
                 {tool.title}
-
               </h2>
 
+              {/* Description */}
               <p className="text-white/60 mt-5 leading-relaxed">
-
                 {tool.description}
-
               </p>
 
+              {/* Bottom */}
               <div className="mt-8 flex items-center justify-between">
 
                 <p className="text-sm text-white/40">
-
                   {tool.category}
-
                 </p>
 
                 <span className="text-orange-400 text-xl">
-
                   →
-
                 </span>
 
               </div>
 
-            </a>
+            </Link>
 
           ))}
 
@@ -202,15 +190,11 @@ export default function ToolsPage() {
           <div className="text-center mt-20">
 
             <h2 className="text-4xl font-bold">
-
               No Tools Found
-
             </h2>
 
             <p className="text-white/50 mt-4">
-
               Try another keyword or category.
-
             </p>
 
           </div>
@@ -218,8 +202,6 @@ export default function ToolsPage() {
         )}
 
       </section>
-
-      
 
     </ToolContainer>
   );
