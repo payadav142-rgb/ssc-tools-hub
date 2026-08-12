@@ -5,9 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: [
+        "/dashboard/",
+        "/sign-in/",
+        "/sign-up/",
+      ],
     },
 
-    sitemap:
-      "https://ssc-tools-hub.vercel.app/sitemap.xml",
+    sitemap: "https://ssctoolshub.com/sitemap.xml",
   };
 }

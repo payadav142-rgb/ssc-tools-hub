@@ -1,72 +1,68 @@
 import type { MetadataRoute } from "next";
 
-import { blogs } from "../data/blogs";
-
-const BASE_URL = "https://ssc-tools-hub.vercel.app";
+const baseUrl = "https://ssctoolshub.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = [
-    // Main Pages
+  const routes = [
     "",
     "/about",
+    "/blog",
     "/contact",
+    "/disclaimer",
+    "/privacy-policy",
     "/resources",
     "/pyqs",
-    "/blog",
-
-    // Syllabus
     "/syllabus",
+    "/terms-and-conditions",
+    "/tools",
 
-    // SSC CGL
+    "/ssc-cgl",
+    "/ssc-cgl-notification",
     "/ssc-cgl-syllabus",
     "/ssc-cgl-exam-pattern",
-    "/ssc-cgl-salary",
-    "/ssc-cgl-cutoff",
-    "/ssc-cgl-books",
     "/ssc-cgl-exam-date",
-    "/ssc-cgl-notification",
+    "/ssc-cgl-admit-card",
+    "/ssc-cgl-books",
+    "/ssc-cgl-cutoff",
+    "/ssc-cgl-salary",
     "/ssc-cgl-job-profile",
     "/ssc-cgl-post-preference",
-    "/ssc-cgl-admit-card",
 
-    // SSC CHSL
+    "/ssc-chsl",
+    "/ssc-chsl-notification",
     "/ssc-chsl-syllabus",
     "/ssc-chsl-exam-pattern",
-    "/ssc-chsl-salary",
-    "/ssc-chsl-cutoff",
-    "/ssc-chsl-books",
-    "/ssc-chsl-notification",
     "/ssc-chsl-admit-card",
+    "/ssc-chsl-books",
+    "/ssc-chsl-cutoff",
+    "/ssc-chsl-salary",
 
-    // SSC MTS
+    "/ssc-mts",
+    "/ssc-mts-notification",
     "/ssc-mts-syllabus",
     "/ssc-mts-exam-pattern",
-    "/ssc-mts-salary",
-    "/ssc-mts-cutoff",
-    "/ssc-mts-books",
-    "/ssc-mts-notification",
     "/ssc-mts-admit-card",
+    "/ssc-mts-books",
+    "/ssc-mts-cutoff",
+    "/ssc-mts-salary",
 
-    // SSC GD
+    "/ssc-gd",
+    "/ssc-gd-notification",
     "/ssc-gd-syllabus",
     "/ssc-gd-exam-pattern",
-    "/ssc-gd-salary",
-    "/ssc-gd-cutoff",
-    "/ssc-gd-books",
-    "/ssc-gd-notification",
     "/ssc-gd-admit-card",
+    "/ssc-gd-books",
+    "/ssc-gd-cutoff",
+    "/ssc-gd-salary",
 
-    // SSC Stenographer
     "/ssc-stenographer",
+    "/ssc-stenographer-notification",
     "/ssc-stenographer-syllabus",
     "/ssc-stenographer-exam-pattern",
-    "/ssc-stenographer-salary",
-    "/ssc-stenographer-cutoff",
-    "/ssc-stenographer-notification",
     "/ssc-stenographer-admit-card",
+    "/ssc-stenographer-cutoff",
+    "/ssc-stenographer-salary",
 
-    // Tools
-    "/tools",
     "/tools/age-calculator",
     "/tools/current-affairs-feed",
     "/tools/current-affairs-quiz",
@@ -91,27 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/timetable-generator",
     "/tools/topic-progress-tracker",
     "/tools/weakness-analyzer",
-
-    // PYQs
-    "/pyqs/ssc-cgl-2025-tier-1",
   ];
 
-  const staticUrls = staticPages.map((route) => ({
-    url: `${BASE_URL}${route}`,
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: "weekly" as const,
+    changeFrequency: route === "" ? "daily" : "weekly",
     priority: route === "" ? 1 : 0.8,
   }));
-
-  const blogUrls = blogs.map((blog) => ({
-    url: `${BASE_URL}/blog/${blog.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
-
-  return [
-    ...staticUrls,
-    ...blogUrls,
-  ];
 }
