@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import Navbar from "../components/Navbar";
@@ -6,6 +7,28 @@ import Categories from "../components/Categories";
 import FeaturedTools from "../components/FeaturedTools";
 import LatestUpdates from "../components/LatestUpdates";
 import AdBanner from "../components/AdBanner";
+
+export const metadata: Metadata = {
+  title: "SSC Tools Hub — Free SSC Preparation Tools, PYQs & Resources",
+
+  description:
+    "Prepare for SSC CGL, CHSL, MTS, GD and Stenographer exams with free SSC tools, PYQs, study planners, calculators, quizzes, exam guides and preparation resources.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "SSC Tools Hub — Free SSC Preparation Tools, PYQs & Resources",
+
+    description:
+      "Free SSC preparation tools, PYQs, study planners, calculators, quizzes and exam resources for SSC aspirants.",
+
+    url: "/",
+
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (
